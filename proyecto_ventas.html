@@ -2,28 +2,36 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Análisis de Ventas y Ganancias | Roman López</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis de Ventas y Ganancias | Roman López</title>
+
 <style>
 body {
-    background: #020617;
-    color: #e5e7eb;
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: #e5e7eb;
+}
+
+.container {
     max-width: 1000px;
     margin: auto;
     padding: 2rem;
 }
+
 .card {
     background: #111827;
     padding: 2rem;
     border-radius: 12px;
 }
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
+
 .gallery img {
     width: 100%;
     border-radius: 10px;
@@ -33,24 +41,28 @@ body {
 .back {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     background: #111827;
     color: #38bdf8;
     padding: 0.6rem 1rem;
     border-radius: 8px;
     text-decoration: none;
-    z-index: 999;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 </style>
 </head>
+
 <body>
 
-<a class="back" href="index.html">⬅ Volver al portafolio</a>
+<a class="back" href="index.html">← Volver al portafolio</a>
+
+<div class="container">
 
 <h1>Análisis de Ventas y Ganancias</h1>
 
 <div class="card">
-    <p>Dashboard para analizar ventas, ganancias y desempeño geográfico.</p>
+    <p>Análisis de ventas, ganancias y desempeño geográfico mediante Power BI.</p>
 
     <div class="gallery">
         <img src="foto_tienda1.png">
@@ -59,5 +71,7 @@ body {
     </div>
 </div>
 
+</div>
 </body>
 </html>
+
