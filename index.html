@@ -2,49 +2,47 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Roman López | Data Analyst</title>
+    <title>Roman López | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(180deg, #020617, #0f172a);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #020617;
             color: #e5e7eb;
             line-height: 1.6;
         }
 
         /* --- SECCIÓN PORTADA & PERFIL --- */
         .hero {
-            position: relative;
             width: 100%;
-            height: 280px;
+            height: 250px;
             background: url('foto_portada.jpeg') no-repeat center center;
             background-size: cover;
+            border-bottom: 1px solid #1e293b;
         }
 
         .profile-container {
             text-align: center;
             margin-top: -80px;
             position: relative;
-            z-index: 10;
         }
 
         .profile-pic {
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            border: 5px solid #0f172a;
+            border: 6px solid #020617;
             object-fit: cover;
-            background: #1e293b;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         /* --- CONTENEDOR PRINCIPAL --- */
         .container {
             max-width: 900px;
             margin: auto;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
         }
 
         header {
@@ -53,33 +51,60 @@
         }
 
         h1 {
-            margin-bottom: 0.5rem;
-            font-size: 2.8rem;
-            color: #f9fafb;
+            margin: 1rem 0 0.2rem;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
         }
 
         .subtitle {
             color: #38bdf8;
             font-weight: 600;
             font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             margin-bottom: 1.5rem;
+        }
+
+        /* --- CONTACTO --- */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
         }
 
         /* --- SOBRE MÍ --- */
         .about-section {
-            background: rgba(30, 41, 59, 0.5);
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(56, 189, 248, 0.1);
+            background: #0f172a;
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin: 3rem 0;
+            border: 1px solid #1e293b;
         }
 
         .about-section h2 {
             margin-top: 0;
-            color: #38bdf8;
+            color: #f9fafb;
             font-size: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: #9ca3af;
         }
 
         /* --- TECH STACK --- */
@@ -91,114 +116,75 @@
         }
 
         .tech-badge {
-            background: #1e293b;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
-            border: 1px solid #334155;
-            color: #e5e7eb;
         }
 
-        /* --- CONTACTO --- */
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .contact-link {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s;
-        }
-
-        .contact-link:hover {
-            color: #38bdf8;
-        }
-
-        /* --- GRID DE PROYECTOS --- */
-        .projects-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-        }
-
+        /* --- PROYECTOS --- */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
         .project-card {
-            background: #020617;
-            border-radius: 18px;
+            background: #0f172a;
+            border-radius: 20px;
             padding: 1.5rem;
+            border: 1px solid #1e293b;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
-            border: 1px solid #1e293b;
-            transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             border-color: #38bdf8;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
 
         .project-image {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
+            height: 200px;
             border-radius: 12px;
-            margin-bottom: 1.2rem;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
+            margin-bottom: 1.5rem;
             object-fit: cover;
         }
 
-        .tools-text {
-            margin-top: auto;
+        .tools-list {
             font-size: 0.8rem;
-            color: #38bdf8;
             font-weight: bold;
+            color: #38bdf8;
+            margin-top: auto;
             margin-bottom: 1rem;
+            display: block;
         }
 
         .btn {
+            display: block;
             text-align: center;
-            padding: 0.7rem;
-            background: transparent;
-            color: #38bdf8;
-            border: 1px solid #38bdf8;
-            border-radius: 8px;
+            padding: 0.8rem;
+            background: #38bdf8;
+            color: #020617;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: 0.3s;
         }
 
         .btn:hover {
-            background: #38bdf8;
-            color: #020617;
+            background: #7dd3fc;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
             .hero { height: 180px; }
-            .contact-info { flex-direction: column; align-items: center; gap: 10px; }
         }
     </style>
 </head>
-
 <body>
 
 <div class="hero"></div>
@@ -210,7 +196,7 @@
 <div class="container">
     <header>
         <h1>Roman López</h1>
-        <p class="subtitle">Data Analyst & Automation Expert</p>
+        <p class="subtitle">Data Analyst | Automation & Optimization</p>
         
         <div class="contact-info">
             <a href="mailto:romloc1706@hotmail.com" class="contact-link">📧 romloc1706@hotmail.com</a>
@@ -221,60 +207,51 @@
 
     <section class="about-section">
         <h2>Sobre mí</h2>
-        <p>
-            Analista de Datos apasionado por transformar datos brutos en información estratégica que impulse la toma de decisiones. Mi enfoque se centra en la <strong>optimización y automatización de procesos</strong>, reduciendo tiempos de ejecución manual y garantizando la integridad de la información mediante el uso de tecnologías modernas.
+        <p class="about-text">
+            Me especializo en <strong>desarrollar soluciones que eliminan procesos manuales</strong>. Uso los datos para generar claridad operativa, automatizando flujos de trabajo repetitivos y creando tableros de control que facilitan la toma de decisiones basada en evidencia. Mi enfoque es transformar la complejidad técnica en herramientas funcionales y rentables para el negocio.
         </p>
         <div class="tech-stack">
             <span class="tech-badge">Python</span>
             <span class="tech-badge">SQL</span>
             <span class="tech-badge">Power BI</span>
-            <span class="tech-badge">Excel (VBA/Macros)</span>
+            <span class="tech-badge">Excel Avanzado</span>
             <span class="tech-badge">Power Automate</span>
-            <span class="tech-badge">Pandas / NumPy</span>
         </div>
     </section>
 
-    <h2 class="projects-title">Proyectos Destacados</h2>
+    <h2 style="margin-bottom: 2rem;">Proyectos Recientes</h2>
     
     <div class="projects-grid">
         <div class="project-card">
-            <div class="project-image">
-                <img src="foto_kpixira.png" alt="KPI Gestión de Facturas">
-            </div>
+            <img src="foto_kpixira.png" alt="KPI Facturas" class="project-image">
             <h3>KPI de Gestión de Facturas</h3>
-            <p>Dashboard interactivo para medir la efectividad de los procesos de cobranza e identificación de recuperaciones.</p>
-            <p class="tools-text">Herramientas: Power BI, Excel</p>
-            <a class="btn" href="kpi_gestion.html">Ver proyecto</a>
+            <p>Control de efectividad en cobranza y recuperación de cartera.</p>
+            <span class="tools-list">Power BI · Excel</span>
+            <a class="btn" href="kpi_gestion.html">Ver Detalles</a>
         </div>
 
         <div class="project-card">
-            <div class="project-image">
-                <img src="foto_tienda1.png" alt="Análisis de Ventas">
-            </div>
+            <img src="foto_tienda1.png" alt="Ventas" class="project-image">
             <h3>Análisis de Ventas y Ganancias</h3>
-            <p>Análisis de desempeño comercial para identificar rentabilidad por productos y zonas mediante visualizaciones dinámicas.</p>
-            <p class="tools-text">Herramientas: Power BI, Python</p>
-            <a class="btn" href="ventas_ganancias.html">Ver proyecto</a>
+            <p>Optimización de rentabilidad identificando productos clave y zonas estratégicas.</p>
+            <span class="tools-list">Power BI · Python</span>
+            <a class="btn" href="proyecto_ventas.html">Ver Detalles</a>
         </div>
 
         <div class="project-card">
-            <div class="project-image">
-                <img src="python_project.png" alt="Validación de teléfonos">
-            </div>
-            <h3>Validación masiva de teléfonos</h3>
-            <p>Automatización en Python para validar miles de números telefónicos mediante consumo de API externa.</p>
-            <p class="tools-text">Herramientas: Python, Pandas, APIs</p>
-            <a class="btn" href="validacion_telefonos.html">Ver proyecto</a>
+            <img src="python_project.png" alt="Validación" class="project-image">
+            <h3>Validación Masiva de Teléfonos</h3>
+            <p>Automatización de limpieza de bases de datos mediante integración con APIs.</p>
+            <span class="tools-list">Python · Pandas · API</span>
+            <a class="btn" href="proyecto_validacion_telefonos.html">Ver Detalles</a>
         </div>
 
         <div class="project-card">
-            <div class="project-image">
-                <img src="cambio_genetica.png" alt="Validación de crédito">
-            </div>
-            <h3>Validación de crédito (Genética)</h3>
-            <p>Integración automática de SAP, CRM y límites de crédito para gestionar la cartera de clientes.</p>
-            <p class="tools-text">Herramientas: Python, Power Automate, Excel</p>
-            <a class="btn" href="validacion_credito.html">Ver proyecto</a>
+            <img src="cambio_genetica.png" alt="Crédito" class="project-image">
+            <h3>Validación de Crédito (Genética)</h3>
+            <p>Auditoría automática de límites de crédito integrando SAP y CRM.</p>
+            <span class="tools-list">Python · Power Automate</span>
+            <a class="btn" href="proyecto_credito_genetica.html">Ver Detalles</a>
         </div>
     </div>
 </div>
