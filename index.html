@@ -13,60 +13,113 @@
             color: #e5e7eb;
         }
 
+        /* --- SECCIÓN PORTADA & PERFIL --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: url('foto_portada.jpeg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-top: -75px; /* Sube la foto sobre la portada */
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #0f172a;
+            object-fit: cover;
+            background: #1e293b;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        /* --- CONTACTO --- */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-link {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #38bdf8;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
         .container {
             max-width: 1100px;
             margin: auto;
-            padding: 3rem 1.5rem;
+            padding: 1rem 1.5rem 3rem;
         }
 
         h1 {
             text-align: center;
             margin-bottom: 0.3rem;
+            font-size: 2.5rem;
+            color: #f9fafb;
         }
 
         .subtitle {
             text-align: center;
-            color: #9ca3af;
-            margin-bottom: 3rem;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
-        /* GRID */
+        /* --- GRID DE PROYECTOS --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        /* CARD */
         .project-card {
             background: #020617;
             border-radius: 18px;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
+            border: 1px solid #1e293b;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: #38bdf8;
         }
 
-        /* IMAGE WRAPPER */
         .project-image {
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
             border-radius: 14px;
             margin-bottom: 1.2rem;
-            background: transparent;
         }
 
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
         h3 {
@@ -85,6 +138,7 @@
             font-weight: 600;
             color: #e5e7eb;
             margin-bottom: 1rem;
+            font-size: 0.85rem;
         }
 
         .btn {
@@ -96,7 +150,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
@@ -104,75 +158,70 @@
             color: #020617;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 600px) {
-            .container {
-                padding: 2rem 1rem;
-            }
+            .hero { height: 200px; }
+            .profile-pic { width: 120px; height: 120px; margin-top: -60px; }
+            .container { padding: 1rem; }
         }
     </style>
 </head>
 
 <body>
 
+<div class="hero"></div>
+
+<div class="profile-container">
+    <img src="foto_perfil.jpeg" alt="Roman López" class="profile-pic">
+</div>
+
 <div class="container">
     <h1>Roman López</h1>
     <p class="subtitle">Data Analyst | Python · Power BI · Excel · SQL</p>
 
+    <div class="contact-info">
+        <a href="mailto:romloc1706@hotmail.com" class="contact-link">📧 romloc1706@hotmail.com</a>
+        <a href="https://wa.me/523323434337" class="contact-link" target="_blank">📱 WhatsApp</a>
+        <a href="https://www.linkedin.com/in/roman-alejandro-lopez" class="contact-link" target="_blank">🔗 LinkedIn</a>
+    </div>
+
     <div class="projects-grid">
 
-        <!-- PROYECTO 1 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="foto_kpixira.png" alt="KPI Gestión de Facturas">
             </div>
             <h3>KPI de Gestión de Facturas</h3>
-            <p>
-                Dashboard interactivo para medir la efectividad de los procesos de cobranza,
-                identificando pagos automáticos, gestiones manuales y recuperaciones.
-            </p>
+            <p>Dashboard interactivo para medir la efectividad de los procesos de cobranza e identificando recuperaciones.</p>
             <p class="tools">Herramientas: Power BI, Excel</p>
             <a class="btn" href="kpi_gestion.html">Ver proyecto</a>
         </div>
 
-        <!-- PROYECTO 2 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="foto_tienda1.png" alt="Análisis de Ventas">
             </div>
             <h3>Análisis de Ventas y Ganancias</h3>
-            <p>
-                Análisis de desempeño comercial para identificar estados y productos más rentables
-                mediante visualizaciones dinámicas.
-            </p>
+            <p>Análisis de desempeño comercial para identificar estados y productos más rentables mediante visualizaciones dinámicas.</p>
             <p class="tools">Herramientas: Power BI, Python</p>
             <a class="btn" href="ventas_ganancias.html">Ver proyecto</a>
         </div>
 
-        <!-- PROYECTO 3 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="python_project.png" alt="Validación de teléfonos">
             </div>
             <h3>Validación masiva de teléfonos</h3>
-            <p>
-                Automatización en Python para validar miles de números telefónicos mediante consumo
-                de API externa, optimizando procesos manuales.
-            </p>
+            <p>Automatización en Python para validar miles de números telefónicos mediante consumo de API externa.</p>
             <p class="tools">Herramientas: Python, Pandas, APIs</p>
             <a class="btn" href="validacion_telefonos.html">Ver proyecto</a>
         </div>
 
-        <!-- PROYECTO 4 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="cambio_genetica.png" alt="Validación de crédito">
             </div>
             <h3>Validación de crédito (Genética)</h3>
-            <p>
-                Integración automática de bases SAP, CRM y límites de crédito para identificar
-                clientes con más de 3 meses de antigüedad.
-            </p>
+            <p>Integración automática de SAP, CRM y límites de crédito para identificar clientes con antigüedad.</p>
             <p class="tools">Herramientas: Python, Pandas, Excel</p>
             <a class="btn" href="validacion_credito.html">Ver proyecto</a>
         </div>
@@ -182,4 +231,3 @@
 
 </body>
 </html>
-
