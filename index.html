@@ -112,25 +112,58 @@
 
 <body>
 
-<header>
-    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
-        <div style="max-width:300px;">
-            <p><strong>Email:</strong><br>romloc1706@hotmail.com</p>
-            <p><strong>Tel:</strong><br>3323434337</p>
-            <p><strong>LinkedIn:</strong><br>
-                <a href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank">
-                    linkedin.com/in/roman-alejandro-lopez
-                </a>
-            </p>
-        </div>
+<header style="position:relative;">
 
-        <div style="text-align:center;flex:1;">
-            <img src="foto_perfil.jpeg" style="width:160px;height:160px;border-radius:50%;border:4px solid var(--primary);object-fit:cover;">
-            <h1>Roman López</h1>
-            <p>Data Analyst | Python · Power BI · Excel · SQL</p>
-            <a class="btn" href="#projects">Ver proyectos</a>
-        </div>
+    <!-- CONTACTO ESQUINA SUPERIOR IZQUIERDA -->
+    <div style="
+        position:absolute;
+        top:20px;
+        left:20px;
+        text-align:left;
+        font-size:0.85rem;
+        line-height:1.4;
+        color: var(--muted);
+        max-width:260px;
+    ">
+        <p><strong>Email:</strong><br>romloc1706@hotmail.com</p>
+        <p><strong>Tel:</strong><br>3323434337</p>
+        <p><strong>LinkedIn:</strong><br>
+            <a href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank">
+                linkedin.com/in/roman-alejandro-lopez
+            </a>
+        </p>
     </div>
+
+    <!-- CONTENIDO PRINCIPAL CENTRADO -->
+    <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        min-height:300px;
+        text-align:center;
+    ">
+        <img 
+            src="foto_perfil.jpeg"
+            alt="Foto de Roman López"
+            style="
+                width:160px;
+                height:160px;
+                border-radius:50%;
+                border:4px solid var(--primary);
+                object-fit:cover;
+                margin-bottom:1rem;
+            "
+        />
+
+        <h1>Roman López</h1>
+        <p style="color:var(--muted);font-size:1.1rem;">
+            Data Analyst | Python · Power BI · Excel · SQL
+        </p>
+
+        <a class="btn" href="#projects">Ver proyectos</a>
+    </div>
+
 </header>
 
 <div class="container">
