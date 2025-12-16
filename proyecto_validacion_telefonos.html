@@ -2,39 +2,49 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Validación masiva de teléfonos | Roman López</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validación masiva de teléfonos | Roman López</title>
+
 <style>
 body {
-    background: #020617;
-    color: #e5e7eb;
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: #e5e7eb;
+}
+
+.container {
     max-width: 1000px;
     margin: auto;
     padding: 2rem;
 }
+
 .card {
     background: #111827;
     padding: 2rem;
     border-radius: 12px;
 }
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
+
 .gallery img {
     width: 100%;
     border-radius: 10px;
 }
-.code-link {
+
+.btn {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.4rem;
     background: #38bdf8;
     color: #020617;
-    padding: 0.6rem 1.2rem;
     border-radius: 8px;
+    font-weight: 600;
     text-decoration: none;
 }
 
@@ -42,35 +52,40 @@ body {
 .back {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     background: #111827;
     color: #38bdf8;
     padding: 0.6rem 1rem;
     border-radius: 8px;
     text-decoration: none;
-    z-index: 999;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 </style>
 </head>
+
 <body>
 
-<a class="back" href="index.html">⬅ Volver al portafolio</a>
+<a class="back" href="index.html">← Volver al portafolio</a>
+
+<div class="container">
 
 <h1>Validación masiva de teléfonos con Python</h1>
 
 <div class="card">
-    <p>Automatización en Python consumiendo una API externa.</p>
+    <p>Automatización para validar grandes volúmenes de números mediante una API externa.</p>
 
-    <a class="code-link"
+    <a class="btn"
        href="https://github.com/romloc11/validacion-telefonos-python"
        target="_blank">
        Ver código en GitHub
     </a>
 
     <div class="gallery">
-        <img src="python_project.png" alt="Validación de teléfonos">
+        <img src="python_project.png" alt="Validación teléfonos">
     </div>
 </div>
 
+</div>
 </body>
 </html>
