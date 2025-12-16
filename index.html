@@ -1,184 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roman López | Data Analyst</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(180deg, #020617, #0f172a);
-            color: #e5e7eb;
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --primary: #38bdf8;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
         }
-
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+        body {
+            background: linear-gradient(180deg, #020617, var(--bg));
+            color: var(--text);
+            line-height: 1.6;
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        header {
+            padding: 5rem 2rem;
+            background: linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.75)), url('foto_portada.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
         .container {
             max-width: 1100px;
             margin: auto;
-            padding: 3rem 1.5rem;
+            padding: 2rem;
         }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 0.3rem;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
         }
-
-        .subtitle {
-            text-align: center;
-            color: #9ca3af;
-            margin-bottom: 3rem;
+        section {
+            margin-bottom: 4rem;
         }
-
-        /* GRID */
-        .projects-grid {
+        .about, .skill-card, .project-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        .skills, .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
-
-        /* CARD */
-        .project-card {
-            background: #020617;
-            border-radius: 18px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
         .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: translateY(-5px);
+            transition: 0.2s;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #020617;
+            font-weight: 600;
         }
 
-        /* IMAGE WRAPPER */
-        .project-image {
-            width: 100%;
-            aspect-ratio: 16 / 9;
+        /* SLIDER */
+        .slider {
+            position: relative;
+            height: 200px;
             overflow: hidden;
-            border-radius: 14px;
-            margin-bottom: 1.2rem;
-            background: transparent;
+            border-radius: 10px;
+            margin-bottom: 1rem;
         }
-
-        .project-image img {
+        .slide {
+            display: none;
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        .slide.active {
             display: block;
         }
-
-        h3 {
-            margin: 0.3rem 0 0.5rem;
-            color: #f9fafb;
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            border-radius: 6px;
         }
-
-        p {
-            color: #9ca3af;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
-        .tools {
-            margin-top: auto;
-            font-weight: 600;
-            color: #e5e7eb;
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            align-self: flex-start;
-            padding: 0.6rem 1.2rem;
-            background: transparent;
-            color: #38bdf8;
-            border: 1px solid #38bdf8;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #38bdf8;
-            color: #020617;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            .container {
-                padding: 2rem 1rem;
-            }
-        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Roman López</h1>
-    <p class="subtitle">Data Analyst | Python · Power BI · Excel · SQL</p>
+<header style="position:relative;">
 
-    <div class="projects-grid">
-
-        <!-- PROYECTO 1 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="foto_kpixira.png" alt="KPI Gestión de Facturas">
-            </div>
-            <h3>KPI de Gestión de Facturas</h3>
-            <p>
-                Dashboard interactivo para medir la efectividad de los procesos de cobranza,
-                identificando pagos automáticos, gestiones manuales y recuperaciones.
-            </p>
-            <p class="tools">Herramientas: Power BI, Excel</p>
-            <a class="btn" href="kpi_gestion.html">Ver proyecto</a>
-        </div>
-
-        <!-- PROYECTO 2 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="foto_tienda1.png" alt="Análisis de Ventas">
-            </div>
-            <h3>Análisis de Ventas y Ganancias</h3>
-            <p>
-                Análisis de desempeño comercial para identificar estados y productos más rentables
-                mediante visualizaciones dinámicas.
-            </p>
-            <p class="tools">Herramientas: Power BI, Python</p>
-            <a class="btn" href="ventas_ganancias.html">Ver proyecto</a>
-        </div>
-
-        <!-- PROYECTO 3 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="python_project.png" alt="Validación de teléfonos">
-            </div>
-            <h3>Validación masiva de teléfonos</h3>
-            <p>
-                Automatización en Python para validar miles de números telefónicos mediante consumo
-                de API externa, optimizando procesos manuales.
-            </p>
-            <p class="tools">Herramientas: Python, Pandas, APIs</p>
-            <a class="btn" href="validacion_telefonos.html">Ver proyecto</a>
-        </div>
-
-        <!-- PROYECTO 4 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="cambio_genetica.png" alt="Validación de crédito">
-            </div>
-            <h3>Validación de crédito (Genética)</h3>
-            <p>
-                Integración automática de bases SAP, CRM y límites de crédito para identificar
-                clientes con más de 3 meses de antigüedad.
-            </p>
-            <p class="tools">Herramientas: Python, Pandas, Excel</p>
-            <a class="btn" href="validacion_credito.html">Ver proyecto</a>
-        </div>
-
+    <!-- CONTACTO ESQUINA SUPERIOR IZQUIERDA -->
+    <div style="
+        position:absolute;
+        top:20px;
+        left:20px;
+        text-align:left;
+        font-size:0.85rem;
+        line-height:1.4;
+        color: var(--muted);
+        max-width:260px;
+    ">
+        <p><strong>Email:</strong><br>romloc1706@hotmail.com</p>
+        <p><strong>Tel:</strong><br>3323434337</p>
+        <p><strong>LinkedIn:</strong><br>
+            <a href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank">
+                linkedin.com/in/roman-alejandro-lopez
+            </a>
+        </p>
     </div>
+
+    <!-- CONTENIDO PRINCIPAL CENTRADO -->
+    <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        min-height:300px;
+        text-align:center;
+    ">
+        <img 
+            src="foto_perfil.jpeg"
+            alt="Foto de Roman López"
+            style="
+                width:160px;
+                height:160px;
+                border-radius:50%;
+                border:4px solid var(--primary);
+                object-fit:cover;
+                margin-bottom:1rem;
+            "
+        />
+
+        <h1>Roman López</h1>
+        <p style="color:var(--muted);font-size:1.1rem;">
+            Data Analyst | Python · Power BI · Excel · SQL
+        </p>
+
+        <a class="btn" href="#projects">Ver proyectos</a>
+    </div>
+
+</header>
+
+<div class="container">
+
+<section>
+    <h2>Sobre mí</h2>
+    <div class="about">
+        Data Analyst con experiencia en análisis, automatización y visualización de datos
+        para apoyar la toma de decisiones de negocio.
+    </div>
+</section>
+
+<section>
+    <h2>Habilidades</h2>
+    <div class="skills">
+        <div class="skill-card"><strong>Lenguajes</strong><br>Python, SQL</div>
+        <div class="skill-card"><strong>Herramientas</strong><br>Power BI, Excel</div>
+        <div class="skill-card"><strong>Procesos</strong><br>EDA, Automatización, Reporting</div>
+    </div>
+</section>
+
+<section id="projects">
+<h2>Proyectos</h2>
+
+<div class="projects">
+
+<!-- PROYECTO 1 -->
+<div class="project-card">
+    <a href="kpi_gestion.html">
+        <div class="slider">
+            <img src="foto_kpixira.png" class="slide active">
+        </div>
+    </a>
+    <h3>KPI de Gestión de Facturas</h3>
+    <p>Dashboard en Power BI para medir la efectividad de gestiones de cobro.</p>
+    <p><strong>Herramientas:</strong> Power BI, Excel</p>
 </div>
+
+<!-- PROYECTO 2 -->
+<div class="project-card">
+    <a href="proyecto_ventas.html">
+        <div class="slider">
+            <img src="foto_tienda1.png" class="slide active">
+        </div>
+    </a>
+    <h3>Análisis de Ventas y Ganancias</h3>
+    <p>Análisis comercial y geográfico para identificar estados más rentables.</p>
+    <p><strong>Herramientas:</strong> Power BI, Python</p>
+</div>
+
+<!-- PROYECTO 3 -->
+<div class="project-card">
+    <a href="proyecto_validacion_telefonos.html">
+        <div class="slider">
+            <img src="python_project.png" class="slide active">
+        </div>
+    </a>
+    <h3>Automatización con Python y API</h3>
+    <p>Validación masiva de teléfonos mediante consumo de APIs.</p>
+    <p><strong>Herramientas:</strong> Python, Pandas, APIs REST</p>
+</div>
+
+</div>
+</section>
+
+<section>
+    <h2>Contacto</h2>
+    <p>Email: romloc1706@hotmail.com</p>
+    <p>Tel: 3323434337</p>
+</section>
+
+</div>
+
+<footer>
+    © 2025 Roman López | Data Analyst
+</footer>
 
 </body>
 </html>
