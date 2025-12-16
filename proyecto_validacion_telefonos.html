@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación masiva de teléfonos | Roman López</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #020617;
+            color: #e5e7eb;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            max-width: 1000px;
+            margin: auto;
+            padding: 2rem;
+            line-height: 1.7;
+        }
+        h1 {
+            color: #38bdf8;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            margin-top: 2rem;
+            color: #93c5fd;
+        }
+        p {
+            margin-top: 0.8rem;
+        }
+        ul {
+            margin-top: 0.8rem;
+            padding-left: 1.5rem;
+        }
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .card {
+            background: #111827;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .code-link {
+            margin-top: 1.5rem;
+            display: inline-block;
+            background: #38bdf8;
+            color: #020617;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+        }
+        .back {
+            margin-top: 3rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Validación masiva de teléfonos con Python</h1>
+
+<p>
+Automatización en Python para validar grandes volúmenes de números telefónicos
+mediante el consumo de una API externa, reduciendo procesos manuales y errores.
+</p>
+
+<div class="card">
+
+    <h2>📌 Problema</h2>
+    <p>
+        La empresa necesitaba validar miles de números telefónicos almacenados en archivos Excel
+        para conocer su validez, tipo de línea y país, lo cual se realizaba de forma manual
+        consumiendo demasiado tiempo.
+    </p>
+
+    <h2>⚙️ Solución</h2>
+    <p>
+        Se desarrolló un script en Python que:
+    </p>
+    <ul>
+        <li>Lee archivos Excel con Pandas</li>
+        <li>Consume una API REST para validar números</li>
+        <li>Identifica si el número es móvil o fijo</li>
+        <li>Obtiene carrier y país</li>
+        <li>Exporta resultados automáticamente a Excel</li>
+    </ul>
+
+    <h2>🛠 Tecnologías</h2>
+    <p>
+        Python, Pandas, Requests, APIs REST
+    </p>
+
+    <h2>🚀 Impacto</h2>
+    <p>
+        Reducción de horas de trabajo manual a minutos, mejorando la calidad de los datos
+        y optimizando los procesos de contacto.
+    </p>
+
+    <a class="code-link" href="https://github.com/romloc11/validacion-telefonos-python" target="_blank">
+        Ver código en GitHub
+    </a>
+
+    <div class="gallery">
+        <img src="python_project.png" alt="Validación de teléfonos">
+    </div>
+
+</div>
+
+<a class="back" href="index.html">⬅ Volver al portafolio</a>
+
+</body>
+</html>
