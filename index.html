@@ -11,47 +11,108 @@
             font-family: 'Segoe UI', Tahoma, sans-serif;
             background: linear-gradient(180deg, #020617, #0f172a);
             color: #e5e7eb;
+            line-height: 1.6;
         }
 
         /* --- SECCIÓN PORTADA & PERFIL --- */
         .hero {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 280px;
             background: url('foto_portada.jpeg') no-repeat center center;
             background-size: cover;
         }
 
         .profile-container {
             text-align: center;
-            margin-top: -75px; /* Sube la foto sobre la portada */
+            margin-top: -80px;
             position: relative;
             z-index: 10;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 4px solid #0f172a;
+            border: 5px solid #0f172a;
             object-fit: cover;
             background: #1e293b;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2.8rem;
+            color: #f9fafb;
+        }
+
+        .subtitle {
+            color: #38bdf8;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- SOBRE MÍ --- */
+        .about-section {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .about-section h2 {
+            margin-top: 0;
+            color: #38bdf8;
+            font-size: 1.5rem;
+        }
+
+        /* --- TECH STACK --- */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .tech-badge {
+            background: #1e293b;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #334155;
+            color: #e5e7eb;
         }
 
         /* --- CONTACTO --- */
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .contact-link {
             color: #9ca3af;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -62,34 +123,17 @@
             color: #38bdf8;
         }
 
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 1rem 1.5rem 3rem;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 0.3rem;
-            font-size: 2.5rem;
-            color: #f9fafb;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #38bdf8;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-
         /* --- GRID DE PROYECTOS --- */
+        .projects-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .project-card {
@@ -99,20 +143,20 @@
             display: flex;
             flex-direction: column;
             border: 1px solid #1e293b;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: translateY(-8px);
             border-color: #38bdf8;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
 
         .project-image {
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
-            border-radius: 14px;
+            border-radius: 12px;
             margin-bottom: 1.2rem;
         }
 
@@ -122,35 +166,24 @@
             object-fit: cover;
         }
 
-        h3 {
-            margin: 0.3rem 0 0.5rem;
-            color: #f9fafb;
-        }
-
-        p {
-            color: #9ca3af;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
-        .tools {
+        .tools-text {
             margin-top: auto;
-            font-weight: 600;
-            color: #e5e7eb;
+            font-size: 0.8rem;
+            color: #38bdf8;
+            font-weight: bold;
             margin-bottom: 1rem;
-            font-size: 0.85rem;
         }
 
         .btn {
-            align-self: flex-start;
-            padding: 0.6rem 1.2rem;
+            text-align: center;
+            padding: 0.7rem;
             background: transparent;
             color: #38bdf8;
             border: 1px solid #38bdf8;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         .btn:hover {
@@ -159,9 +192,9 @@
         }
 
         @media (max-width: 600px) {
-            .hero { height: 200px; }
-            .profile-pic { width: 120px; height: 120px; margin-top: -60px; }
-            .container { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .hero { height: 180px; }
+            .contact-info { flex-direction: column; align-items: center; gap: 10px; }
         }
     </style>
 </head>
@@ -175,24 +208,42 @@
 </div>
 
 <div class="container">
-    <h1>Roman López</h1>
-    <p class="subtitle">Data Analyst | Python · Power BI · Excel · SQL</p>
+    <header>
+        <h1>Roman López</h1>
+        <p class="subtitle">Data Analyst & Automation Expert</p>
+        
+        <div class="contact-info">
+            <a href="mailto:romloc1706@hotmail.com" class="contact-link">📧 romloc1706@hotmail.com</a>
+            <a href="https://wa.me/523323434337" class="contact-link" target="_blank">📱 3323434337</a>
+            <a href="https://www.linkedin.com/in/roman-alejandro-lopez" class="contact-link" target="_blank">🔗 LinkedIn</a>
+        </div>
+    </header>
 
-    <div class="contact-info">
-        <a href="mailto:romloc1706@hotmail.com" class="contact-link">📧 romloc1706@hotmail.com</a>
-        <a href="https://wa.me/523323434337" class="contact-link" target="_blank">📱 WhatsApp</a>
-        <a href="https://www.linkedin.com/in/roman-alejandro-lopez" class="contact-link" target="_blank">🔗 LinkedIn</a>
-    </div>
+    <section class="about-section">
+        <h2>Sobre mí</h2>
+        <p>
+            Analista de Datos apasionado por transformar datos brutos en información estratégica que impulse la toma de decisiones. Mi enfoque se centra en la <strong>optimización y automatización de procesos</strong>, reduciendo tiempos de ejecución manual y garantizando la integridad de la información mediante el uso de tecnologías modernas.
+        </p>
+        <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">SQL</span>
+            <span class="tech-badge">Power BI</span>
+            <span class="tech-badge">Excel (VBA/Macros)</span>
+            <span class="tech-badge">Power Automate</span>
+            <span class="tech-badge">Pandas / NumPy</span>
+        </div>
+    </section>
 
+    <h2 class="projects-title">Proyectos Destacados</h2>
+    
     <div class="projects-grid">
-
         <div class="project-card">
             <div class="project-image">
                 <img src="foto_kpixira.png" alt="KPI Gestión de Facturas">
             </div>
             <h3>KPI de Gestión de Facturas</h3>
-            <p>Dashboard interactivo para medir la efectividad de los procesos de cobranza e identificando recuperaciones.</p>
-            <p class="tools">Herramientas: Power BI, Excel</p>
+            <p>Dashboard interactivo para medir la efectividad de los procesos de cobranza e identificación de recuperaciones.</p>
+            <p class="tools-text">Herramientas: Power BI, Excel</p>
             <a class="btn" href="kpi_gestion.html">Ver proyecto</a>
         </div>
 
@@ -201,8 +252,8 @@
                 <img src="foto_tienda1.png" alt="Análisis de Ventas">
             </div>
             <h3>Análisis de Ventas y Ganancias</h3>
-            <p>Análisis de desempeño comercial para identificar estados y productos más rentables mediante visualizaciones dinámicas.</p>
-            <p class="tools">Herramientas: Power BI, Python</p>
+            <p>Análisis de desempeño comercial para identificar rentabilidad por productos y zonas mediante visualizaciones dinámicas.</p>
+            <p class="tools-text">Herramientas: Power BI, Python</p>
             <a class="btn" href="ventas_ganancias.html">Ver proyecto</a>
         </div>
 
@@ -212,7 +263,7 @@
             </div>
             <h3>Validación masiva de teléfonos</h3>
             <p>Automatización en Python para validar miles de números telefónicos mediante consumo de API externa.</p>
-            <p class="tools">Herramientas: Python, Pandas, APIs</p>
+            <p class="tools-text">Herramientas: Python, Pandas, APIs</p>
             <a class="btn" href="validacion_telefonos.html">Ver proyecto</a>
         </div>
 
@@ -221,11 +272,10 @@
                 <img src="cambio_genetica.png" alt="Validación de crédito">
             </div>
             <h3>Validación de crédito (Genética)</h3>
-            <p>Integración automática de SAP, CRM y límites de crédito para identificar clientes con antigüedad.</p>
-            <p class="tools">Herramientas: Python, Pandas, Excel</p>
+            <p>Integración automática de SAP, CRM y límites de crédito para gestionar la cartera de clientes.</p>
+            <p class="tools-text">Herramientas: Python, Power Automate, Excel</p>
             <a class="btn" href="validacion_credito.html">Ver proyecto</a>
         </div>
-
     </div>
 </div>
 
