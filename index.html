@@ -33,50 +33,12 @@
         }
 
         header {
-            padding: 5rem 2rem 6rem;
-            background: linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.75)),
+            padding: 5rem 2rem;
+            background: linear-gradient(rgba(2,6,23,0.8), rgba(2,6,23,0.8)),
                         url('foto_portada.jpeg');
             background-size: cover;
             background-position: center;
             position: relative;
-        }
-
-        /* CONTACTO */
-        .contact {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 0.85rem;
-            line-height: 1.4;
-            color: var(--muted);
-            max-width: 260px;
-        }
-
-        /* HERO */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 1rem;
-        }
-
-        .hero img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            object-fit: cover;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            background: var(--primary);
-            color: #020617;
-            font-weight: 600;
         }
 
         .container {
@@ -108,45 +70,84 @@
             gap: 2rem;
         }
 
-        .project-card {
-            transition: transform 0.2s;
-        }
-
         .project-card:hover {
             transform: translateY(-5px);
-        }
-
-        /* SLIDER / PREVIEW */
-        .slider {
-            height: 220px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            background: #020617;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .contact {
-                position: static;
-                margin-bottom: 2rem;
-                text-align: center;
-            }
+            transition: 0.2s;
         }
 
         footer {
             text-align: center;
             padding: 2rem;
             color: var(--muted);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #020617;
+            font-weight: 600;
+        }
+
+        /* BOTÓN GITHUB UNIFICADO */
+        .github-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .github-btn:hover {
+            background: var(--primary);
+            color: #020617;
+        }
+
+        /* SLIDER / IMÁGENES */
+        .slider {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background: #020617;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* PROYECTO 2 MÁS GRANDE */
+        .project-large .slider {
+            height: 280px;
+        }
+
+        /* CONTACTO */
+        .contact {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            max-width: 260px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .contact {
+                position: static;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
         }
     </style>
 </head>
@@ -158,7 +159,7 @@
     <!-- CONTACTO -->
     <div class="contact">
         <p><strong>Email:</strong><br>romloc1706@hotmail.com</p>
-        <p><strong>Tel:</strong><br>332 343 4337</p>
+        <p><strong>Tel:</strong><br>3323434337</p>
         <p><strong>LinkedIn:</strong><br>
             <a href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank">
                 linkedin.com/in/roman-alejandro-lopez
@@ -166,11 +167,13 @@
         </p>
     </div>
 
-    <!-- HERO -->
-    <div class="hero">
-        <img src="foto_perfil.jpeg" alt="Foto de Roman López">
+    <!-- PERFIL -->
+    <div style="text-align:center;">
+        <img src="foto_perfil.jpeg"
+             alt="Roman López"
+             style="width:160px;height:160px;border-radius:50%;border:4px solid var(--primary);object-fit:cover;">
         <h1>Roman López</h1>
-        <p style="color: var(--muted); font-size: 1.1rem;">
+        <p style="color:var(--muted);font-size:1.1rem;">
             Data Analyst | Python · Power BI · Excel · SQL
         </p>
         <a class="btn" href="#projects">Ver proyectos</a>
@@ -180,82 +183,86 @@
 
 <div class="container">
 
-    <!-- SOBRE MI -->
-    <section>
-        <h2>Sobre mí</h2>
-        <div class="about">
-            Data Analyst con experiencia en análisis, automatización y visualización de datos
-            para apoyar la toma de decisiones de negocio.
-        </div>
-    </section>
-
-    <!-- HABILIDADES -->
-    <section>
-        <h2>Habilidades</h2>
-        <div class="skills">
-            <div class="skill-card"><strong>Lenguajes</strong><br>Python, SQL</div>
-            <div class="skill-card"><strong>Herramientas</strong><br>Power BI, Excel</div>
-            <div class="skill-card"><strong>Procesos</strong><br>EDA, Automatización, Reporting</div>
-        </div>
-    </section>
-
-    <!-- PROYECTOS -->
-    <section id="projects">
-    <h2>Proyectos</h2>
-
-    <div class="projects">
-
-        <!-- PROYECTO 1 -->
-        <div class="project-card">
-            <a href="kpi_gestion.html">
-                <div class="slider">
-                    <img src="foto_kpixira.png" alt="KPI Gestión">
-                </div>
-            </a>
-            <h3>KPI de Gestión de Facturas</h3>
-            <p>Dashboard para analizar facturas y efectividad de gestión.</p>
-            <p><strong>Herramientas:</strong> Power BI, Excel</p>
-        </div>
-
-        <!-- PROYECTO 2 -->
-        <div class="project-card">
-            <a href="proyecto_ventas.html">
-                <div class="slider">
-                    <img src="foto_tienda1.png" alt="Ventas y Ganancias">
-                </div>
-            </a>
-            <h3>Análisis de Ventas y Ganancias</h3>
-            <p>Análisis de desempeño geográfico y rentabilidad.</p>
-            <p><strong>Herramientas:</strong> Power BI, Python</p>
-        </div>
-
-        <!-- PROYECTO 3 (ORIGINAL - TELÉFONOS) -->
-        <div class="project-card">
-            <a href="proyecto_validacion_telefonos.html">
-                <div class="slider">
-                    <img src="python_validacion.png" alt="Validación Teléfonos">
-                </div>
-            </a>
-            <h3>Validación masiva de teléfonos con Python</h3>
-            <p>Automatización de validación telefónica vía API.</p>
-            <p><strong>Tecnologías:</strong> Python, Pandas, APIs REST</p>
-        </div>
-
-        <!-- PROYECTO 4 (GENÉTICA) -->
-        <div class="project-card">
-            <a href="proyecto_credito_genetica.html">
-                <div class="slider">
-                    <img src="cambio_genetica.png" alt="Validación Crédito Genética">
-                </div>
-            </a>
-            <h3>Validación automática de crédito (Genética)</h3>
-            <p>Identificación automática de clientes con ≥ 3 meses de crédito.</p>
-            <p><strong>Tecnologías:</strong> Python, Pandas, Excel</p>
-        </div>
-
+<section>
+    <h2>Sobre mí</h2>
+    <div class="about">
+        Data Analyst con experiencia en automatización, análisis y visualización de datos
+        para apoyar la toma de decisiones de negocio.
     </div>
 </section>
 
+<section>
+    <h2>Habilidades</h2>
+    <div class="skills">
+        <div class="skill-card"><strong>Lenguajes</strong><br>Python, SQL</div>
+        <div class="skill-card"><strong>Herramientas</strong><br>Power BI, Excel</div>
+        <div class="skill-card"><strong>Procesos</strong><br>EDA, Automatización, Reporting</div>
+    </div>
+</section>
+
+<section id="projects">
+<h2>Proyectos</h2>
+
+<div class="projects">
+
+<!-- PROYECTO 1 -->
+<div class="project-card">
+    <a href="kpi_gestion.html">
+        <div class="slider">
+            <img src="foto_kpixira.png" class="slide" alt="KPI Gestión">
+        </div>
+    </a>
+    <h3>KPI de Gestión de Facturas</h3>
+    <p>Dashboard para medir efectividad de gestiones de cobro.</p>
+    <p><strong>Herramientas:</strong> Power BI, Excel</p>
+</div>
+
+<!-- PROYECTO 2 -->
+<div class="project-card project-large">
+    <a href="proyecto_ventas.html">
+        <div class="slider">
+            <img src="foto_tienda1.png" class="slide" alt="Ventas">
+        </div>
+    </a>
+    <h3>Análisis de Ventas y Ganancias</h3>
+    <p>Identificación de estados más rentables.</p>
+    <p><strong>Herramientas:</strong> Power BI, Python</p>
+</div>
+
+<!-- PROYECTO 3 -->
+<div class="project-card">
+    <a href="proyecto_validacion_telefonos.html">
+        <div class="slider">
+            <img src="python_project.png" class="slide" alt="Validación teléfonos">
+        </div>
+    </a>
+    <h3>Validación masiva de teléfonos</h3>
+    <p>Automatización de validación mediante API.</p>
+    <a class="github-btn"
+       href="https://github.com/romloc11/validacion-telefonos-python"
+       target="_blank">
+       Ver código en GitHub
+    </a>
+</div>
+
+<!-- PROYECTO 4 -->
+<div class="project-card">
+    <a href="proyecto_credito_genetica.html">
+        <div class="slider">
+            <img src="cambio_genetica.png" class="slide" alt="Crédito Genética">
+        </div>
+    </a>
+    <h3>Validación de crédito (Genética)</h3>
+    <p>Identificación automática de clientes con +3 meses de crédito.</p>
+    <a class="github-btn"
+       href="https://github.com/romloc11/validacion-credito-genetica"
+       target="_blank">
+       Ver código en GitHub
+    </a>
+</div>
+
+</div>
+</section>
 
 </div>
 
@@ -265,6 +272,7 @@
 
 </body>
 </html>
+
 
 
 </body>
