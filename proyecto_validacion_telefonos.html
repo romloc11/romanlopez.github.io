@@ -73,7 +73,35 @@ body {
 <h1>Validación masiva de teléfonos con Python</h1>
 
 <div class="card">
-    <p>Automatización para validar grandes volúmenes de números mediante una API externa.</p>
+    <h2>Contexto</h2>
+    <p>
+        La empresa necesitaba validar miles de números telefónicos provenientes de distintas
+        bases de datos antes de utilizarlos en campañas de contacto.
+    </p>
+
+    <h2>Problema</h2>
+    <p>
+        El proceso manual generaba errores, consumía tiempo y no garantizaba información
+        confiable sobre el tipo de línea o país.
+    </p>
+
+    <h2>Solución</h2>
+    <p>
+        Se desarrolló un script en <strong>Python</strong> que:
+    </p>
+    <ul>
+        <li>Lee archivos Excel con Pandas</li>
+        <li>Consume una API REST</li>
+        <li>Valida formato y existencia</li>
+        <li>Identifica tipo de línea y carrier</li>
+        <li>Exporta resultados automáticamente</li>
+    </ul>
+
+    <h2>Impacto</h2>
+    <p>
+        El proceso pasó de horas de validación manual a minutos, mejorando la calidad
+        de los datos y reduciendo costos operativos.
+    </p>
 
     <a class="btn"
        href="https://github.com/romloc11/validacion-telefonos-python"
