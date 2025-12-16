@@ -1,70 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Análisis de Gestión de Facturas | Roman López</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background: #020617;
-            color: #e5e7eb;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            max-width: 1000px;
-            margin: auto;
-            padding: 2rem;
-            line-height: 1.7;
-        }
-        h1 { color: #38bdf8; }
-        h2 { margin-top: 2rem; color: #93c5fd; }
-        .card {
-            background: #111827;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-        .img-container img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 1.5rem;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis de Gestión de Facturas | Roman López</title>
 
-        /* BOTÓN VOLVER */
-        .back {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #111827;
-            color: #38bdf8;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            box-shadow: 0 0 10px rgba(0,0,0,0.4);
-            z-index: 999;
-        }
-    </style>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: #e5e7eb;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    line-height: 1.7;
+}
+
+h1 { color: #38bdf8; }
+
+h2 {
+    margin-top: 2rem;
+    border-left: 4px solid #38bdf8;
+    padding-left: 1rem;
+}
+
+.card {
+    background: #111827;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.img-container img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+/* BOTÓN VOLVER */
+.back {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #111827;
+    color: #38bdf8;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.back:hover {
+    background: #020617;
+}
+</style>
 </head>
+
 <body>
 
-<a class="back" href="index.html">⬅ Volver al portafolio</a>
+<a class="back" href="index.html">← Volver al portafolio</a>
+
+<div class="container">
 
 <h1>Análisis de Gestión de Facturas</h1>
 
 <div class="card">
-    <h2>📌 Problema</h2>
-    <p>La empresa requería visibilidad clara sobre el estado de las facturas.</p>
+    <h2>Problema</h2>
+    <p>Falta de visibilidad clara sobre el estado y gestión de facturas.</p>
 
-    <h2>📊 Solución</h2>
-    <ul>
-        <li>Facturas mensuales</li>
-        <li>Gestión por canal</li>
-        <li>Métricas clave</li>
-    </ul>
+    <h2>Solución</h2>
+    <p>Dashboard en Power BI para analizar facturas mensuales y canales de pago.</p>
 
     <div class="img-container">
         <img src="foto_kpixira.png" alt="Dashboard Gestión de Facturas">
     </div>
 </div>
 
+</div>
 </body>
 </html>
 
