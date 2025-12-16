@@ -43,7 +43,7 @@
 
         .btn {
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             padding: 0.7rem 1.4rem;
             background: #38bdf8;
             color: #020617;
@@ -52,18 +52,31 @@
             text-decoration: none;
         }
 
+        /* BOTÓN VOLVER */
         .back {
-            margin-bottom: 2rem;
-            display: inline-block;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #111827;
+            color: #38bdf8;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+
+        .back:hover {
+            background: #020617;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<a class="back" href="index.html">← Volver al portafolio</a>
 
-    <a class="back" href="index.html">← Volver al portafolio</a>
+<div class="container">
 
     <h1>Automatización de Validación de Antigüedad de Crédito</h1>
     <p><strong>Tecnologías:</strong> Python, Pandas, Excel</p>
@@ -72,8 +85,8 @@
         <h2>Contexto del problema</h2>
         <p>
             La información de clientes se encontraba distribuida en múltiples bases de datos
-            (SAP, CRM y registros de límite de crédito), lo que obligaba a realizar validaciones
-            manuales mediante macros y fórmulas de Excel.
+            (SAP, CRM y registros históricos de límites de crédito), lo que obligaba a realizar
+            validaciones manuales mediante macros, fórmulas de Excel y revisión de resultados.
         </p>
     </div>
 
@@ -81,8 +94,8 @@
         <h2>Solución</h2>
         <p>
             Se desarrolló un script en Python que integra automáticamente las tres fuentes,
-            normaliza datos clave y calcula la antigüedad del crédito para identificar clientes
-            elegibles para el sistema <strong>Genética</strong>.
+            normaliza códigos SAP, identifica fechas clave y calcula la antigüedad del crédito
+            para determinar qué clientes cumplen con los criterios del sistema <strong>Genética</strong>.
         </p>
     </div>
 
@@ -90,15 +103,19 @@
         <h2>Impacto</h2>
         <p>
             El proceso pasó de ser semi-manual a completamente automatizado,
-            reduciendo tiempos de análisis de horas a minutos y eliminando errores humanos.
+            reduciendo tiempos de análisis de horas a minutos, eliminando errores humanos
+            y permitiendo una toma de decisiones más rápida y confiable.
         </p>
     </div>
 
-    <a class="btn" href="https://github.com/romloc11/TU_REPO_AQUI" target="_blank">
-        Ver código y README en GitHub
+    <a class="btn"
+       href="https://github.com/romloc11/validacion-credito-genetica"
+       target="_blank">
+        Ver código en GitHub
     </a>
 
 </div>
 
 </body>
 </html>
+
