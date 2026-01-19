@@ -25,16 +25,50 @@ body {
     border-radius: 12px;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
+/* --- CARRUSEL --- */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
 }
 
-.gallery img {
+.carousel img {
     width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Botones */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(2, 6, 23, 0.75);
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    font-size: 2rem;
+    padding: 0.3rem 0.8rem;
+    cursor: pointer;
     border-radius: 10px;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    background: #38bdf8;
+    color: #020617;
+}
+
+.carousel-btn.prev {
+    left: 12px;
+}
+
+.carousel-btn.next {
+    right: 12px;
 }
 
 /* BOTÓN VOLVER */
@@ -49,6 +83,13 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .carousel img {
+        height: 260px;
+    }
 }
 </style>
 </head>
@@ -91,13 +132,43 @@ body {
         y detectar áreas de mejora.
     </p>
 
-    <div class="gallery">
-        <img src="foto_tienda1.png">
-        <img src="foto_tienda2.png">
-        <img src="foto_tienda3.png">
+    <!-- CARRUSEL -->
+    <div class="carousel">
+        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+
+        <img id="carouselImage" src="foto_tienda1.png" alt="Dashboard de ventas">
+
+        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
     </div>
 </div>
 
 </div>
+
+<script>
+const images = [
+    "foto_tienda1.png",
+    "foto_tienda2.png",
+    "foto_tienda3.png"
+];
+
+let currentIndex = 0;
+const carouselImage = document.getElementById("carouselImage");
+
+function showSlide(index) {
+    carouselImage.src = images[index];
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(currentIndex);
+}
+</script>
+
 </body>
 </html>
+
