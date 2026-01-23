@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portafolio | Roman López</title>
+
+<style>
+:root {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #2563eb;
+    --border: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Segoe UI, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 3rem 1.5rem;
+}
+
+/* HEADER */
+header {
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+header p {
+    color: var(--muted);
+    max-width: 700px;
+    margin-top: 0.5rem;
+}
+
+/* SECTION */
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* GRID */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* CARD */
+.project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    flex-grow: 1;
+}
+
+.tools {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin: 0.8rem 0;
+}
+
+/* BUTTON */
+.project-card a {
+    align-self: flex-start;
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>Roman López</h1>
+    <p>
+        Analista de Datos / Business Analyst con experiencia en automatización,
+        análisis crediticio y dashboards ejecutivos.
+    </p>
+</header>
+
+<section>
+    <h2>Proyectos</h2>
+
+    <div class="projects">
+
+        <!-- PROYECTO 1 -->
+        <div class="project-card">
+            <img src="cambio_genetica.png" alt="Validación genética de crédito">
+            <h3>Validación Genética de Crédito</h3>
+            <p>
+                Modelo analítico que evalúa el comportamiento crediticio
+                utilizando reglas de scoring y validaciones automáticas.
+            </p>
+            <div class="tools">Python · Pandas · Scoring · Excel</div>
+            <a href="proyecto_credito_genetica.html">Ver proyecto →</a>
+        </div>
+
+        <!-- PROYECTO 2 -->
+        <div class="project-card">
+            <img src="foto_incremento.png" alt="Incremento de crédito">
+            <h3>Análisis Automatizado de Incremento de Crédito</h3>
+            <p>
+                Sistema que analiza una cartera de clientes, calcula un score
+                de riesgo y propone incrementos o decrementos de límite.
+            </p>
+            <div class="tools">Python · Pandas · Automatización · Excel</div>
+            <a href="analisis_incremento_credito.html">Ver proyecto →</a>
+        </div>
+
+        <!-- PROYECTO 3 -->
+        <div class="project-card">
+            <img src="kpi_gestion_fake.png" alt="KPIs de gestión">
+            <h3>KPIs de Gestión y Cobranza</h3>
+            <p>
+                Dashboard ejecutivo con indicadores clave de desempeño,
+                tendencias y control operativo.
+            </p>
+            <div class="tools">Power BI · KPIs · Visualización</div>
+            <a href="kpi_gestion.html">Ver proyecto →</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 · Portafolio profesional
+</footer>
+
+</div>
+
+</body>
+</html>
