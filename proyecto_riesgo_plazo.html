@@ -32,14 +32,16 @@ body {
     max-width: 900px;
     margin: 2rem auto 0;
     border-radius: 12px;
-    overflow: hidden;
     border: 1px solid #1e293b;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: #020617;
 }
 
 .carousel img {
     width: 100%;
-    height: 420px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     display: block;
 }
 
@@ -48,7 +50,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(2, 6, 23, 0.75);
+    background: rgba(2, 6, 23, 0.8);
     border: 1px solid #38bdf8;
     color: #38bdf8;
     font-size: 2rem;
@@ -82,8 +84,12 @@ body {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .carousel img {
-        height: 260px;
+    .container {
+        padding: 1.2rem;
+    }
+
+    .carousel-btn {
+        font-size: 1.6rem;
     }
 }
 </style>
@@ -104,7 +110,7 @@ body {
 <a href="https://github.com/romloc11/proyecto_riesgo_plazo"
    target="_blank"
    style="color:#38bdf8; text-decoration:none; font-weight:600;">
-   Ver código en GitHub 
+   Ver código en GitHub
 </a>
 
 <div class="card">
@@ -155,9 +161,7 @@ body {
     <!-- CARRUSEL -->
     <div class="carousel">
         <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-
         <img id="carouselImage" src="Plazo1.png" alt="Análisis de Plazo">
-
         <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
     </div>
 
