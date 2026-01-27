@@ -1,87 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelo de Riesgo de Plazo Comercial | Román López</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelo de Riesgo de Plazo Comercial | Román López</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(180deg, #020617, #0f172a);
-            color: #e5e7eb;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: #e5e7eb;
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 2rem;
-        }
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+}
 
-        h1 {
-            margin-bottom: 0.5rem;
-        }
+.card {
+    background: #111827;
+    padding: 2rem;
+    border-radius: 12px;
+}
 
-        h2 {
-            margin-top: 2rem;
-            border-left: 4px solid #38bdf8;
-            padding-left: 1rem;
-        }
+/* --- CARRUSEL --- */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+}
 
-        p {
-            color: #9ca3af;
-            line-height: 1.7;
-        }
+.carousel img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
 
-        .card {
-            background: #111827;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-        }
+/* Botones */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(2, 6, 23, 0.75);
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    font-size: 2rem;
+    padding: 0.3rem 0.8rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
 
-        .img-card {
-            margin-top: 1.5rem;
-            background: #020617;
-            padding: 1rem;
-            border-radius: 12px;
-        }
+.carousel-btn:hover {
+    background: #38bdf8;
+    color: #020617;
+}
 
-        .img-card img {
-            width: 100%;
-            border-radius: 8px;
-        }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
 
-        .btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.7rem 1.4rem;
-            background: #38bdf8;
-            color: #020617;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-        }
+/* BOTÓN VOLVER */
+.back {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #111827;
+    color: #38bdf8;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
 
-        /* BOTÓN VOLVER */
-        .back {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #111827;
-            color: #38bdf8;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            box-shadow: 0 0 10px rgba(0,0,0,0.4);
-        }
-
-        .back:hover {
-            background: #020617;
-        }
-    </style>
+/* Responsive */
+@media (max-width: 600px) {
+    .carousel img {
+        height: 260px;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -90,91 +95,104 @@
 
 <div class="container">
 
-    <h1>Modelo de Riesgo de Plazo Comercial</h1>
+<h1>Modelo de Riesgo de Plazo Comercial</h1>
+<p>
+    <strong>Tecnologías:</strong>
+    SQL (lógica relacional) · Python (Pandas – ETL) · Power BI (DAX) · Excel
+</p>
+
+<a href="https://github.com/romloc11/proyecto_riesgo_plazo"
+   target="_blank"
+   style="color:#38bdf8; text-decoration:none; font-weight:600;">
+   Ver código y documentación
+</a>
+
+<div class="card">
+
+    <h2>Contexto</h2>
     <p>
-        <strong>Tecnologías:</strong> SQL (lógica relacional), Python (Pandas – ETL),
-        Power BI (DAX, visualización), Excel
+        Durante la unificación comercial de dos empresas, los clientes pueden
+        comprar en ambas compañías bajo condiciones de crédito distintas.
+        Esta situación genera riesgos financieros por desfases de plazo y
+        problemas de cobranza.
     </p>
-    
-    <a class="btn"
-       href="https://github.com/romloc11/proyecto_riesgo_plazo"
-       target="_blank">
-        Ver código y documentación
-    </a>
+
+    <h2>Problema</h2>
+    <p>
+        No existía un análisis centralizado que identificara clientes con
+        plazos desalineados ni una forma estandarizada de priorizar el riesgo
+        para Crédito y Cobranza.
+    </p>
+
+    <h2>Solución</h2>
+    <p>
+        Se diseñó un modelo basado en <strong>lógica relacional tipo SQL</strong>
+        (JOIN, GROUP BY, validaciones y agregaciones), implementado mediante un
+        proceso ETL en Python para limpiar y normalizar datos.
+    </p>
+    <p>
+        El resultado se integró en <strong>Power BI</strong>, generando métricas,
+        clasificaciones de riesgo y estrategias de decisión.
+    </p>
+
+    <h2>Análisis y visualización</h2>
+    <ul>
+        <li>Validación de plazos por empresa</li>
+        <li>Clientes con plazos diferentes</li>
+        <li>Clientes con crédito en ambas empresas</li>
+        <li>Estrategias de crédito y contado</li>
+        <li>Priorización por impacto en ventas</li>
+    </ul>
+
+    <h2>Impacto</h2>
+    <ul>
+        <li>Identificación temprana de riesgo comercial</li>
+        <li>Estandarización del análisis de plazos</li>
+        <li>Reducción de análisis manual</li>
+        <li>Mejor toma de decisiones para Crédito y Cobranza</li>
+    </ul>
+
+    <!-- CARRUSEL -->
+    <div class="carousel">
+        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+
+        <img id="carouselImage" src="Plazo1.png" alt="Análisis de Plazo">
+
+        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
 
 </div>
-    <div class="card">
-        <h2>Contexto del problema</h2>
-        <p>
-            Las empresas A y B se encuentran en un proceso de unificación comercial, permitiendo que los clientes compren
-            en ambas compañías. Como resultado, existen clientes comunes que pueden tener plazos de crédito distintos en cada empresa,
-            lo que representa un riesgo financiero al generar desfases en pagos y problemas en la gestión de cobranza.
-            Este análisis se enfoca en identificar y evaluar ese riesgo, normalizando la información de ambas empresas 
-            y considerando únicamente clientes activos y relevantes para el negocio.
-        </p>
-    </div>
 
-    <div class="card">
-        <h2>Solución</h2>
-        <p>
-            Se diseñó un modelo de análisis basado en lógica relacional tipo SQL
-            (JOIN, GROUP BY, validaciones y agregaciones), implementado mediante un
-            proceso ETL en Python para limpiar, normalizar y consolidar la información.
-        </p>
-        <p>
-            El resultado se integró en Power BI, donde se construyeron métricas,
-            clasificaciones de riesgo y estrategias de decisión para Crédito y Cobranza.
-        </p>
-    </div>
+</div>
 
-    <div class="card">
-        <h2>Análisis en Power BI</h2>
+<script>
+const images = [
+    "Plazo1.png",
+    "Plazo2.png",
+    "Plazo3.png",
+    "Plazo4.png",
+    "Plazo5.png",
+    "Plazo6.png"
+];
 
-        <p><strong>Validación de Plazo</strong></p>
-        <div class="img-card">
-            <img src="Plazo1.png" alt="Validación de Plazo">
-        </div>
+let currentIndex = 0;
+const carouselImage = document.getElementById("carouselImage");
 
-        <p><strong>Diferente Plazo</strong></p>
-        <div class="img-card">
-            <img src="Plazo2.png" alt="Clientes con Diferente Plazo">
-        </div>
+function showSlide(index) {
+    carouselImage.src = images[index];
+}
 
-        <p><strong>Ambos Crédito</strong></p>
-        <div class="img-card">
-            <img src="Plazo3.png" alt="Clientes Crédito en Ambas Empresas">
-        </div>
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+}
 
-        <p><strong>Estrategia Ambos Crédito</strong></p>
-        <div class="img-card">
-            <img src="Plazo4.png" alt="Estrategia Crédito">
-        </div>
-
-        <p><strong>Clientes de Contado</strong></p>
-        <div class="img-card">
-            <img src="Plazo5.png" alt="Clientes Contado">
-        </div>
-
-        <p><strong>Estrategia Clientes Contado</strong></p>
-        <div class="img-card">
-            <img src="Plazo6.png" alt="Estrategia Contado">
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>Impacto</h2>
-        <p>
-            El proyecto permitió identificar clientes con alto riesgo por desalineación de plazos,
-            priorizar decisiones de crédito según impacto en ventas y estandarizar el análisis
-            para el área de Crédito y Cobranza.
-        </p>
-        <p>
-            Se eliminó el análisis manual, se redujeron tiempos de evaluación
-            y se mejoró la visibilidad del riesgo comercial.
-        </p>
-    </div>
-
-
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(currentIndex);
+}
+</script>
 
 </body>
 </html>
+
