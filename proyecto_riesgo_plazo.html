@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Riesgo de Plazo Comercial | Román López</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(180deg, #020617, #0f172a);
+            color: #e5e7eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            margin-top: 2rem;
+            border-left: 4px solid #38bdf8;
+            padding-left: 1rem;
+        }
+
+        p {
+            color: #9ca3af;
+            line-height: 1.7;
+        }
+
+        .card {
+            background: #111827;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .img-card {
+            margin-top: 1.5rem;
+            background: #020617;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .img-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.7rem 1.4rem;
+            background: #38bdf8;
+            color: #020617;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* BOTÓN VOLVER */
+        .back {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #111827;
+            color: #38bdf8;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+
+        .back:hover {
+            background: #020617;
+        }
+    </style>
+</head>
+
+<body>
+
+<a class="back" href="index.html">← Volver al portafolio</a>
+
+<div class="container">
+
+    <h1>Modelo de Riesgo de Plazo Comercial</h1>
+    <p>
+        <strong>Tecnologías:</strong> SQL (lógica relacional), Python (Pandas – ETL),
+        Power BI (DAX, visualización), Excel
+    </p>
+
+    <div class="card">
+        <h2>Contexto del problema</h2>
+        <p>
+            Los clientes comunes entre CIOSA y ATM pueden presentar diferencias en sus plazos de crédito,
+            lo que representa un riesgo financiero si no se analiza correctamente.
+            La información provenía de matrices independientes, con clientes inactivos,
+            registros genéricos y estructuras distintas de plazo.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Solución</h2>
+        <p>
+            Se diseñó un modelo de análisis basado en lógica relacional tipo SQL
+            (JOIN, GROUP BY, validaciones y agregaciones), implementado mediante un
+            proceso ETL en Python para limpiar, normalizar y consolidar la información.
+        </p>
+        <p>
+            El resultado se integró en Power BI, donde se construyeron métricas,
+            clasificaciones de riesgo y estrategias de decisión para Crédito y Cobranza.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Análisis en Power BI</h2>
+
+        <p><strong>Validación de Plazo</strong></p>
+        <div class="img-card">
+            <img src="Plazo1.png" alt="Validación de Plazo">
+        </div>
+
+        <p><strong>Diferente Plazo</strong></p>
+        <div class="img-card">
+            <img src="Plazo2.png" alt="Clientes con Diferente Plazo">
+        </div>
+
+        <p><strong>Ambos Crédito</strong></p>
+        <div class="img-card">
+            <img src="Plazo3.png" alt="Clientes Crédito en Ambas Empresas">
+        </div>
+
+        <p><strong>Estrategia Ambos Crédito</strong></p>
+        <div class="img-card">
+            <img src="Plazo4.png" alt="Estrategia Crédito">
+        </div>
+
+        <p><strong>Clientes de Contado</strong></p>
+        <div class="img-card">
+            <img src="Plazo5.png" alt="Clientes Contado">
+        </div>
+
+        <p><strong>Estrategia Clientes Contado</strong></p>
+        <div class="img-card">
+            <img src="Plazo6.png" alt="Estrategia Contado">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Impacto</h2>
+        <p>
+            El proyecto permitió identificar clientes con alto riesgo por desalineación de plazos,
+            priorizar decisiones de crédito según impacto en ventas y estandarizar el análisis
+            para el área de Crédito y Cobranza.
+        </p>
+        <p>
+            Se eliminó el análisis manual, se redujeron tiempos de evaluación
+            y se mejoró la visibilidad del riesgo comercial.
+        </p>
+    </div>
+
+    <a class="btn"
+       href="https://github.com/romloc11"
+       target="_blank">
+        Ver código y documentación
+    </a>
+
+</div>
+
+</body>
+</html>
