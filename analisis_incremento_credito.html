@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Incremento de Crédito | Roman López</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis de Incremento de Crédito | Roman López</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(180deg, #020617, #0f172a);
-            color: #e5e7eb;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: #e5e7eb;
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 2rem;
-        }
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+}
 
-        h1 {
-            margin-bottom: 0.5rem;
-        }
+.card {
+    background: #111827;
+    padding: 2rem;
+    border-radius: 12px;
+}
 
-        h2 {
-            margin-top: 2rem;
-            border-left: 4px solid #38bdf8;
-            padding-left: 1rem;
-        }
+/* --- CARRUSEL --- */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+}
 
-        p {
-            color: #9ca3af;
-            line-height: 1.7;
-        }
+.carousel img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
 
-        ul {
-            color: #9ca3af;
-            line-height: 1.7;
-        }
+/* Botones carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(2, 6, 23, 0.75);
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    font-size: 2rem;
+    padding: 0.3rem 0.8rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
 
-        .card {
-            background: #111827;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border: 1px solid #1e293b;
-        }
+.carousel-btn:hover {
+    background: #38bdf8;
+    color: #020617;
+}
 
-        .project-image {
-            width: 100%;
-            height: 360px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-        }
+.carousel-btn.prev {
+    left: 12px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.7rem 1.4rem;
-            background: #38bdf8;
-            color: #020617;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-        }
+.carousel-btn.next {
+    right: 12px;
+}
 
-        /* BOTÓN VOLVER FIJO */
-        .back {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #111827;
-            color: #38bdf8;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            box-shadow: 0 0 10px rgba(0,0,0,0.4);
-            z-index: 1000;
-        }
+/* BOTÓN VOLVER */
+.back {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #111827;
+    color: #38bdf8;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
 
-        .back:hover {
-            background: #020617;
-        }
-    </style>
+/* Responsive */
+@media (max-width: 600px) {
+    .carousel img {
+        height: 260px;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -93,134 +100,101 @@
 
 <div class="container">
 
-    <h1>Análisis Automatizado para Incremento de Crédito</h1>
-    <p><strong>Tecnologías:</strong> Python · Pandas · NumPy · Excel · OpenPyXL</p>
+<h1>Análisis Automatizado para Incremento de Crédito</h1>
+<p><strong>Tecnologías:</strong> Python · Pandas · NumPy · Excel · OpenPyXL</p>
 
-    <a class="btn"
-       href="https://github.com/romloc11/analisis_incremento_credito"
-       target="_blank">
-       Ver código en GitHub
-    </a>
+<a href="https://github.com/romloc11/analisis_incremento_credito"
+   target="_blank"
+   style="color:#38bdf8; text-decoration:none; font-weight:600;">
+   Ver código en GitHub
+</a>
 
+<div class="card">
+
+    <h2>Contexto</h2>
+    <p>
+        La empresa contaba con una matriz extensa de clientes con información histórica
+        de ventas, pagos, límites de crédito y comportamiento de cartera.
+        El análisis se realizaba manualmente con criterios dispersos.
+    </p>
+
+    <h2>Problema</h2>
+    <p>
+        El proceso era lento, poco estandarizado y con alto riesgo operativo,
+        dificultando decisiones consistentes y auditables.
+    </p>
+
+    <h2>Solución</h2>
+    <p>
+        Se desarrolló un motor de análisis en <strong>Python</strong> que evalúa
+        automáticamente a cada cliente mediante un sistema de <strong>scoring crediticio</strong>.
+    </p>
+
+    <ul>
+        <li>Incremento</li>
+        <li>Posible incremento (revisión manual)</li>
+        <li>Sin cambio</li>
+        <li>Posible decremento (revisión manual)</li>
+        <li>Decremento</li>
+    </ul>
+
+    <h2>Modelo de scoring</h2>
+    <ul>
+        <li>Uso histórico del límite de crédito</li>
+        <li>Clasificación interna (ADN)</li>
+        <li>Días promedio de pago</li>
+        <li>Antigüedad del cliente</li>
+        <li>Variabilidad de ventas</li>
+        <li>Capacidad máxima de pago</li>
+        <li>Cartera vencida</li>
+    </ul>
+
+    <h2>Impacto</h2>
+    <ul>
+        <li>Estandarización del análisis crediticio</li>
+        <li>Reducción significativa de tiempos</li>
+        <li>Menor dependencia de análisis manual</li>
+        <li>Decisiones objetivas basadas en datos</li>
+    </ul>
+
+    <!-- CARRUSEL -->
+    <div class="carousel">
+        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+
+        <img id="carouselImage" src="foto_incremento.png" alt="Dashboard crédito">
+
+        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
 
 </div>
 
+</div>
 
-    <div class="card">
-        <h2>Contexto del problema</h2>
-        <p>
-            La empresa contaba con una matriz extensa de clientes con información histórica de
-            ventas, pagos, límites de crédito, comportamiento de cartera y clasificaciones internas.
-            El análisis para decidir incrementos o decrementos de crédito se realizaba de forma
-            manual, utilizando reglas dispersas y criterios subjetivos.
-        </p>
-        <p>
-            Esto generaba procesos lentos, inconsistencias en la toma de decisiones y un alto
-            riesgo operativo al no contar con un criterio estandarizado y auditable.
-        </p>
-    </div>
+<script>
+const images = [
+    "foto_incremento.png",
+    "foto_incremento_2.png",
+    "foto_incremento_3.png"
+];
 
-    <div class="card">
-        <h2>Solución implementada</h2>
-        <p>
-            Se desarrolló un motor de análisis en Python que evalúa automáticamente el
-            comportamiento de todos los clientes mediante un sistema de <strong>scoring crediticio</strong>,
-            integrando información histórica de ventas, pagos, antigüedad, uso de línea,
-            variabilidad y cumplimiento.
-        </p>
-        <p>
-            El sistema clasifica a cada cliente en una de las siguientes decisiones:
-        </p>
-        <ul>
-            <li>Incremento</li>
-            <li>Posible incremento (revisión manual)</li>
-            <li>Sin cambio</li>
-            <li>Posible decremento (revisión manual)</li>
-            <li>Decremento</li>
-        </ul>
-    </div>
+let currentIndex = 0;
+const carouselImage = document.getElementById("carouselImage");
 
-    <div class="card">
-        <h2>Modelo de scoring</h2>
-        <p>
-            El score final se construye a partir de múltiples componentes ponderados, entre ellos:
-        </p>
-        <ul>
-            <li>Uso histórico del límite de crédito</li>
-            <li>Clasificación interna de comportamiento (ADN)</li>
-            <li>Días promedio de pago</li>
-            <li>Antigüedad del cliente</li>
-            <li>Variabilidad de ventas</li>
-            <li>Capacidad máxima de pago registrada</li>
-            <li>Estado de cartera vencida</li>
-        </ul>
-        <p>
-            Cada variable aporta al score final mediante pesos configurables, permitiendo
-            flexibilidad y adaptación a políticas de riesgo.
-        </p>
-    </div>
+function showSlide(index) {
+    carouselImage.src = images[index];
+}
 
-    <div class="card">
-        <h2>Cálculo del monto sugerido</h2>
-        <p>
-            Además de la decisión crediticia, el sistema calcula un <strong>monto sugerido de crédito</strong>
-            considerando:
-        </p>
-        <ul>
-            <li>Promedio y máximo de ventas de los últimos 12 meses</li>
-            <li>Límite actual del cliente</li>
-            <li>Cartera vigente</li>
-            <li>Score obtenido y tipo de decisión</li>
-            <li>Restricciones de crecimiento y protección de riesgo</li>
-        </ul>
-        <p>
-            El resultado es un monto redondeado y protegido, alineado a la capacidad operativa
-            real del cliente.
-        </p>
-    </div>
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+}
 
-    <div class="card">
-        <h2>Dashboard y resultados</h2>
-        <p>
-            El script genera automáticamente un archivo Excel con:
-        </p>
-        <ul>
-            <li>Base detallada de evaluación crediticia</li>
-            <li>Resumen ejecutivo con KPIs clave</li>
-            <li>Gráficas automáticas de decisiones de crédito</li>
-            <li>Comparativo entre límite actual vs límite sugerido</li>
-        </ul>
-        <p>
-            Este dashboard permite a las áreas comerciales y financieras
-            visualizar rápidamente el impacto de las decisiones propuestas.
-        </p>
-        <img src="foto_incremento.png"
-         alt="Análisis Incremento de Crédito"
-         class="project-image">
-    </div>
-
-    <div class="card">
-        <h2>Impacto</h2>
-        <ul>
-            <li>Estandarización del proceso de análisis crediticio</li>
-            <li>Reducción significativa de tiempos de evaluación</li>
-            <li>Menor dependencia de análisis manual</li>
-            <li>Mejor control del riesgo crediticio</li>
-            <li>Decisiones más objetivas y basadas en datos</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Nota sobre los datos</h2>
-        <p>
-            Los datos utilizados en este proyecto han sido anonimizados y/o simulados con fines
-            demostrativos. La lógica, reglas de negocio y metodología reflejan un caso real
-            de análisis crediticio empresarial.
-        </p>
-    </div>
-
-    
-
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(currentIndex);
+}
+</script>
 
 </body>
 </html>
+
