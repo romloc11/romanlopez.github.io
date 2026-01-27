@@ -25,50 +25,25 @@ body {
     border-radius: 12px;
 }
 
-/* --- CARRUSEL --- */
-.carousel {
-    position: relative;
+/* IMAGEN PRINCIPAL */
+.project-image {
     width: 100%;
     max-width: 900px;
     margin: 2rem auto 0;
     border-radius: 12px;
-    overflow: hidden;
     border: 1px solid #1e293b;
+    aspect-ratio: 16 / 9;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.carousel img {
+.project-image img {
     width: 100%;
-    height: 420px;
-    object-fit: cover;
-    display: block;
-}
-
-/* Botones carrusel */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(2, 6, 23, 0.75);
-    border: 1px solid #38bdf8;
-    color: #38bdf8;
-    font-size: 2rem;
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.carousel-btn:hover {
-    background: #38bdf8;
-    color: #020617;
-}
-
-.carousel-btn.prev {
-    left: 12px;
-}
-
-.carousel-btn.next {
-    right: 12px;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
 }
 
 /* BOTÓN VOLVER */
@@ -87,8 +62,8 @@ body {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .carousel img {
-        height: 260px;
+    .container {
+        padding: 1.2rem;
     }
 }
 </style>
@@ -127,7 +102,8 @@ body {
     <h2>Solución</h2>
     <p>
         Se desarrolló un motor de análisis en <strong>Python</strong> que evalúa
-        automáticamente a los clientes de forma masiva mediante un sistema de <strong>scoring crediticio</strong>.
+        automáticamente a los clientes de forma masiva mediante un sistema de
+        <strong>scoring crediticio</strong>.
     </p>
 
     <ul>
@@ -157,41 +133,14 @@ body {
         <li>Decisiones objetivas basadas en datos</li>
     </ul>
 
-    <!-- CARRUSEL -->
-    <div class="carousel">
-        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-
-        <img id="carouselImage" src="foto_incremento.png" alt="Dashboard crédito">
-
-        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    <!-- IMAGEN -->
+    <div class="project-image">
+        <img src="foto_incremento.png" alt="Dashboard de análisis crediticio">
     </div>
 
 </div>
 
 </div>
-
-<script>
-const images = [
-    "foto_incremento.png"
-];
-
-let currentIndex = 0;
-const carouselImage = document.getElementById("carouselImage");
-
-function showSlide(index) {
-    carouselImage.src = images[index];
-}
-
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showSlide(currentIndex);
-}
-
-function prevSlide() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showSlide(currentIndex);
-}
-</script>
 
 </body>
 </html>
