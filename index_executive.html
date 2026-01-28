@@ -1,187 +1,292 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Roman López | Data Analyst</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portafolio | Roman López</title>
+    <style>
+        :root {
+            --bg: #020617;
+            --panel: #020617;
+            --card: #0b1220;
+            --border: #1e293b;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #38bdf8;
+        }
 
-<style>
-:root {
-    --bg: #f8fafc;
-    --card: #ffffff;
-    --text: #0f172a;
-    --muted: #475569;
-    --accent: #2563eb;
-    --border: #e2e8f0;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(1200px 600px at top, #020617, #000);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-body {
-    margin: 0;
-    font-family: Inter, Segoe UI, system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-}
+        /* ===== HEADER ===== */
+        .hero {
+            padding: 5rem 1.5rem 3rem;
+            text-align: center;
+        }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 3rem 1.5rem;
-}
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 40px rgba(56,189,248,.4);
+        }
 
-/* HEADER */
-header {
-    margin-bottom: 3rem;
-}
+        h1 {
+            margin: 1.5rem 0 0.5rem;
+            font-size: 2.7rem;
+            letter-spacing: -1px;
+        }
 
-header h1 {
-    font-size: 2.2rem;
-    margin: 0;
-}
+        .role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
 
-header p {
-    color: var(--muted);
-    max-width: 700px;
-    margin-top: 0.5rem;
-}
+        .links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-/* SECTION */
-section {
-    margin-bottom: 3rem;
-}
+        .links a {
+            text-decoration: none;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            transition: 0.25s;
+            background: rgba(255,255,255,0.02);
+        }
 
-section h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-}
+        .links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
 
-/* GRID */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
+        /* ===== CONTENEDOR ===== */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem 1.5rem 4rem;
+        }
 
-/* CARD */
-.project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-}
+        section {
+            margin-bottom: 4rem;
+        }
 
-.project-card img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
+        h2 {
+            font-size: 1.7rem;
+            margin-bottom: 1.5rem;
+        }
 
-.project-card h3 {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-}
+        /* ===== ABOUT ===== */
+        .about {
+            background: linear-gradient(180deg, #0b1220, #020617);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+        }
 
-.project-card p {
-    font-size: 0.95rem;
-    color: var(--muted);
-    flex-grow: 1;
-}
+        .about p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 800px;
+        }
 
-.tools {
-    font-size: 0.8rem;
-    color: var(--accent);
-    margin: 0.8rem 0;
-}
+        .stack {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-/* BUTTON */
-.project-card a {
-    align-self: flex-start;
-    text-decoration: none;
-    color: var(--accent);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
+        .stack span {
+            background: rgba(56,189,248,0.12);
+            color: var(--accent);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
 
-.project-card a:hover {
-    text-decoration: underline;
-}
+        /* ===== PROJECTS ===== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
 
-/* FOOTER */
-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.85rem;
-    color: var(--muted);
-}
-</style>
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            margin: 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .tools {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            text-align: center;
+            text-decoration: none;
+            background: var(--accent);
+            color: #020617;
+            padding: 0.75rem;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .btn:hover {
+            background: #7dd3fc;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .hero { padding-top: 3.5rem; }
+        }
+    </style>
 </head>
-
 <body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+    <img src="foto_perfil.jpeg" alt="Roman López" class="avatar">
+    <h1>Roman López</h1>
+    <div class="role">Data Analyst · BI Specialist</div>
+
+    <div class="links">
+        <a href="mailto:romloc1706@hotmail.com">📧 Email</a>
+        <a href="https://wa.me/523323434337" target="_blank">📱 WhatsApp</a>
+        <a href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank">🔗 LinkedIn</a>
+    </div>
+</header>
 
 <div class="container">
 
-<header>
-    <h1>Roman López</h1>
-    <p>
-        Analista de Datos / Business Analyst con experiencia en automatización,
-        análisis crediticio y dashboards ejecutivos.
-    </p>
-</header>
+    <!-- ABOUT -->
+    <section class="about">
+        <h2>Sobre mí</h2>
+        <p>
+            Desarrollo soluciones analíticas enfocadas en negocio mediante modelos de datos,
+            procesos ETL y dashboards automatizados que convierten información compleja en
+            decisiones accionables.
+        </p>
 
-<section>
-    <h2>Proyectos</h2>
-
-    <div class="projects">
-
-        <!-- PROYECTO 1 -->
-        <div class="project-card">
-            <img src="cambio_genetica.png" alt="Validación genética de crédito">
-            <h3>Validación Genética de Crédito</h3>
-            <p>
-                Modelo analítico que evalúa el comportamiento crediticio
-                utilizando reglas de scoring y validaciones automáticas.
-            </p>
-            <div class="tools">Python · Pandas · Scoring · Excel</div>
-            <a href="proyecto_credito_genetica.html">Ver proyecto →</a>
+        <div class="stack">
+            <span>Python</span>
+            <span>SQL</span>
+            <span>Power BI</span>
+            <span>Excel Avanzado</span>
+            <span>Power Automate</span>
         </div>
+    </section>
 
-        <!-- PROYECTO 2 -->
-        <div class="project-card">
-            <img src="foto_incremento.png" alt="Incremento de crédito">
-            <h3>Análisis Automatizado de Incremento de Crédito</h3>
-            <p>
-                Sistema que analiza una cartera de clientes, calcula un score
-                de riesgo y propone incrementos o decrementos de límite.
-            </p>
-            <div class="tools">Python · Pandas · Automatización · Excel</div>
-            <a href="analisis_incremento_credito.html">Ver proyecto →</a>
+    <!-- PROJECTS -->
+    <section>
+        <h2>Proyectos Destacados</h2>
+
+        <div class="projects">
+
+            <div class="card">
+                <img src="foto_incremento.png">
+                <h3>Análisis Automatizado de Crédito</h3>
+                <p>Modelo en Python que evalúa comportamiento histórico para definir incrementos,
+                reducciones o mantenimiento del límite de crédito.</p>
+                <div class="tools">Python · Pandas · Numpy · Excel</div>
+                <a href="analisis_incremento_credito.html" class="btn">Ver proyecto</a>
+            </div>
+
+            <div class="card">
+                <img src="Plazo3.png">
+                <h3>Modelo de Riesgo de Plazo</h3>
+                <p>Identificación de riesgos financieros entre empresas unificadas considerando
+                plazos, ventas y comportamiento de pago.</p>
+                <div class="tools">SQL · Python · Power BI · DAX</div>
+                <a href="proyecto_riesgo_plazo.html" class="btn">Ver proyecto</a>
+            </div>
+
+            <div class="card">
+                <img src="foto_tienda1.png">
+                <h3>Análisis de Ventas</h3>
+                <p>Optimización de rentabilidad mediante análisis de productos y zonas estratégicas.</p>
+                <div class="tools">Power BI · Python</div>
+                <a href="proyecto_ventas.html" class="btn">Ver proyecto</a>
+            </div>
+
+            <div class="card">
+                <img src="python_project.png">
+                <h3>Validación Masiva de Teléfonos</h3>
+                <p>Limpieza y normalización de bases de datos integrando APIs externas.</p>
+                <div class="tools">Python · Pandas · API</div>
+                <a href="proyecto_validacion_telefonos.html" class="btn">Ver proyecto</a>
+            </div>
+
+            <div class="card">
+                <img src="foto_kpixira.png">
+                <h3>KPI de Gestión de Facturas</h3>
+                <p>Seguimiento de cobranza, eficiencia operativa y recuperación de cartera.</p>
+                <div class="tools">Power BI · Excel</div>
+                <a href="kpi_gestion.html" class="btn">Ver proyecto</a>
+            </div>
+
+            <div class="card">
+                <img src="cambio_genetica.png">
+                <h3>Validación de Crédito (Genética)</h3>
+                <p>Auditoría automática de límites de crédito integrando SAP y CRM.</p>
+                <div class="tools">Python · Power Automate</div>
+                <a href="proyecto_credito_genetica.html" class="btn">Ver proyecto</a>
+            </div>
+
         </div>
-
-        <!-- PROYECTO 3 -->
-        <div class="project-card">
-            <img src="kpi_gestion_fake.png" alt="KPIs de gestión">
-            <h3>KPIs de Gestión y Cobranza</h3>
-            <p>
-                Dashboard ejecutivo con indicadores clave de desempeño,
-                tendencias y control operativo.
-            </p>
-            <div class="tools">Power BI · KPIs · Visualización</div>
-            <a href="kpi_gestion.html">Ver proyecto →</a>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    © 2026 · Portafolio profesional
-</footer>
+    </section>
 
 </div>
 
