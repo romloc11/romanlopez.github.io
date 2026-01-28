@@ -8,10 +8,9 @@
 <style>
 :root{
     --bg:#020617;
-    --panel:#0f172a;
+    --panel:#020617;
     --border:#1e293b;
-    --accent:#38bdf8;
-    --text:#e5e7eb;
+    --accent:#e5e7eb;
     --muted:#9ca3af;
 }
 
@@ -19,39 +18,36 @@
 
 body{
     margin:0;
-    font-family:'Segoe UI',system-ui,sans-serif;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
     background:var(--bg);
-    color:var(--text);
+    color:var(--accent);
+    line-height:1.65;
 }
 
 /* ===== PORTADA ===== */
 .hero{
-    height:280px;
-    background:
-        linear-gradient(rgba(2,6,23,.75),rgba(2,6,23,.9)),
-        url('foto_portada.jpeg') center/cover no-repeat;
+    height:240px;
+    background:url("foto_portada.jpeg") center/cover no-repeat;
     border-bottom:1px solid var(--border);
 }
 
 /* ===== PERFIL ===== */
 .profile-container{
     text-align:center;
-    margin-top:-90px;
+    margin-top:-70px;
 }
 
 .profile-pic{
-    width:170px;
-    height:170px;
+    width:150px;
+    height:150px;
     border-radius:50%;
-    border:6px solid var(--bg);
     object-fit:cover;
-    box-shadow:0 15px 35px rgba(0,0,0,.6),
-               0 0 0 4px rgba(56,189,248,.25);
+    border:4px solid var(--bg);
 }
 
 /* ===== CONTENEDOR ===== */
 .container{
-    max-width:1000px;
+    max-width:920px;
     margin:auto;
     padding:2rem 1.5rem 4rem;
 }
@@ -63,13 +59,13 @@ header{
 }
 
 h1{
-    margin:1rem 0 .2rem;
-    font-size:2.6rem;
+    font-size:2.4rem;
+    margin:.8rem 0 .2rem;
+    font-weight:600;
 }
 
 .subtitle{
-    color:var(--accent);
-    font-weight:600;
+    color:var(--muted);
     margin-bottom:1.5rem;
 }
 
@@ -78,123 +74,97 @@ h1{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:14px;
+    gap:16px;
 }
 
 .contact-link{
-    text-decoration:none;
     color:var(--muted);
-    background:var(--panel);
-    border:1px solid var(--border);
-    padding:.45rem .9rem;
-    border-radius:999px;
+    text-decoration:none;
     font-size:.9rem;
-    transition:.25s;
 }
 
 .contact-link:hover{
-    color:var(--accent);
-    border-color:var(--accent);
+    text-decoration:underline;
 }
 
 /* ===== ABOUT ===== */
 .about-section{
-    background:linear-gradient(180deg,#0f172a,#020617);
-    border:1px solid var(--border);
-    border-radius:26px;
-    padding:2.5rem;
-    margin:3.5rem 0;
+    margin:4rem 0;
 }
 
 .about-section h2{
-    margin-top:0;
+    font-size:1.3rem;
+    margin-bottom:1rem;
 }
 
 .about-text{
+    max-width:720px;
+    margin:auto;
     color:var(--muted);
-    font-size:1.05rem;
 }
 
 .tech-stack{
     display:flex;
+    justify-content:center;
     flex-wrap:wrap;
-    gap:10px;
-    margin-top:1.5rem;
-}
-
-.tech-badge{
-    background:rgba(56,189,248,.12);
-    color:var(--accent);
-    padding:.4rem .75rem;
-    border-radius:8px;
+    gap:14px;
+    margin-top:1.8rem;
     font-size:.85rem;
-    font-weight:600;
+    color:var(--muted);
 }
 
 /* ===== PROYECTOS ===== */
 .projects-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-    gap:2rem;
+    gap:3rem;
 }
 
 .project-card{
-    background:var(--panel);
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:1.6rem;
     display:flex;
     flex-direction:column;
-    transition:.3s;
-}
-
-.project-card:hover{
-    transform:translateY(-6px);
-    border-color:var(--accent);
 }
 
 .project-image{
     width:100%;
-    height:210px;
+    height:200px;
     object-fit:cover;
-    border-radius:14px;
-    margin-bottom:1.3rem;
+    margin-bottom:1rem;
 }
 
 .project-card h3{
-    margin:.3rem 0;
+    font-size:1.1rem;
+    margin:.2rem 0;
+    font-weight:600;
 }
 
 .project-card p{
-    color:var(--muted);
     font-size:.95rem;
-    flex-grow:1;
+    color:var(--muted);
 }
 
 .tools-list{
     font-size:.8rem;
-    font-weight:600;
-    color:var(--accent);
-    margin:1rem 0;
+    color:var(--muted);
+    margin:.6rem 0 1rem;
 }
 
 .btn{
     text-decoration:none;
-    text-align:center;
-    padding:.8rem;
-    background:var(--accent);
-    color:var(--bg);
-    border-radius:12px;
-    font-weight:700;
+    font-size:.9rem;
+    color:var(--accent);
+    width:fit-content;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:2px;
 }
 
 .btn:hover{
-    background:#7dd3fc;
+    opacity:.7;
 }
 
 @media(max-width:600px){
-    .hero{height:200px}
-    h1{font-size:2.2rem}
+    .hero{height:180px}
+    h1{font-size:2rem}
 }
 </style>
 </head>
@@ -204,7 +174,7 @@ h1{
 <div class="hero"></div>
 
 <div class="profile-container">
-    <img src="foto_perfil.jpeg" class="profile-pic">
+    <img src="foto_perfil.jpeg" alt="Roman López" class="profile-pic">
 </div>
 
 <div class="container">
@@ -214,9 +184,9 @@ h1{
     <p class="subtitle">Data Analyst / BI Specialist</p>
 
     <div class="contact-info">
-        <a class="contact-link" href="mailto:romloc1706@hotmail.com">📧 Email</a>
-        <a class="contact-link" href="https://wa.me/523323434337" target="_blank">📱 WhatsApp</a>
-        <a class="contact-link" href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank">🔗 LinkedIn</a>
+        <a class="contact-link" href="mailto:romloc1706@hotmail.com">Email</a>
+        <a class="contact-link" href="https://wa.me/523323434337" target="_blank">WhatsApp</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank">LinkedIn</a>
     </div>
 </header>
 
@@ -228,17 +198,18 @@ h1{
     </p>
 
     <div class="tech-stack">
-        <span class="tech-badge">Python</span>
-        <span class="tech-badge">SQL</span>
-        <span class="tech-badge">Power BI</span>
-        <span class="tech-badge">Excel Avanzado</span>
-        <span class="tech-badge">Power Automate</span>
+        <span>Python</span>
+        <span>SQL</span>
+        <span>Power BI</span>
+        <span>Excel Avanzado</span>
+        <span>Power Automate</span>
     </div>
 </section>
 
-<h2 style="margin-bottom:2rem;">Proyectos Recientes</h2>
+<h2 style="font-size:1.3rem;margin-bottom:2rem;">Proyectos</h2>
 
 <div class="projects-grid">
+
         <div class="project-card">
             <img src="foto_incremento.png" alt="Análisis Incremento de Crédito" class="project-image">
             <h3>Análisis Automatizado de Incremento de Crédito</h3>
