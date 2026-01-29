@@ -148,6 +148,14 @@
             flex-direction: column;
         }
 
+        .project-card p {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            text-align: justify;
+            text-justify: inter-word;
+            line-height: 1.5;
+        }
+
         .project-card:hover {
             transform: translateY(-5px);
             border-color: #38bdf8;
@@ -190,6 +198,13 @@
             .projects-grid { grid-template-columns: 1fr; }
             .hero { height: 180px; }
         }
+
+        @media (max-width: 600px) {
+            .project-card p {
+                text-align: left;
+            }
+        }
+
     </style>
 </head>
 <body>
