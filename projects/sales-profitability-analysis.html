@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análisis de Ventas y Ganancias | Roman López</title>
+<title>Sales & Profit Analysis | Roman López</title>
 
 <style>
 body {
@@ -25,7 +25,7 @@ body {
     border-radius: 12px;
 }
 
-/* --- CARRUSEL --- */
+/* --- CAROUSEL --- */
 .carousel {
     position: relative;
     width: 100%;
@@ -45,7 +45,7 @@ body {
     display: block;
 }
 
-/* Botones */
+/* Buttons */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -68,7 +68,7 @@ body {
 .carousel-btn.prev { left: 12px; }
 .carousel-btn.next { right: 12px; }
 
-/* BOTÓN VOLVER */
+/* BACK BUTTON */
 .back {
     position: fixed;
     bottom: 20px;
@@ -97,47 +97,47 @@ body {
 
 <body>
 
-<a class="back" href="index.html">← Volver al portafolio</a>
+<a class="back" href="index.html">← Back to portfolio</a>
 
 <div class="container">
 
-<h1>Análisis de Ventas y Ganancias</h1>
+<h1>Sales & Profit Analysis</h1>
 
 <div class="card">
 
-    <h2>Contexto</h2>
+    <h2>Business Context</h2>
     <p>
-        La empresa buscaba entender mejor su desempeño comercial a nivel regional
-        y por producto.
+        The company needed better visibility into its commercial performance
+        across regions and product categories.
     </p>
 
-    <h2>Problema</h2>
+    <h2>Problem</h2>
     <p>
-        No existía una visualización clara que permitiera identificar qué estados
-        generaban mayores ventas y ganancias.
+        There was no clear visualization to identify which regions generated
+        the highest sales and profitability.
     </p>
 
-    <h2>Solución</h2>
+    <h2>Solution</h2>
     <p>
-        Se desarrolló un dashboard en <strong>Power BI</strong> que analiza:
+        A dashboard was developed in <strong>Power BI</strong> to analyze:
     </p>
     <ul>
-        <li>Ventas totales</li>
-        <li>Ganancias por producto</li>
-        <li>Desempeño geográfico</li>
-        <li>Tendencias temporales</li>
+        <li>Total sales performance</li>
+        <li>Profitability by product</li>
+        <li>Geographical performance</li>
+        <li>Sales trends over time</li>
     </ul>
 
-    <h2>Impacto</h2>
+    <h2>Impact</h2>
     <p>
-        Permitió enfocar estrategias comerciales en las regiones más rentables
-        y detectar áreas de mejora.
+        The dashboard enabled the business to focus commercial strategies on
+        the most profitable regions and identify opportunities for improvement.
     </p>
 
-    <!-- CARRUSEL -->
+    <!-- CAROUSEL -->
     <div class="carousel">
         <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-        <img id="carouselImage" src="foto_tienda1.png" alt="Dashboard de ventas">
+        <img id="carouselImage" src="foto_tienda1.png" alt="Sales dashboard">
         <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
     </div>
 
