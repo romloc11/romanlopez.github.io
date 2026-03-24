@@ -6,79 +6,90 @@
 <title>SQL Data Warehouse Project | Roman López</title>
 
 <style>
+
 body{
-    margin:0;
-    font-family:'Segoe UI',Tahoma,sans-serif;
-    background:linear-gradient(180deg,#020617,#0f172a);
-    color:#e5e7eb;
+margin:0;
+font-family:'Segoe UI',Tahoma,sans-serif;
+background:linear-gradient(180deg,#020617,#0f172a);
+color:#e5e7eb;
 }
 
 .container{
-    max-width:1000px;
-    margin:auto;
-    padding:2rem;
+max-width:1000px;
+margin:auto;
+padding:2rem;
 }
 
 .card{
-    background:#111827;
-    padding:2rem;
-    border-radius:12px;
-    margin-bottom:2rem;
+background:#111827;
+padding:2rem;
+border-radius:12px;
+margin-bottom:2rem;
 }
 
-h1,h2{
-    margin-top:0;
+h1,h2,h3{
+margin-top:0;
 }
 
 .tech{
-    margin-top:1rem;
-    font-size:.9rem;
-    color:#9ca3af;
+margin-top:1rem;
+font-size:.9rem;
+color:#9ca3af;
 }
 
-/* BOTONES */
+/* BUTTONS */
 
 .buttons{
-    display:flex;
-    gap:12px;
-    margin-top:1.5rem;
+display:flex;
+gap:12px;
+margin-top:1.5rem;
 }
 
 .btn{
-    text-decoration:none;
-    padding:.6rem 1rem;
-    border-radius:8px;
-    font-size:.9rem;
-    border:1px solid #38bdf8;
-    color:#38bdf8;
-    transition:.3s;
+text-decoration:none;
+padding:.6rem 1rem;
+border-radius:8px;
+font-size:.9rem;
+border:1px solid #38bdf8;
+color:#38bdf8;
+transition:.3s;
 }
 
 .btn:hover{
-    background:#38bdf8;
-    color:#020617;
+background:#38bdf8;
+color:#020617;
 }
 
-/* IMAGENES */
+/* IMAGES */
 
 .project-image{
-    width:100%;
-    border-radius:12px;
-    border:1px solid #1e293b;
-    margin-top:1rem;
-    object-fit:contain;
+width:100%;
+border-radius:12px;
+border:1px solid #1e293b;
+margin-top:1rem;
+object-fit:contain;
 }
 
 .back{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    background:#111827;
-    color:#38bdf8;
-    padding:.6rem 1rem;
-    border-radius:8px;
-    text-decoration:none;
+position:fixed;
+bottom:20px;
+left:20px;
+background:#111827;
+color:#38bdf8;
+padding:.6rem 1rem;
+border-radius:8px;
+text-decoration:none;
 }
+
+ul{
+color:#9ca3af;
+}
+
+p{
+color:#9ca3af;
+line-height:1.6;
+}
+
 </style>
 </head>
 
@@ -88,63 +99,251 @@ h1,h2{
 
 <div class="container">
 
-<h1>SQL Data Warehouse Project</h1>
+<h1>SQL Data Warehouse for Accounts Receivable Analytics</h1>
 
-<!-- PROBLEMATIC -->
+
+<!-- BUSINESS CONTEXT -->
 
 <div class="card">
-<h2>Problematic</h2>
+
+<h2>Business Context</h2>
+
 <p>
-Before this project, there was no centralized data repository. Analysts had to extract information manually from multiple systems, clean it, merge it, and then perform their analysis. This process was time-consuming and prevented automated reporting.
+The Accounts Receivable team frequently needs to analyze customer payment behavior, 
+credit risk, and order processing metrics in order to support operational decisions.
+However, the required data was distributed across multiple operational systems and 
+transactional databases.
 </p>
+
+<p>
+As a result, analysts were forced to manually gather information from several sources 
+before performing any analysis.
+</p>
+
 </div>
 
-<!-- SOLUTION -->
+
+<!-- PROBLEM -->
 
 <div class="card">
-<h2>Solution</h2>
+
+<h2>Problem</h2>
+
 <p>
-I proposed creating a Data Warehouse (DWH) with the necessary information, centralized and cleaned, to enable efficient analysis for the Accounts Receivable area. 
+Before this project, there was no centralized data repository designed for analytics. 
+Every time analysts needed to perform an analysis, they had to repeat the same process:
 </p>
+
 <ul>
-    <li>Designed the architecture with Bronze, Silver, and Gold layers.</li>
-    <li>Implemented a <strong>Star Schema</strong> for the dimensional model.</li>
-    <li>Documented all tables and processes in the DWH.</li>
+<li>Access multiple operational systems.</li>
+<li>Export raw data into several Excel files.</li>
+<li>Clean and standardize the data manually.</li>
+<li>Merge datasets using spreadsheet formulas.</li>
+<li>Build temporary reports for decision making.</li>
 </ul>
 
-<h3>Architecture</h3>
+<p>
+This workflow created several challenges:
+</p>
+
+<ul>
+<li>Significant time spent on data preparation instead of analysis.</li>
+<li>High risk of manual errors.</li>
+<li>Difficulty maintaining consistent metrics.</li>
+<li>Inability to generate automated reports.</li>
+<li>Limited scalability for future analytics initiatives.</li>
+</ul>
+
+</div>
+
+
+<!-- OBJECTIVE -->
+
+<div class="card">
+
+<h2>Project Objectives</h2>
+
+<p>
+The goal of this project was to design and implement a centralized Data Warehouse
+that consolidates data from operational systems into a structured architecture
+optimized for analytical workloads.
+</p>
+
+<ul>
+<li>Create a reliable and scalable data architecture.</li>
+<li>Centralize business data used by analysts.</li>
+<li>Standardize transformations and business logic.</li>
+<li>Enable direct SQL analysis.</li>
+<li>Support automated reporting with Power BI.</li>
+<li>Provide a foundation for future advanced analytics.</li>
+</ul>
+
+</div>
+
+
+<!-- ARCHITECTURE -->
+
+<div class="card">
+
+<h2>Data Warehouse Architecture</h2>
+
+<p>
+The Data Warehouse was designed following the <strong>Medallion Architecture</strong>,
+which organizes data processing into three logical layers: Bronze, Silver, and Gold.
+This architecture improves data reliability, maintainability, and scalability.
+</p>
+
+<ul>
+
+<li>
+<strong>Bronze Layer</strong> – Stores raw data extracted from operational systems.
+Data remains as close as possible to the source format to preserve traceability.
+</li>
+
+<li>
+<strong>Silver Layer</strong> – Applies data cleansing, normalization, and business
+rules. In this layer, inconsistencies are resolved and data structures are
+standardized for analytical usage.
+</li>
+
+<li>
+<strong>Gold Layer</strong> – Contains curated datasets modeled specifically for
+analytics and reporting tools such as Power BI.
+</li>
+
+</ul>
+
 <img class="project-image" src="../images/projects/dwh/arch_dwh.drawio.png" alt="Data Warehouse Architecture">
 
-<h3>Star Schema</h3>
+</div>
+
+
+<!-- DATA MODEL -->
+
+<div class="card">
+
+<h2>Dimensional Data Model (Star Schema)</h2>
+
+<p>
+The analytical layer of the Data Warehouse was implemented using a
+<strong>Star Schema</strong>, a widely used dimensional modeling approach that
+optimizes query performance and simplifies data exploration.
+</p>
+
+<p>
+In this model:
+</p>
+
+<ul>
+
+<li><strong>Fact tables</strong> store measurable business events such as transactions,
+orders, or financial values.</li>
+
+<li><strong>Dimension tables</strong> provide contextual attributes that describe
+those events, such as customers, dates, or products.</li>
+
+</ul>
+
+<p>
+This structure allows analysts to perform complex queries efficiently and enables
+seamless integration with Business Intelligence tools.
+</p>
+
 <img class="project-image" src="../images/projects/dwh/star_schema.drawio.png" alt="Star Schema Design">
 
-<div class="tech">
-SQL Server · Data Warehousing · ETL · Dimensional Modeling · Star Schema
 </div>
 
-<div class="buttons">
-<a class="btn" target="_blank" href="https://github.com/romloc11/DWA-Accounts-Receivable">
-View on GitHub
-</a>
+
+<!-- ETL -->
+
+<div class="card">
+
+<h2>ETL Process</h2>
+
+<p>
+Data ingestion and transformation processes were implemented using SQL-based ETL
+pipelines.
+</p>
+
+<ul>
+
+<li>Extraction of transactional data from source systems.</li>
+
+<li>Incremental loading of raw data into the Bronze layer.</li>
+
+<li>Data cleansing and transformation processes applied in the Silver layer.</li>
+
+<li>Construction of analytical fact and dimension tables in the Gold layer.</li>
+
+<li>Scheduling of automated refresh processes.</li>
+
+</ul>
+
+<p>
+This ETL structure ensures that data remains consistent, reproducible,
+and ready for analytical workloads.
+</p>
+
 </div>
-</div>
+
 
 <!-- BENEFITS -->
 
 <div class="card">
-<h2>Benefits</h2>
+
+<h2>Benefits and Impact</h2>
+
+<p>
+The implementation of the Data Warehouse significantly improved the
+organization’s analytical capabilities.
+</p>
+
 <ul>
-    <li>Analysts can query the DWH directly, saving time and avoiding manual work.</li>
-    <li>Golden Layer can be connected to Power BI following the Star Schema.</li>
-    <li>All tables and data are documented.</li>
-    <li>Data is clean and consistent across the organization.</li>
-    <li>The DWH updates automatically, enabling automated reporting.</li>
+
+<li>Analysts can query curated datasets directly using SQL.</li>
+
+<li>Data preparation processes are centralized and reusable.</li>
+
+<li>Power BI dashboards can connect directly to the Gold layer.</li>
+
+<li>Reporting processes can be automated.</li>
+
+<li>Data quality and consistency improved across analyses.</li>
+
+<li>The architecture provides a foundation for future machine learning models.</li>
+
 </ul>
+
+</div>
+
+
+<!-- TECH -->
+
+<div class="card">
+
+<h2>Technology Stack</h2>
+
+<div class="tech">
+
+SQL Server · Data Warehousing · ETL · Dimensional Modeling · Star Schema · Power BI
+
+</div>
+
+<div class="buttons">
+
+<a class="btn" target="_blank"
+href="https://github.com/romloc11/DWA-Accounts-Receivable">
+
+View on GitHub
+
+</a>
+
 </div>
 
 </div>
+
+
+</div>
+
 </body>
 </html>
-</body>
-</html>
-```
