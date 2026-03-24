@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,173 +8,318 @@
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(180deg, #020617, #0f172a);
-    color: #e5e7eb;
+margin:0;
+font-family:'Segoe UI',Tahoma,sans-serif;
+background:linear-gradient(180deg,#020617,#0f172a);
+color:#e5e7eb;
 }
 
 .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 2rem;
+max-width:1000px;
+margin:auto;
+padding:2rem;
 }
 
 .card {
-    background: #111827;
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
+background:#111827;
+padding:2rem;
+border-radius:12px;
+margin-bottom:2rem;
 }
 
-h1,h2 {
-    margin-top: 0;
+h1,h2{
+margin-top:0;
+}
+
+p{
+color:#9ca3af;
+line-height:1.6;
+}
+
+ul{
+color:#9ca3af;
+}
+
+/* --- TECH STACK --- */
+
+.tech{
+margin-top:1rem;
+font-size:.9rem;
+color:#9ca3af;
 }
 
 /* --- CAROUSEL --- */
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    margin: 2rem auto 0;
-    border-radius: 12px;
-    border: 1px solid #1e293b;
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-    background: #020617;
+
+.carousel{
+position:relative;
+width:100%;
+max-width:900px;
+margin:2rem auto 0;
+border-radius:12px;
+border:1px solid #1e293b;
+overflow:hidden;
+aspect-ratio:16/9;
+background:#020617;
 }
 
-.carousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+.carousel img{
+width:100%;
+height:100%;
+object-fit:contain;
+display:block;
 }
 
 /* Buttons */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(2, 6, 23, 0.8);
-    border: 1px solid #38bdf8;
-    color: #38bdf8;
-    font-size: 2rem;
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: 0.3s;
+
+.carousel-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(2,6,23,.8);
+border:1px solid #38bdf8;
+color:#38bdf8;
+font-size:2rem;
+padding:.3rem .8rem;
+cursor:pointer;
+border-radius:10px;
+transition:.3s;
 }
 
-.carousel-btn:hover {
-    background: #38bdf8;
-    color: #020617;
+.carousel-btn:hover{
+background:#38bdf8;
+color:#020617;
 }
 
-.carousel-btn.prev { left: 12px; }
-.carousel-btn.next { right: 12px; }
+.carousel-btn.prev{left:12px;}
+.carousel-btn.next{right:12px;}
 
 /* BACK BUTTON */
-.back {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #111827;
-    color: #38bdf8;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+
+.back{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#111827;
+color:#38bdf8;
+padding:.6rem 1rem;
+border-radius:8px;
+text-decoration:none;
+font-size:.9rem;
+box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+.note{
+margin-top:1.5rem;
+font-size:.8rem;
+color:#9ca3af;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-    .container {
-        padding: 1.2rem;
-    }
 
-    .carousel-btn {
-        font-size: 1.6rem;
-    }
+@media (max-width:600px){
+
+.container{
+padding:1.2rem;
 }
+
+.carousel-btn{
+font-size:1.6rem;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- BOTÓN BACK -->
 <a class="back" href="../index.html">← Back to portfolio</a>
 
 <div class="container">
 
-<h1>Sales & Profit Analysis</h1>
+<h1>Sales & Profit Analysis Dashboard</h1>
 
 <div class="card">
 
-    <h2>Business Context</h2>
-    <p>
-        The company needed better visibility into its commercial performance
-        across regions and product categories.
-    </p>
+<h2>Business Context</h2>
 
-    <h2>Problem</h2>
-    <p>
-        There was no clear visualization to identify which regions generated
-        the highest sales and profitability.
-    </p>
+<p>
+Understanding sales performance and profitability is essential for
+organizations to make strategic decisions about pricing, product
+strategy, and regional market focus.
+</p>
 
-    <h2>Solution</h2>
-    <p>
-        A dashboard was developed in <strong>Power BI</strong> to analyze:
-    </p>
-    <ul>
-        <li>Total sales performance</li>
-        <li>Profitability by product</li>
-        <li>Geographical performance</li>
-        <li>Sales trends over time</li>
-    </ul>
+<p>
+The objective of this analysis was to create a centralized
+analytical dashboard that allows business stakeholders to evaluate
+commercial performance through key metrics and visual insights.
+</p>
 
-    <h2>Impact</h2>
-    <p>
-        The dashboard enabled the business to focus commercial strategies on
-        the most profitable regions and identify opportunities for improvement.
-    </p>
 
-    <!-- CAROUSEL -->
-    <div class="carousel">
-        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-        <img id="carouselImage" src="../images/projects/sales/analisis_tienda_1.png" alt="Sales dashboard">
-        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
-    </div>
+<h2>Problem</h2>
+
+<p>
+Before the dashboard was developed, decision makers lacked a
+clear and consolidated view of sales and profitability across
+regions, products, and time periods.
+</p>
+
+<p>
+Data existed in multiple tables but required manual analysis
+to answer questions such as:
+</p>
+
+<ul>
+
+<li>Which regions generate the highest revenue?</li>
+
+<li>Which products contribute the most to overall profitability?</li>
+
+<li>How do sales evolve over time?</li>
+
+<li>Where are the most profitable market opportunities?</li>
+
+</ul>
+
+
+<h2>Data Preparation</h2>
+
+<p>
+Data was imported and transformed using <strong>Power BI Power Query</strong>.
+Several data preparation steps were implemented to ensure reliable analysis:
+</p>
+
+<ul>
+
+<li>Cleaning and standardizing product and regional information</li>
+
+<li>Handling missing values and inconsistent records</li>
+
+<li>Creating calculated measures for financial metrics</li>
+
+<li>Structuring the dataset for analytical modeling</li>
+
+</ul>
+
+
+<h2>Key Performance Indicators (KPIs)</h2>
+
+<p>
+The dashboard focuses on several business KPIs used to evaluate
+commercial performance:
+</p>
+
+<ul>
+
+<li>Total Sales Revenue</li>
+
+<li>Total Profit</li>
+
+<li>Profit Margin</li>
+
+<li>Sales Growth Over Time</li>
+
+<li>Regional Sales Distribution</li>
+
+<li>Product Category Performance</li>
+
+</ul>
+
+
+<h2>Dashboard Design</h2>
+
+<p>
+The dashboard was designed using <strong>Power BI</strong> to provide
+an intuitive interface for exploring sales and profitability data.
+Visual components were structured to support both high-level
+monitoring and detailed exploration.
+</p>
+
+<ul>
+
+<li>Sales trends over time</li>
+
+<li>Regional performance analysis</li>
+
+<li>Product-level profitability insights</li>
+
+<li>Interactive filtering for deeper analysis</li>
+
+</ul>
+
+
+<h2>Impact</h2>
+
+<p>
+The dashboard enables stakeholders to quickly identify high-performing
+products and regions while detecting opportunities for optimization.
+</p>
+
+<ul>
+
+<li>Improved visibility of sales and profitability KPIs</li>
+
+<li>Faster identification of top-performing regions</li>
+
+<li>Better understanding of product profitability</li>
+
+<li>Data-driven support for commercial strategy</li>
+
+</ul>
+
+
+<div class="tech">
+Power BI · Data Analysis · KPI Monitoring · Data Visualization · Business Intelligence
+</div>
+
+
+<div class="carousel">
+
+<button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+
+<img id="carouselImage"
+src="../images/projects/sales/analisis_tienda_1.png"
+alt="Sales Dashboard">
+
+<button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+
+</div>
+
+
+<p class="note">
+Note: Data used in this project was modified and anonymized for demonstration purposes.
+</p>
 
 </div>
 </div>
+
 
 <script>
-// Rutas completas de las imágenes desde /projects/sales.html
-const images = [
-    "../images/projects/sales/analisis_tienda_1.png",
-    "../images/projects/sales/analisis_tienda_2.png",
-    "../images/projects/sales/analisis_tienda_3.png"
+
+const images=[
+"../images/projects/sales/analisis_tienda_1.png",
+"../images/projects/sales/analisis_tienda_2.png",
+"../images/projects/sales/analisis_tienda_3.png"
 ];
 
-let currentIndex = 0;
-const carouselImage = document.getElementById("carouselImage");
+let currentIndex=0;
 
-function showSlide(index) {
-    carouselImage.src = images[index];
+const carouselImage=document.getElementById("carouselImage");
+
+function showSlide(index){
+carouselImage.src=images[index];
 }
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showSlide(currentIndex);
+function nextSlide(){
+currentIndex=(currentIndex+1)%images.length;
+showSlide(currentIndex);
 }
 
-function prevSlide() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showSlide(currentIndex);
+function prevSlide(){
+currentIndex=(currentIndex-1+images.length)%images.length;
+showSlide(currentIndex);
 }
+
 </script>
 
 </body>
