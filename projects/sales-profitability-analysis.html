@@ -102,7 +102,8 @@ h1,h2 {
 
 <body>
 
-<a class="back" href="index.html">← Back to portfolio</a>
+<!-- BOTÓN BACK -->
+<a class="back" href="../index.html">← Back to portfolio</a>
 
 <div class="container">
 
@@ -142,20 +143,19 @@ h1,h2 {
     <!-- CAROUSEL -->
     <div class="carousel">
         <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-        <img id="carouselImage" src="images/projects/sales/analisis_tienda_1.png" alt="Sales dashboard">
+        <img id="carouselImage" src="../images/projects/sales/analisis_tienda_1.png" alt="Sales dashboard">
         <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
     </div>
 
 </div>
-
 </div>
 
 <script>
-// Rutas completas de las imágenes (asegúrate que existan en tu proyecto)
+// Rutas completas de las imágenes desde /projects/sales.html
 const images = [
-    "images/projects/sales/analisis_tienda_1.png",
-    "images/projects/sales/analisis_tienda_2.png",
-    "images/projects/sales/analisis_tienda_3.png"
+    "../images/projects/sales/analisis_tienda_1.png",
+    "../images/projects/sales/analisis_tienda_2.png",
+    "../images/projects/sales/analisis_tienda_3.png"
 ];
 
 let currentIndex = 0;
