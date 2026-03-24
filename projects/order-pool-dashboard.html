@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,17 +187,52 @@ prioritize actions and detect operational bottlenecks.
 <h2>Data Solution</h2>
 
 <p>
-To solve this problem, a monitoring dashboard was developed using
-<strong>Power BI</strong>. The solution integrates operational data
-from <strong>SQL Server</strong> and transforms it into a structured
-dataset that can be visualized and monitored daily.
+To address this challenge, an operational monitoring dashboard was
+developed using <strong>Power BI</strong>. The solution integrates
+operational data from <strong>SQL Server</strong> and transforms it
+into structured datasets designed to track key operational
+<strong>KPIs</strong> related to the credit hold process.
 </p>
 
 <p>
-A SQL query extracts the relevant transactional data and stores it
-in a table that maintains historical records of the orders in the
-credit pool. This enables both real-time monitoring and historical
-analysis of operational performance.
+A SQL-based data pipeline extracts relevant transactional information
+and stores it in a monitoring table that tracks both current and
+historical behavior of orders in the credit pool.
+</p>
+
+<p>
+The entire process is automated using a
+<strong>SQL Server Agent Job</strong> that updates the dataset daily.
+Power BI connects to this dataset and refreshes automatically through
+an <strong>On-Premises Data Gateway</strong>, ensuring that the
+dashboard always reflects the most recent operational data.
+</p>
+
+
+<h2>Data Pipeline Architecture</h2>
+
+<p>
+The data pipeline follows a simple but reliable architecture that
+ensures data is automatically updated and available for analysis.
+</p>
+
+<ul>
+
+<li>Operational data is extracted from SQL Server.</li>
+
+<li>A scheduled <strong>SQL Server Agent Job</strong> runs daily to refresh the monitoring dataset.</li>
+
+<li>The refreshed dataset stores both current and historical order data.</li>
+
+<li><strong>Power BI</strong> connects to the dataset.</li>
+
+<li>An <strong>On-Premises Data Gateway</strong> enables automated refresh of the dashboard.</li>
+
+</ul>
+
+<p>
+This architecture ensures that business users always have access to
+up-to-date operational KPIs without manual intervention.
 </p>
 
 
@@ -206,8 +240,9 @@ analysis of operational performance.
 
 <p>
 The dashboard was designed to provide a clear operational overview
-of the credit hold process. It allows teams to quickly identify
-issues and prioritize the most critical orders.
+of orders held in the credit pool and to track key performance
+indicators (<strong>KPIs</strong>) that help operations and finance
+teams manage the validation process.
 </p>
 
 <ul>
@@ -218,9 +253,11 @@ issues and prioritize the most critical orders.
 
 <li>Average time orders remain in the pool</li>
 
-<li>Distribution of orders by operational status</li>
+<li>Operational KPIs related to order processing performance</li>
 
-<li>Identification of potential operational bottlenecks</li>
+<li>Distribution of orders by validation status</li>
+
+<li>Identification of operational bottlenecks</li>
 
 </ul>
 
@@ -228,14 +265,14 @@ issues and prioritize the most critical orders.
 <h2>Impact</h2>
 
 <p>
-The dashboard provides a centralized monitoring tool for the
-operations and finance teams. By consolidating key operational
-metrics into a single interface, the solution enables faster
-decision making and improves visibility across the order
-validation process.
+The dashboard centralizes operational monitoring and provides
+real-time visibility into the credit hold process through automated
+data refresh and KPI tracking.
 </p>
 
 <ul>
+
+<li>Centralized monitoring of operational KPIs</li>
 
 <li>Improved visibility of orders awaiting validation</li>
 
@@ -243,13 +280,15 @@ validation process.
 
 <li>Reduced manual analysis effort</li>
 
+<li>Automated reporting enabled through SQL Server Jobs and Power BI Gateway</li>
+
 <li>Better prioritization of critical orders</li>
 
 </ul>
 
 
 <div class="tech">
-SQL Server · Power BI · Data Analysis · Business Intelligence
+SQL Server · Power BI · Data Analysis · KPI Monitoring · SQL Server Agent · Data Automation
 </div>
 
 
