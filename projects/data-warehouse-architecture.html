@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +23,10 @@ body{
     background:#111827;
     padding:2rem;
     border-radius:12px;
+    margin-bottom:2rem;
 }
 
-h1{
+h1,h2{
     margin-top:0;
 }
 
@@ -59,43 +59,15 @@ h1{
     color:#020617;
 }
 
-/* CARRUSEL */
+/* IMAGENES */
 
-.carousel{
-    position:relative;
+.project-image{
     width:100%;
-    max-width:900px;
-    margin:2rem auto 0;
     border-radius:12px;
     border:1px solid #1e293b;
-    overflow:hidden;
-    aspect-ratio:16/9;
-    background:#020617;
-}
-
-.carousel img{
-    width:100%;
-    height:100%;
+    margin-top:1rem;
     object-fit:contain;
 }
-
-/* BOTONES CARRUSEL */
-
-.carousel-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(2,6,23,.8);
-    border:1px solid #38bdf8;
-    color:#38bdf8;
-    font-size:2rem;
-    padding:.3rem .8rem;
-    cursor:pointer;
-    border-radius:10px;
-}
-
-.carousel-btn.prev{left:10px;}
-.carousel-btn.next{right:10px;}
 
 .back{
     position:fixed;
@@ -118,91 +90,61 @@ h1{
 
 <h1>SQL Data Warehouse Project</h1>
 
+<!-- PROBLEMATIC -->
+
 <div class="card">
-
-<h2>Project Overview</h2>
+<h2>Problematic</h2>
 <p>
-This project consists of the design and implementation of a modern
-Data Warehouse architecture using SQL Server. The objective was to
-structure operational data to enable efficient analytical queries
-and support business intelligence reporting.
+Before this project, there was no centralized data repository. Analysts had to extract information manually from multiple systems, clean it, merge it, and then perform their analysis. This process was time-consuming and prevented automated reporting.
 </p>
+</div>
 
-<h2>Architecture</h2>
+<!-- SOLUTION -->
+
+<div class="card">
+<h2>Solution</h2>
 <p>
-The solution follows a multi-layer architecture commonly used in
-modern data platforms:
+I proposed creating a Data Warehouse (DWH) with the necessary information, centralized and cleaned, to enable efficient analysis for the Accounts Receivable area. 
 </p>
-
 <ul>
-<li><strong>Bronze Layer:</strong> Raw data ingestion from operational systems.</li>
-<li><strong>Silver Layer:</strong> Data cleansing, normalization and preparation.</li>
-<li><strong>Gold Layer:</strong> Business-ready data models optimized for analytics.</li>
+    <li>Designed the architecture with Bronze, Silver, and Gold layers.</li>
+    <li>Implemented a <strong>Star Schema</strong> for the dimensional model.</li>
+    <li>Documented all tables and processes in the DWH.</li>
 </ul>
 
-<h2>Data Modeling</h2>
-<p>
-A dimensional model using a <strong>Star Schema</strong> was implemented to
-optimize analytical queries and facilitate reporting.
-Fact tables store transactional information while dimension tables
-provide descriptive business context.
-</p>
+<h3>Architecture</h3>
+<img class="project-image" src="../images/projects/dwh/architecture_dwh.drawio.png" alt="Data Warehouse Architecture">
+
+<h3>Star Schema</h3>
+<img class="project-image" src="../images/projects/dwh/star_schema.drawio.png" alt="Star Schema Design">
 
 <div class="tech">
 SQL Server · Data Warehousing · ETL · Dimensional Modeling · Star Schema
 </div>
 
 <div class="buttons">
-<a class="btn" target="_blank"
-href="https://github.com/romloc11/DWA-Accounts-Receivable">
-Ver en GitHub
+<a class="btn" target="_blank" href="https://github.com/romloc11/DWA-Accounts-Receivable">
+View on GitHub
 </a>
 </div>
+</div>
 
-<!-- CARRUSEL -->
+<!-- BENEFITS -->
 
-<div class="carousel">
-
-<button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-
-<img id="carouselImage"
-src="../images/projects/dwh/architecture_dwh.drawio.png"
-alt="Data Warehouse Architecture">
-
-<button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
-
+<div class="card">
+<h2>Benefits</h2>
+<ul>
+    <li>Analysts can query the DWH directly, saving time and avoiding manual work.</li>
+    <li>Golden Layer can be connected to Power BI following the Star Schema.</li>
+    <li>All tables and data are documented.</li>
+    <li>Data is clean and consistent across the organization.</li>
+    <li>The DWH updates automatically, enabling automated reporting.</li>
+</ul>
 </div>
 
 </div>
-</div>
-
-<script>
-
-const images=[
-"../images/projects/dwh/architecture_dwh.drawio.png",
-"../images/projects/dwh/star_schema.drawio.png"
-];
-
-let currentIndex=0;
-
-const carouselImage=document.getElementById("carouselImage");
-
-function showSlide(index){
-carouselImage.src=images[index];
-}
-
-function nextSlide(){
-currentIndex=(currentIndex+1)%images.length;
-showSlide(currentIndex);
-}
-
-function prevSlide(){
-currentIndex=(currentIndex-1+images.length)%images.length;
-showSlide(currentIndex);
-}
-
-</script>
-
+</body>
+</html>
 </body>
 </html>
 ```
