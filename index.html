@@ -1,336 +1,383 @@
+```html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Roman López | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Roman López | Data Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
 
-    <style>
-        
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #020617;
-            color: #e5e7eb;
-            line-height: 1.6;
-        }
+body{
+    margin:0;
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:#020617;
+    color:#e5e7eb;
+    line-height:1.6;
+}
 
-        /* --- SECCIÓN PORTADA & PERFIL --- */
-        .hero {
-            width: 100%;
-            height: 250px;
-            background: url('foto_portada.jpeg') no-repeat center center;
-            background-size: cover;
-            border-bottom: 1px solid #1e293b;
-        }
+/* COVER */
 
-        .profile-container {
-            text-align: center;
-            margin-top: -80px;
-            position: relative;
-        }
+.hero{
+    width:100%;
+    height:250px;
+    background:url('images/profile/foto_portada.jpeg') no-repeat center center;
+    background-size:cover;
+    border-bottom:1px solid #1e293b;
+}
 
-        .profile-pic {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 6px solid #020617;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+.profile-container{
+    text-align:center;
+    margin-top:-80px;
+    position:relative;
+}
 
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 2rem 1.5rem;
-        }
+.profile-pic{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    border:6px solid #020617;
+    object-fit:cover;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+/* MAIN CONTAINER */
 
-        h1 {
-            margin: 1rem 0 0.2rem;
-            font-size: 2.5rem;
-            letter-spacing: -1px;
-        }
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:2rem 1.5rem;
+}
 
-        .subtitle {
-            color: #38bdf8;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
+header{
+    text-align:center;
+    margin-bottom:3rem;
+}
 
-        /* --- CONTACTO --- */
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+h1{
+    margin:1rem 0 .2rem;
+    font-size:2.5rem;
+    letter-spacing:-1px;
+}
 
-        .contact-link {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 5px 12px;
-            border-radius: 20px;
-            background: #0f172a;
-            border: 1px solid #1e293b;
-            transition: 0.3s;
-        }
+.subtitle{
+    color:#38bdf8;
+    font-weight:600;
+    font-size:1.1rem;
+    margin-bottom:1.5rem;
+}
 
-        .contact-link:hover {
-            border-color: #38bdf8;
-            color: #38bdf8;
-        }
+/* CONTACT */
 
+.contact-info{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
 
-        
-        /* --- SOBRE MÍ --- */
-        .about-section {
-            background: #0f172a;
-            padding: 2.5rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-            border: 1px solid #1e293b;
-        }
-        
-        .about-section h2 {
-            margin-top: 0;
-            color: #f9fafb;
-            font-size: 1.3rem;      /* ligeramente más pequeño */
-        }
-        
-        .about-text {
-            font-size: 0.95rem;     /* texto un poco más pequeño */
-            color: #9ca3af;
-            text-align: justify;    /* justificado */
-        }
+.contact-link{
+    color:#9ca3af;
+    text-decoration:none;
+    font-size:.9rem;
+    padding:5px 12px;
+    border-radius:20px;
+    background:#0f172a;
+    border:1px solid #1e293b;
+    transition:.3s;
+}
 
+.contact-link:hover{
+    border-color:#38bdf8;
+    color:#38bdf8;
+}
 
-        
-        /* --- TECH STACK --- */
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 1.5rem;
-        }
+/* ABOUT */
 
-        .tech-badge {
-            background: rgba(56, 189, 248, 0.1);
-            color: #38bdf8;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
+.about-section{
+    background:#0f172a;
+    padding:2.5rem;
+    border-radius:24px;
+    margin:3rem 0;
+    border:1px solid #1e293b;
+}
 
-        /* --- PROYECTOS --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
+.about-section h2{
+    margin-top:0;
+    color:#f9fafb;
+    font-size:1.3rem;
+}
 
-        .project-card {
-            background: #0f172a;
-            border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid #1e293b;
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+.about-text{
+    font-size:.95rem;
+    color:#9ca3af;
+    text-align:justify;
+}
 
-        .project-card p {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            text-align: justify;
-            text-justify: inter-word;
-            line-height: 1.5;
-        }
+/* TECH STACK */
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:1.5rem;
+}
 
-        .project-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            object-fit: cover;
-        }
+.tech-badge{
+    background:rgba(56,189,248,.1);
+    color:#38bdf8;
+    padding:.4rem .8rem;
+    border-radius:6px;
+    font-size:.75rem;
+    font-weight:600;
+}
 
-        .tools-list {
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #38bdf8;
-            margin-top: auto;
-            margin-bottom: 1rem;
-            display: block;
-        }
+/* PROJECTS */
 
-        .btn {
-            display: block;
-            text-align: center;
-            padding: 0.8rem;
-            background: #38bdf8;
-            color: #020617;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-        }
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:2rem;
+}
 
-        .btn:hover {
-            background: #7dd3fc;
-        }
+.project-card{
+    background:#0f172a;
+    border-radius:20px;
+    padding:1.5rem;
+    border:1px solid #1e293b;
+    transition:transform .3s ease;
+    display:flex;
+    flex-direction:column;
+}
 
-        .project-card h3 {
-            font-size: 1.05rem;       /* ligeramente más pequeño */
-            color: #cbd5f5;           /* un poco más oscuro que blanco */
-            margin-bottom: 0.4rem;    /* reduce espacio con descripción */
-            font-weight: 600;
-            letter-spacing: 0.2px;
-        }
-        
+.project-card:hover{
+    transform:translateY(-5px);
+    border-color:#38bdf8;
+}
 
+.project-image{
+    width:100%;
+    height:200px;
+    border-radius:12px;
+    margin-bottom:1.5rem;
+    object-fit:cover;
+}
 
-        @media (max-width: 600px) {
-            .projects-grid { grid-template-columns: 1fr; }
-            .hero { height: 180px; }
-        }
+.project-card p{
+    font-size:.9rem;
+    color:#9ca3af;
+    text-align:justify;
+    line-height:1.5;
+}
 
-        @media (max-width: 600px) {
-            .project-card p {
-                text-align: justify;
-            }
-        }
+.project-card h3{
+    font-size:1.05rem;
+    color:#cbd5f5;
+    margin-bottom:.4rem;
+    font-weight:600;
+}
 
-    </style>
+.tools-list{
+    font-size:.8rem;
+    font-weight:bold;
+    color:#38bdf8;
+    margin-top:auto;
+    margin-bottom:1rem;
+}
+
+/* BUTTON */
+
+.btn{
+    display:block;
+    text-align:center;
+    padding:.8rem;
+    background:#38bdf8;
+    color:#020617;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#7dd3fc;
+}
+
+@media (max-width:600px){
+
+.projects-grid{
+grid-template-columns:1fr;
+}
+
+.hero{
+height:180px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="hero"></div>
 
 <div class="profile-container">
-    <img src="foto_perfil.jpeg" alt="Roman López" class="profile-pic">
+<img src="images/profile/foto_perfil.jpeg" alt="Roman López" class="profile-pic">
 </div>
 
 <div class="container">
-    <header>
-        <h1>Roman López</h1>
-        <p class="subtitle">Data Analyst / BI Specialist</p>
-        
-        <div class="contact-info">
-            <a href="mailto:romloc1706@hotmail.com" class="contact-link">📧 romloc1706@hotmail.com</a>
-            <a href="https://wa.me/523323434337" class="contact-link" target="_blank">📱 3323434337</a>
-            <a href="https://www.linkedin.com/in/roman-alejandro-lopez" class="contact-link" target="_blank">🔗 LinkedIn</a>
-        </div>
-    </header>
 
-    <section class="about-section">
-        <h2>Sobre mí</h2>
-        <p class="about-text">
-        Data Analyst con enfoque en Business Intelligence y toma de decisiones. Lidero el diseño de dashboards, 
-        KPIs y modelos de datos que conectan requerimientos de negocio con soluciones analíticas claras y escalables. 
-        Aporto visión estratégica, automatización de procesos y análisis avanzado para generar impacto real en la organización.
-        </p>
-        <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">SQL</span>
-            <span class="tech-badge">Power BI</span>
-            <span class="tech-badge">Tableau</span>
-            <span class="tech-badge">Excel Avanzado</span>
-            <span class="tech-badge">Power Automate</span>
-        </div>
-    </section>
+<header>
 
-    <h2 style="margin-bottom: 2rem;">Proyectos Recientes</h2>
-    
-    <div class="projects-grid">
+<h1>Roman López</h1>
+<p class="subtitle">Data Analyst · Business Intelligence</p>
+
+<div class="contact-info">
+
+<a href="mailto:romloc1706@hotmail.com" class="contact-link">📧 Email</a>
+
+<a href="https://wa.me/523323434337" class="contact-link" target="_blank">📱 WhatsApp</a>
+
+<a href="https://www.linkedin.com/in/roman-alejandro-lopez" class="contact-link" target="_blank">🔗 LinkedIn</a>
+
+</div>
+
+</header>
 
 
-        <div class="project-card">
-            <img src="foto_incremento.png" alt="Análisis Incremento de Crédito" class="project-image">
-            <h3>Análisis Automatizado de Incremento de Crédito</h3>
-            <p>Sistema en Python que evalúa el comportamiento histórico de clientes y
-            define decisiones de incremento, decremento o mantenimiento del límite
-            de crédito mediante un modelo de scoring.</p>
-            <span class="tools-list">Python · Pandas · Numpy · Openpyxl · Excel</span>
-            <a class="btn" href="analisis_incremento_credito.html">Ver Detalles</a>
-        </div>
+<section class="about-section">
+
+<h2>About Me</h2>
+
+<p class="about-text">
+Data Engineer focused on building scalable data architectures and enabling reliable analytics. 
+I design and implement data pipelines, data models, and warehouse architectures that transform raw data into structured, 
+high-quality datasets for analysis and business intelligence. My work emphasizes data integration, automation,
+and efficient data processing to support data-driven decision making across the organization.
+
+</p>
+
+<div class="tech-stack">
+
+<span class="tech-badge">Python</span>
+<span class="tech-badge">SQL</span>
+<span class="tech-badge">Power BI</span>
+<span class="tech-badge">Tableau</span>
+<span class="tech-badge">Advanced Excel</span>
+<span class="tech-badge">Power Automate</span>
+
+</div>
+
+</section>
 
 
-        <div class="project-card">
-            <img src="Plazo3.png" alt="Modelo de Riesgo de Plazo Comercial" class="project-image">
-            <h3>Modelo de Riesgo de Plazo Comercial</h3>
-            <p>Análisis automatizado de clientes comunes entre dos empresas unificadas para identificar
-            riesgos por desalineación de plazos de crédito, integrando ventas, comportamiento
-            de pago y reglas de negocio.</p>
-            <span class="tools-list">SQL · Python · Pandas · Power BI · DAX · Excel</span>
-            <a class="btn" href="proyecto_riesgo_plazo.html">Ver Detalles</a>
-        </div>
+<h2 style="margin-bottom:2rem;">Featured Projects</h2>
 
 
-        <div class="project-card">
-            <img src="foto_tienda1.png" alt="Ventas" class="project-image">
-            <h3>Análisis de Ventas y Ganancias</h3>
-            <p>Optimización de rentabilidad identificando productos clave y zonas estratégicas.</p>
-            <span class="tools-list">Power BI · Python</span>
-            <a class="btn" href="proyecto_ventas.html">Ver Detalles</a>
-        </div>
+<div class="projects-grid">
 
-        <div class="project-card">
-            <img src="python_project.png" alt="Validación" class="project-image">
-            <h3>Validación Masiva de Teléfonos</h3>
-            <p>Automatización de limpieza de bases de datos mediante integración con APIs.</p>
-            <span class="tools-list">Python · Pandas · API</span>
-            <a class="btn" href="proyecto_validacion_telefonos.html">Ver Detalles</a>
-        </div>
 
-        <div class="project-card">
-            <img src="foto_kpixira.png" alt="KPI Facturas" class="project-image">
-            <h3>KPI de Gestión de Facturas</h3>
-            <p>Control de efectividad en cobranza y recuperación de cartera.</p>
-            <span class="tools-list">Power BI · Excel</span>
-            <a class="btn" href="kpi_gestion.html">Ver Detalles</a>
-        </div>
-        
-       
-    </div>
+<!-- DWH PROJECT -->
+
+<div class="project-card">
+
+<img src="images/projects/dwh/architecture_dwh.drawio.png" class="project-image">
+
+<h3>SQL Data Warehouse Architecture</h3>
+
+<p>
+Design and implementation of a SQL Server Data Warehouse using a
+Medallion Architecture (Bronze, Silver, Gold) to structure SAP data
+for scalable analytics and reporting.
+</p>
+
+<span class="tools-list">SQL Server · Data Warehouse · ETL · Data Modeling</span>
+
+<a class="btn" href="projects/dwh-project.html">View Project</a>
+
 </div>
 
 
 
-<!-- Aviso de privacidad -->
-<p style="
-    text-align:center;
-    font-size:0.72rem;
-    color:#6b7280;
-    max-width:640px;
-    margin:2.5rem auto 0.5rem;
-">
-    Datos anonimizados y ajustados con fines demostrativos y de privacidad.
+<!-- ORDER POOL DASHBOARD -->
+
+<div class="project-card">
+
+<img src="images/projects/pool_dashboard/pool de pedidos.png" class="project-image">
+
+<h3>Order Pool Monitoring Dashboard</h3>
+
+<p>
+Operational Power BI dashboard designed to monitor orders placed in the
+credit hold pool, identify blocking reasons and improve order processing
+efficiency.
 </p>
 
-<!-- Footer -->
-<footer style="
-    text-align:center;
-    font-size:0.75rem;
-    color:#9ca3af;
-    padding:1rem 0 1.5rem;
+<span class="tools-list">Power BI · SQL Server · Business Intelligence</span>
+
+<a class="btn" href="projects/order-pool-dashboard.html">View Project</a>
+
+</div>
+
+
+
+<!-- SALES ANALYSIS -->
+
+<div class="project-card">
+
+<img src="images/projects/sales/analisis_tienda_1.png" class="project-image">
+
+<h3>Sales Profitability Analysis</h3>
+
+<p>
+Business analysis project focused on identifying the most profitable
+products, regions and opportunities to improve sales performance
+using Power BI dashboards.
+</p>
+
+<span class="tools-list">Power BI · Python · Data Analysis</span>
+
+<a class="btn" href="projects/sales-profitability-analysis.html">View Project</a>
+
+</div>
+
+
+
+</div>
+</div>
+
+
+
+<p style="
+text-align:center;
+font-size:.72rem;
+color:#6b7280;
+max-width:640px;
+margin:2.5rem auto .5rem;
 ">
-    Portafolio Roman Alejandro Lopez Ruvalcaba · © 2026
+
+Note: Data used in these projects has been anonymized and adjusted
+for demonstration and privacy purposes.
+
+</p>
+
+
+<footer style="
+text-align:center;
+font-size:.75rem;
+color:#9ca3af;
+padding:1rem 0 1.5rem;
+">
+
+Roman Alejandro López Ruvalcaba · Portfolio · © 2026
+
 </footer>
+
+</body>
+</html>
+```
+
 
     
 </body>
