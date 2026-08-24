@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Behavior Dashboard — Román López</title>
+<meta name="description" content="Reporte de Power BI que clasifica cada peso cobrado como vencido, del mes o anticipado, sobre un star schema con dimensiones SCD Tipo 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="../index.html#top" class="nav-mark" aria-label="Inicio">RL</a>
+    <div class="nav-links">
+      <a class="section-link" href="../index.html#proyectos">Proyectos</a>
+      <a class="section-link" href="../index.html#habilidades">Habilidades</a>
+      <a class="section-link" href="../index.html#contacto">Contacto</a>
+      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener">Ver CV</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <header class="detail-hero">
+    <div class="wrap">
+      <a class="back-link" href="../index.html#proyectos">← Volver al portafolio</a>
+      <p class="eyebrow">Insignia — dashboard</p>
+      <h1>Payment Behavior Dashboard</h1>
+      <p class="detail-lede">
+        Reporte de Power BI que clasifica cada peso cobrado como vencido, del mes o anticipado,
+        sobre un star schema con dimensiones SCD Tipo 2 por región y analista de crédito. Copia
+        de portafolio con datos 100% sintéticos, embebidos en el propio modelo — sin base de
+        datos, sin credenciales, sin datos reales de clientes.
+      </p>
+      <div class="tag-row">
+        <span class="tag">POWER BI</span>
+        <span class="tag">DAX</span>
+        <span class="tag">STAR SCHEMA</span>
+        <span class="tag">SCD2</span>
+        <span class="tag">TMDL / PBIR</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://github.com/romloc11/payment-behavior-dashboard" target="_blank" rel="noopener">Ver repositorio en GitHub ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <figure class="detail-figure">
+    <img src="../assets/projects/payment-behavior-resumen.png" alt="Página Resumen del dashboard Payment Behavior en Power BI">
+    <figcaption>Página 1 — Resumen: KPIs, tendencia mensual y detalle de facturas</figcaption>
+  </figure>
+
+  <section class="detail-body">
+    <div class="wrap detail-grid">
+      <article class="detail-main">
+
+        <h2>El problema</h2>
+        <p>
+          Antes de este reporte, Crédito y Cobranza no tenía forma repetible de responder una
+          pregunta básica: de todo el dinero cobrado en un mes dado, ¿cuánto estaba realmente
+          presupuestado para ese mes? SAP no registra la relación pago-factura como un vínculo
+          simple 1:1 — un depósito y las facturas que liquida solo se conectan a través de claves
+          de grupo de compensación compartidas — así que responder esto significaba reconciliar
+          factura por factura, a mano, sin una vista consistente en la que nadie pudiera confiar
+          mes tras mes.
+        </p>
+
+        <h2>La solución</h2>
+        <p>
+          Una vista SQL en el data warehouse subyacente
+          (<code>gold.vw_pago_factura_simple</code>, ver
+          <a href="accounts-receivable-medallion-dwh.html">Accounts Receivable Medallion Data Warehouse</a>)
+          reconstruye la relación real pago-factura a partir de los datos de liquidación de SAP,
+          y clasifica cada peso cobrado como <strong>vencido</strong>, <strong>del mes</strong> o
+          <strong>anticipado</strong>, comparando la fecha de vencimiento de cada factura contra
+          su fecha real de pago. El reporte expone esa clasificación con:
+        </p>
+        <ul>
+          <li>4 tarjetas KPI siempre visibles (porcentaje, monto y días de pago ponderados)</li>
+          <li>Una línea de tendencia mensual</li>
+          <li>Desgloses drill-down por canal, cliente, región y analista de crédito, sobre un
+            star schema propio con dimensiones <strong>SCD Tipo 2</strong>, de forma que la
+            región o el analista histórico de un cliente se mantengan correctos aún después de
+            cambiar, en vez de reescribir la historia en silencio.</li>
+        </ul>
+
+        <h2>El resultado</h2>
+        <p>
+          Lo que antes era una reconciliación manual, factura por factura, ahora es una respuesta
+          de 3 segundos: abrir el reporte y leer la fila superior. Crédito y Cobranza puede ver,
+          para cualquier periodo, exactamente qué porcentaje (y cuántos pesos) de lo que entró era
+          genuinamente esperado ese mes, versus deuda vieja finalmente cobrada, versus dinero que
+          llegó antes de tiempo — y navegar directo a qué facturas, clientes, regiones o analistas
+          explican ese número.
+        </p>
+
+        <h2>Modelo de datos</h2>
+        <p>
+          Star schema, un hecho y tres dimensiones. <code>Cobranza</code> se relaciona con las
+          dos dimensiones SCD2 (<code>Cliente Comercial</code>, <code>Cliente Credito</code>) por
+          <strong>llave subrogada</strong>, no por ID de cliente directo — la llave subrogada se
+          resuelve una vez, en el ETL, a la versión de dimensión vigente en la fecha del pago. Una
+          relación plana por ID de cliente aplicaría la región o el analista <em>actual</em> de un
+          cliente a todo su historial de transacciones — la misma trampa que el warehouse
+          subyacente ya sufrió una vez, y que este modelo evita deliberadamente.
+        </p>
+
+        <h2>Notas de diseño</h2>
+        <ul>
+          <li>El layout usa una <strong>cuadrícula basada en Fibonacci</strong> (márgenes/gutters
+            de 34/21px, alturas de sección de 89/144/233/377px) en vez de espaciados arbitrarios.</li>
+          <li>Cada KPI se muestra como porcentaje y como monto — el porcentaje responde
+            "cuánto", el monto lo ancla en dinero real.</li>
+          <li>La tendencia mensual consolida lo que originalmente eran dos visuales de series de
+            tiempo superpuestas en una sola, para que el resumen no se convierta en un muro de
+            gráficas.</li>
+          <li>El filtro de fecha usa periodos de calendario reales ("Ago 2026", no solo
+            "Agosto"), para que el mismo mes en distintos años no colapse en un solo punto.</li>
+        </ul>
+
+        <h2>Cómo correrlo</h2>
+        <p>
+          No requiere base de datos, cadena de conexión ni credenciales — los datos de ejemplo
+          (empresas, pagos y facturas ficticias) están embebidos directamente en el modelo como
+          literales M <code>#table()</code>. Basta con clonar el repositorio y abrir
+          <code>Comportamiento de Cobranza.pbip</code> en Power BI Desktop: carga de inmediato,
+          sin ningún paso de configuración.
+        </p>
+
+      </article>
+
+      <aside class="detail-sidebar">
+        <div class="fact-box">
+          <h3>Stack</h3>
+          <div class="tag-row">
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+            <span class="tag">TMDL / PBIR</span>
+            <span class="tag">Import mode</span>
+          </div>
+        </div>
+        <div class="fact-box">
+          <dl>
+            <dt>Rol</dt>
+            <dd>Copia de portafolio, datos sintéticos embebidos</dd>
+            <dt>Modelo</dt>
+            <dd>1 hecho (Cobranza) + 3 dimensiones (Fecha, Cliente SCD1, Cliente Comercial/Crédito SCD2)</dd>
+            <dt>Proyecto original</dt>
+            <dd><a href="accounts-receivable-medallion-dwh.html">Accounts Receivable Medallion DWH</a></dd>
+          </dl>
+        </div>
+        <div class="fact-box">
+          <a class="btn btn-primary" href="https://github.com/romloc11/payment-behavior-dashboard" target="_blank" rel="noopener">Ver en GitHub ↗</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Román Alejandro López Ruvalcaba</span>
+  <span>Diseñado y construido a mano</span>
+</footer>
+
+</body>
+</html>

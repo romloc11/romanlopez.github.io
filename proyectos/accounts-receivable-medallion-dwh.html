@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accounts Receivable Medallion Data Warehouse — Román López</title>
+<meta name="description" content="Data warehouse empresarial en SQL Server con arquitectura Medallion (Bronze/Silver/Gold) sobre datos de SAP ECC, para Cuentas por Cobrar y Crédito y Cobranza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="../index.html#top" class="nav-mark" aria-label="Inicio">RL</a>
+    <div class="nav-links">
+      <a class="section-link" href="../index.html#proyectos">Proyectos</a>
+      <a class="section-link" href="../index.html#habilidades">Habilidades</a>
+      <a class="section-link" href="../index.html#contacto">Contacto</a>
+      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener">Ver CV</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <header class="detail-hero">
+    <div class="wrap">
+      <a class="back-link" href="../index.html#proyectos">← Volver al portafolio</a>
+      <p class="eyebrow">Insignia — trabajo en producción</p>
+      <h1>Accounts Receivable Medallion Data Warehouse</h1>
+      <p class="detail-lede">
+        Data warehouse empresarial en SQL Server: arquitectura Medallion (Bronze/Silver/Gold)
+        que integra datos de SAP ECC (módulos FI/SD) en un modelo dimensional para Cuentas por
+        Cobrar y Crédito y Cobranza. Reconciliado exactamente contra la fuente, sobre millones
+        de registros reales.
+      </p>
+      <div class="tag-row">
+        <span class="tag">SQL SERVER</span>
+        <span class="tag">SAP ECC</span>
+        <span class="tag">MEDALLION</span>
+        <span class="tag">SCD1 / SCD2</span>
+        <span class="tag">T-SQL</span>
+        <span class="tag">DATA QUALITY</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://github.com/romloc11/accounts-receivable-medallion-dwh" target="_blank" rel="noopener">Ver repositorio en GitHub ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <figure class="detail-figure">
+    <img src="../assets/projects/dwh-architecture.svg" alt="Diagrama de arquitectura Medallion: SAP ECC hacia Bronze, Silver, Gold y Power BI">
+    <figcaption>SAP ECC → Bronze → Silver → Gold (dimensiones SCD1/SCD2 + hechos) → DQ / Power BI</figcaption>
+  </figure>
+
+  <section class="detail-body">
+    <div class="wrap detail-grid">
+      <article class="detail-main">
+
+        <h2>El problema</h2>
+        <p>
+          La información de Cuentas por Cobrar y Crédito y Cobranza vivía únicamente dentro de
+          SAP ECC, sin un modelo analítico propio. Cualquier pregunta de negocio — saldo vencido
+          por cliente, comportamiento de pago por analista, evolución histórica de la cartera —
+          requería reconstruir la lógica de negocio manualmente, cada vez, directo contra el ERP.
+        </p>
+
+        <h2>La arquitectura</h2>
+        <p>
+          Cada capa se carga con su propio stored procedure (<code>bronze.load_bronze</code>,
+          <code>silver.load_silver</code>, <code>gold.load_gold</code>,
+          <code>dq.load_clientes_ambiguos</code>), ejecutados en ese orden.
+          <code>gold.load_gold</code> es un orquestador delgado que encadena los procedimientos
+          de carga de cada tabla Gold — cada uno también corre de forma independiente para
+          pruebas aisladas.
+        </p>
+        <pre class="arch-diagram">SAP ECC (linked server)
+    │  espejo crudo, sin transformaciones
+    ▼
+BRONZE  ── 10 tablas: maestro de clientes + partidas de CxC
+    │  limpieza, estandarización, filtros de alcance de negocio
+    ▼
+SILVER  ── 8 tablas, una tabla bronze → una tabla silver
+    │  integración, star schema, lógica de negocio
+    ▼
+GOLD    ── dimensiones (SCD1/SCD2) + hechos + vistas de reporte
+    │
+    ├──► DQ  ── monitores continuos de calidad de datos
+    └──► Power BI</pre>
+
+        <h2>Modelo de datos</h2>
+        <p>
+          <strong>Bronze</strong> — espejo crudo de 10 tablas SAP (maestro de clientes, vistas
+          de ventas/crédito, partidas abiertas y compensadas de CxC, más catálogos de rutas y
+          empleados).
+        </p>
+        <p>
+          <strong>Silver</strong> — 8 tablas depuradas. Aquí se resuelve el alcance por
+          <code>mandante</code>/código de organización, normalización de nulos y limpieza de
+          ceros a la izquierda; los cruces entre entidades se dejan deliberadamente fuera (Silver
+          se mantiene uno-a-uno con Bronze).
+        </p>
+        <p>
+          <strong>Gold</strong> — star schema: <code>dim_fecha</code> (calendario
+          autoextensible), <code>dim_cliente</code> (identidad, SCD Tipo 1),
+          <code>dim_cliente_comercial</code> / <code>dim_cliente_credito</code> (atributos
+          comerciales y de crédito, SCD Tipo 2 con detección de cambios por hash),
+          <code>fact_pagos_compensados</code> / <code>fact_facturas_compensadas</code> (hechos
+          incrementales por MERGE), y <code>fact_saldo_cartera</code> (snapshot diario de saldo
+          vencido y antigüedad, con métricas de comportamiento de pago). Dos vistas de negocio —
+          <code>vw_cliente_canal_estatus</code> y <code>vw_pago_factura_simple</code> —
+          reconstruyen la relación pago-factura que SAP solo expone como grupos de compensación,
+          no como relación 1:1, y clasifican cada factura liquidada como vencida, del mes o pagada
+          por anticipado.
+        </p>
+
+        <h2>Decisiones de ingeniería</h2>
+        <ul>
+          <li><strong>Cargas incrementales</strong> — las tablas de alto volumen usan
+            <code>MERGE</code> acotado a una ventana móvil de mes actual + anterior, con scripts
+            de backfill separados de los procedimientos diarios.</li>
+          <li><strong>SCD Tipo 2 como pasos secuenciales explícitos</strong> (staging → cierre de
+            versiones cambiadas → inserción de nuevas versiones) en vez de un solo
+            <code>MERGE</code>, para depuración directa en esta versión de SQL Server.</li>
+          <li><strong>Salvaguardas de calidad de datos integradas al modelo</strong>: detección de
+            clientes ambiguos, y una validación de RFC que evita que un pago se atribuya a
+            facturas de otra empresa cuando SAP agrupa liquidaciones no relacionadas en el mismo
+            grupo de compensación.</li>
+          <li>Construido y probado contra <strong>SQL Server 2012 SP1</strong>, lo que impone
+            restricciones reales (sin <code>CREATE OR ALTER</code>, espacio de log limitado en
+            cargas grandes) reflejadas en cómo están escritos los procedimientos.</li>
+        </ul>
+
+        <h2>Límites conocidos</h2>
+        <ul>
+          <li>El histórico SCD Tipo 2 solo es confiable desde que cada procedimiento de carga
+            empezó a correr con regularidad — la primera versión capturada de un cliente se
+            retrofecha solo para permitir el join con hechos antiguos, no como afirmación de que
+            ese atributo fuera cierto en ese momento.</li>
+          <li><code>fact_saldo_cartera</code> no se puede rellenar hacia atrás: su fuente es un
+            espejo diario completo sin historial retenido.</li>
+          <li>El match pago-factura es deliberadamente incompleto: solo resuelve grupos de
+            liquidación sin ambigüedad; los grupos ambiguos se dejan sin emparejar en vez de
+            adivinar.</li>
+        </ul>
+
+        <h2>Estado</h2>
+        <p>
+          Las capas Bronze, Silver y Gold están estables y reconciliadas contra reportes externos
+          independientes. El reporte de Power BI construido sobre este modelo vive en un
+          repositorio público independiente,
+          <a href="https://github.com/romloc11/payment-behavior-dashboard" target="_blank" rel="noopener">payment-behavior-dashboard</a>
+          — esa copia corre con datos de ejemplo embebidos en vez de una conexión en vivo a este
+          warehouse, construida específicamente para portafolio.
+        </p>
+
+      </article>
+
+      <aside class="detail-sidebar">
+        <div class="fact-box">
+          <h3>Stack</h3>
+          <div class="tag-row">
+            <span class="tag">SQL Server 2012</span>
+            <span class="tag">T-SQL</span>
+            <span class="tag">SAP ECC (FI/SD)</span>
+            <span class="tag">Linked Server</span>
+          </div>
+        </div>
+        <div class="fact-box">
+          <dl>
+            <dt>Rol</dt>
+            <dd>Data warehouse empresarial en producción</dd>
+            <dt>Capas</dt>
+            <dd>Bronze (10 tablas) · Silver (8 tablas) · Gold (dimensiones SCD1/SCD2 + hechos)</dd>
+            <dt>Fuente</dt>
+            <dd>SAP ECC vía linked server</dd>
+          </dl>
+        </div>
+        <div class="fact-box">
+          <a class="btn btn-primary" href="https://github.com/romloc11/accounts-receivable-medallion-dwh" target="_blank" rel="noopener">Ver en GitHub ↗</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Román Alejandro López Ruvalcaba</span>
+  <span>Diseñado y construido a mano</span>
+</footer>
+
+</body>
+</html>
