@@ -16,10 +16,14 @@
   <div class="wrap">
     <a href="../index.html#top" class="nav-mark" aria-label="Inicio">RL</a>
     <div class="nav-links">
-      <a class="section-link" href="../index.html#proyectos">Proyectos</a>
-      <a class="section-link" href="../index.html#habilidades">Habilidades</a>
-      <a class="section-link" href="../index.html#contacto">Contacto</a>
-      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener">Ver CV</a>
+      <a class="section-link" href="../index.html#contacto" data-i18n="nav-contacto">Contacto</a>
+      <a class="section-link" href="../index.html#proyectos" data-i18n="nav-proyectos">Proyectos</a>
+      <a class="section-link" href="../index.html#habilidades" data-i18n="nav-habilidades">Habilidades</a>
+      <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener" data-i18n="nav-cv">Ver CV</a>
     </div>
   </div>
 </nav>
@@ -28,10 +32,10 @@
 
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back-link" href="../index.html#proyectos">← Volver al portafolio</a>
-      <p class="eyebrow">Pipeline</p>
+      <a class="back-link" href="../index.html#proyectos" data-i18n="back-link">← Volver al portafolio</a>
+      <p class="eyebrow" data-i18n="eyebrow">Pipeline</p>
       <h1>Order Release Monitoring Pipeline</h1>
-      <p class="detail-lede">
+      <p class="detail-lede" data-i18n="lede">
         Pipeline y dashboard para monitorear el pool de crédito de una empresa: pedidos
         bloqueados por límite de crédito, saldo vencido o bloqueo SAP, y qué tan rápido el equipo
         de crédito los libera o cancela. Reconstrucción completa de uno de mis primeros proyectos
@@ -46,22 +50,22 @@
         <span class="tag">DAX</span>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://github.com/romloc11/order-release-monitoring" target="_blank" rel="noopener">Ver repositorio en GitHub ↗</a>
+        <a class="btn btn-primary" href="https://github.com/romloc11/order-release-monitoring" target="_blank" rel="noopener" data-i18n="btn-repo">Ver repositorio en GitHub ↗</a>
       </div>
     </div>
   </header>
 
   <figure class="detail-figure">
     <img src="../assets/projects/order-pool-estado.png" alt="Página Estado del Pool del dashboard Order Release Monitoring en Power BI">
-    <figcaption>Página 1 — Estado del pool: KPIs, tendencias diarias y motivo de bloqueo</figcaption>
+    <figcaption data-i18n="figcaption">Página 1 — Estado del pool: KPIs, tendencias diarias y motivo de bloqueo</figcaption>
   </figure>
 
   <section class="detail-body">
     <div class="wrap detail-grid">
       <article class="detail-main">
 
-        <h2>El problema</h2>
-        <p>
+        <h2 data-i18n="h-problema">El problema</h2>
+        <p data-i18n="p-problema">
           Cuando un pedido se bloquea por motivos de crédito, entra a un "pool" hasta que un
           analista lo libera o se cancela. El equipo necesita saber tres cosas en todo momento:
           cuántos pedidos siguen atorados, qué tan rápido se están resolviendo, y si el backlog
@@ -69,8 +73,8 @@
           semanas sin que nadie lo note.
         </p>
 
-        <h2>El dataset</h2>
-        <p>
+        <h2 data-i18n="h-dataset">El dataset</h2>
+        <p data-i18n="p-dataset">
           Los datos reales de la empresa no se pueden publicar, así que este repositorio usa un
           generador sintético que reproduce la misma forma y las mismas inconsistencias que
           tenían los datos originales: 3,712 pedidos en 180 días, 200 clientes, 10 analistas de
@@ -82,8 +86,8 @@
           datos.
         </p>
 
-        <h2>¿Por qué DuckDB y no SQL Server?</h2>
-        <p>
+        <h2 data-i18n="h-duckdb">¿Por qué DuckDB y no SQL Server?</h2>
+        <p data-i18n="p-duckdb">
           La versión original corría contra SQL Server con un linked server hacia MariaDB — fiel
           al entorno real de la empresa, pero imposible de clonar y correr para cualquiera que
           revise el repositorio. DuckDB no necesita instalación ni infraestructura, corre
@@ -92,8 +96,8 @@
           (algunos miles de filas) no hay razón para algo más pesado.
         </p>
 
-        <h2>Arquitectura y decisiones técnicas</h2>
-        <pre class="arch-diagram">Python (datos sintéticos)
+        <h2 data-i18n="h-arquitectura">Arquitectura y decisiones técnicas</h2>
+        <pre class="arch-diagram" data-i18n="arch-diagram">Python (datos sintéticos)
         │
         ▼
 Bronze (DuckDB, todo VARCHAR, nada limpio)
@@ -106,12 +110,12 @@ Gold (star schema: 5 dimensiones + 2 hechos)
         │
         ▼
 Power BI (modelo semántico + 2 páginas de reporte)</pre>
-        <p>
+        <p data-i18n="p-bronze">
           <strong>Bronze</strong> carga las tres tablas fuente tal cual, todo como texto — si algo
           llega mal formado desde el origen, aquí debe seguir viéndose mal formado; esa disciplina
           es lo que le da a Silver trabajo real y verificable que hacer.
         </p>
-        <p>
+        <p data-i18n="p-silver">
           <strong>Silver</strong> resuelve dos cosas que la versión original manejaba mal: el
           estatus inválido ya no se descarta al extraer (como hacía la versión original,
           perdiendo esos pedidos para siempre) sino que se reconstruye a partir de las fechas de
@@ -121,7 +125,7 @@ Power BI (modelo semántico + 2 páginas de reporte)</pre>
           analistas), ahora son dos campos separados — el segundo expuesto como medida de calidad
           de datos en el dashboard en vez de ocultarse.
         </p>
-        <p>
+        <p data-i18n="p-gold">
           <strong>Gold</strong> reemplaza el <code>TRUNCATE + INSERT</code> del diseño original
           (que servía para ver el estado <em>actual</em> del pool, pero hacía imposible ver cómo
           había evolucionado) dividiendo dos grains distintos en dos tablas de hechos:
@@ -131,8 +135,8 @@ Power BI (modelo semántico + 2 páginas de reporte)</pre>
           nunca truncar).
         </p>
 
-        <h2>KPIs y preguntas de negocio</h2>
-        <table class="kpi-table">
+        <h2 data-i18n="h-kpis">KPIs y preguntas de negocio</h2>
+        <table class="kpi-table" data-i18n="table-kpis">
           <thead><tr><th>Pregunta</th><th>KPI / medida</th></tr></thead>
           <tbody>
             <tr><td>¿Cuántos pedidos siguen atorados ahora mismo?</td><td>Pedidos en Pool al Cierre</td></tr>
@@ -143,16 +147,16 @@ Power BI (modelo semántico + 2 páginas de reporte)</pre>
           </tbody>
         </table>
 
-        <h2>Dashboard</h2>
-        <p>
+        <h2 data-i18n="h-dashboard">Dashboard</h2>
+        <p data-i18n="p-dashboard">
           Segunda página — <strong>Analistas y antigüedad</strong>: ranking de pedidos liberados
           por analista, tiempo promedio de liberación, comparación de tiempos por motivo de
           bloqueo, y las dos medidas de calidad de datos. Con slicers de Analista, Motivo y Mes.
         </p>
         <p><img src="../assets/projects/order-pool-analistas.png" alt="Página Analistas y Antigüedad del dashboard Order Release Monitoring en Power BI" style="width:100%; border-radius:3px; border:1px solid var(--line);"></p>
 
-        <h2>Bugs reales encontrados construyendo esto</h2>
-        <ul>
+        <h2 data-i18n="h-bugs">Bugs reales encontrados construyendo esto</h2>
+        <ul data-i18n="list-bugs">
           <li><strong>Una medida y una columna con el mismo nombre</strong> (distinto solo en
             mayúsculas) en la misma tabla — Power BI no distingue mayúsculas para esto y el
             modelo se negaba a cargar. Se resolvió renombrando la columna origen.</li>
@@ -180,16 +184,16 @@ Power BI (modelo semántico + 2 páginas de reporte)</pre>
         </div>
         <div class="fact-box">
           <dl>
-            <dt>Rol</dt>
-            <dd>Reconstrucción de un proyecto propio anterior, con datos sintéticos</dd>
-            <dt>Modelo</dt>
-            <dd>5 dimensiones + 2 hechos (grano pedido y grano snapshot diario)</dd>
-            <dt>Dataset</dt>
-            <dd>3,712 pedidos sintéticos, 180 días, semilla fija</dd>
+            <dt data-i18n="dt-rol">Rol</dt>
+            <dd data-i18n="dd-rol">Reconstrucción de un proyecto propio anterior, con datos sintéticos</dd>
+            <dt data-i18n="dt-modelo">Modelo</dt>
+            <dd data-i18n="dd-modelo">5 dimensiones + 2 hechos (grano pedido y grano snapshot diario)</dd>
+            <dt data-i18n="dt-dataset">Dataset</dt>
+            <dd data-i18n="dd-dataset">3,712 pedidos sintéticos, 180 días, semilla fija</dd>
           </dl>
         </div>
         <div class="fact-box">
-          <a class="btn btn-primary" href="https://github.com/romloc11/order-release-monitoring" target="_blank" rel="noopener">Ver en GitHub ↗</a>
+          <a class="btn btn-primary" href="https://github.com/romloc11/order-release-monitoring" target="_blank" rel="noopener" data-i18n="btn-github">Ver en GitHub ↗</a>
         </div>
       </aside>
     </div>
@@ -199,8 +203,78 @@ Power BI (modelo semántico + 2 páginas de reporte)</pre>
 
 <footer class="wrap">
   <span>© 2026 Román Alejandro López Ruvalcaba</span>
-  <span>Diseñado y construido a mano</span>
+  <span data-i18n="footer-tag">Diseñado y construido a mano</span>
 </footer>
+
+<script>
+window.I18N = {
+  es: {
+    __title: "Order Release Monitoring Pipeline — Román López",
+    __description: "Pipeline y dashboard para monitorear un pool de crédito: extracción desde MySQL, Bronze/Silver/Gold sobre DuckDB, reporte de tiempos de resolución en Power BI.",
+    "nav-contacto": "Contacto", "nav-proyectos": "Proyectos", "nav-habilidades": "Habilidades", "nav-cv": "Ver CV",
+    "back-link": "← Volver al portafolio",
+    "eyebrow": "Pipeline",
+    "lede": "Pipeline y dashboard para monitorear el pool de crédito de una empresa: pedidos bloqueados por límite de crédito, saldo vencido o bloqueo SAP, y qué tan rápido el equipo de crédito los libera o cancela. Reconstrucción completa de uno de mis primeros proyectos en SQL Server, aplicando lo aprendido desde entonces (arquitectura Medallion, star schema, DAX).",
+    "btn-repo": "Ver repositorio en GitHub ↗",
+    "figcaption": "Página 1 — Estado del pool: KPIs, tendencias diarias y motivo de bloqueo",
+    "h-problema": "El problema",
+    "p-problema": "Cuando un pedido se bloquea por motivos de crédito, entra a un \"pool\" hasta que un analista lo libera o se cancela. El equipo necesita saber tres cosas en todo momento: cuántos pedidos siguen atorados, qué tan rápido se están resolviendo, y si el backlog está creciendo o disminuyendo. Sin eso, un pedido puede quedarse en revisión durante semanas sin que nadie lo note.",
+    "h-dataset": "El dataset",
+    "p-dataset": "Los datos reales de la empresa no se pueden publicar, así que este repositorio usa un generador sintético que reproduce la misma forma y las mismas inconsistencias que tenían los datos originales: 3,712 pedidos en 180 días, 200 clientes, 10 analistas de crédito, un motivo de bloqueo no equiprobable (límite excedido es el más común, como en el negocio real), un lote de pedidos con estatus fuera de catálogo en las primeras dos semanas (simula un problema real de captura que hubo que resolver en Silver, no descartar), y formato de usuario inconsistente para mostrar la limpieza real que hace la capa Silver. Semilla fija: correr el generador dos veces produce exactamente los mismos datos.",
+    "h-duckdb": "¿Por qué DuckDB y no SQL Server?",
+    "p-duckdb": "La versión original corría contra SQL Server con un linked server hacia MariaDB — fiel al entorno real de la empresa, pero imposible de clonar y correr para cualquiera que revise el repositorio. DuckDB no necesita instalación ni infraestructura, corre localmente desde un solo archivo, y su sintaxis SQL es lo bastante cercana a T-SQL para que la lógica de negocio se tradujera casi directo. Para el volumen de este proyecto (algunos miles de filas) no hay razón para algo más pesado.",
+    "h-arquitectura": "Arquitectura y decisiones técnicas",
+    "arch-diagram": "Python (datos sintéticos)\n        │\n        ▼\nBronze (DuckDB, todo VARCHAR, nada limpio)\n        │\n        ▼\nSilver (tipado, estatus reconstruido, un registro por pedido)\n        │\n        ▼\nGold (star schema: 5 dimensiones + 2 hechos)\n        │\n        ▼\nPower BI (modelo semántico + 2 páginas de reporte)",
+    "p-bronze": "<strong>Bronze</strong> carga las tres tablas fuente tal cual, todo como texto — si algo llega mal formado desde el origen, aquí debe seguir viéndose mal formado; esa disciplina es lo que le da a Silver trabajo real y verificable que hacer.",
+    "p-silver": "<strong>Silver</strong> resuelve dos cosas que la versión original manejaba mal: el estatus inválido ya no se descarta al extraer (como hacía la versión original, perdiendo esos pedidos para siempre) sino que se reconstruye a partir de las fechas de liberación/cancelación, marcando cuáles fueron reconstruidos en vez de ocultarlo. Y el antiguo <code>IFNULL(v.nombre, 'Sistema')</code>, que mezclaba dos casos distintos bajo la misma etiqueta (pedido aún no liberado vs. liberado por alguien fuera del catálogo de analistas), ahora son dos campos separados — el segundo expuesto como medida de calidad de datos en el dashboard en vez de ocultarse.",
+    "p-gold": "<strong>Gold</strong> reemplaza el <code>TRUNCATE + INSERT</code> del diseño original (que servía para ver el estado <em>actual</em> del pool, pero hacía imposible ver cómo había evolucionado) dividiendo dos grains distintos en dos tablas de hechos: <code>fact_pedido_pool</code> (un registro por pedido) y <code>fact_pool_snapshot_diario</code> (un registro por día con el estado del pool ese día — la tabla que resuelve el problema de historia, agregando una fila por día sin nunca truncar).",
+    "h-kpis": "KPIs y preguntas de negocio",
+    "table-kpis": "<thead><tr><th>Pregunta</th><th>KPI / medida</th></tr></thead><tbody><tr><td>¿Cuántos pedidos siguen atorados ahora mismo?</td><td>Pedidos en Pool al Cierre</td></tr><tr><td>¿El backlog crece o disminuye?</td><td>Tendencia diaria</td></tr><tr><td>¿Qué proporción termina cancelada en vez de liberada?</td><td>% Pedidos Cancelados (semáforo)</td></tr><tr><td>¿Qué tan antiguos son los pedidos sin resolver?</td><td>Antigüedad Promedio del Pool (semáforo)</td></tr><tr><td>¿Qué tan confiables son los datos?</td><td>% Estatus Reconstruido, % Usuario No Catalogado</td></tr></tbody>",
+    "h-dashboard": "Dashboard",
+    "p-dashboard": "Segunda página — <strong>Analistas y antigüedad</strong>: ranking de pedidos liberados por analista, tiempo promedio de liberación, comparación de tiempos por motivo de bloqueo, y las dos medidas de calidad de datos. Con slicers de Analista, Motivo y Mes.",
+    "h-bugs": "Bugs reales encontrados construyendo esto",
+    "list-bugs": "<li><strong>Una medida y una columna con el mismo nombre</strong> (distinto solo en mayúsculas) en la misma tabla — Power BI no distingue mayúsculas para esto y el modelo se negaba a cargar. Se resolvió renombrando la columna origen.</li><li><strong>Un KPI mal etiquetado</strong>: una tarjeta decía \"pedidos liberados por día\" pero en realidad sumaba todo el periodo seleccionado — dos cosas muy distintas. Hubo que construir una medida de promedio real (<code>AVERAGEX</code> sobre el calendario).</li><li><strong>Una tabla que no renderizaba</strong>, con un error genérico de \"capacidad o licencia\". Se aisló probando 3 configuraciones distintas hasta confirmar que el único constante era una medida con <code>CALCULATE(MAX(...), REMOVEFILTERS(...))</code> anidado, que Power BI Desktop no resolvía bien dentro de esa tabla en particular.</li>",
+    "dt-rol": "Rol", "dd-rol": "Reconstrucción de un proyecto propio anterior, con datos sintéticos",
+    "dt-modelo": "Modelo", "dd-modelo": "5 dimensiones + 2 hechos (grano pedido y grano snapshot diario)",
+    "dt-dataset": "Dataset", "dd-dataset": "3,712 pedidos sintéticos, 180 días, semilla fija",
+    "btn-github": "Ver en GitHub ↗",
+    "footer-tag": "Diseñado y construido a mano"
+  },
+  en: {
+    __title: "Order Release Monitoring Pipeline — Román López",
+    __description: "Pipeline and dashboard to monitor a credit pool: extraction from MySQL, Bronze/Silver/Gold on DuckDB, resolution-time reporting in Power BI.",
+    "nav-contacto": "Contact", "nav-proyectos": "Projects", "nav-habilidades": "Skills", "nav-cv": "View CV",
+    "back-link": "← Back to portfolio",
+    "eyebrow": "Pipeline",
+    "lede": "Pipeline and dashboard to monitor a company's credit pool: orders blocked by credit limit, past-due balance, or SAP block, and how fast the credit team releases or cancels them. Full rebuild of one of my first projects in SQL Server, applying what I've learned since then (Medallion architecture, star schema, DAX).",
+    "btn-repo": "View repository on GitHub ↗",
+    "figcaption": "Page 1 — Pool status: KPIs, daily trends, and block reason",
+    "h-problema": "The problem",
+    "p-problema": "When an order gets blocked for credit reasons, it enters a \"pool\" until an analyst releases it or it gets canceled. The team needs to know three things at any given moment: how many orders are still stuck, how fast they're being resolved, and whether the backlog is growing or shrinking. Without that, an order can sit in review for weeks without anyone noticing.",
+    "h-dataset": "The dataset",
+    "p-dataset": "The company's real data can't be published, so this repository uses a synthetic generator that reproduces the same shape and the same inconsistencies the original data had: 3,712 orders over 180 days, 200 customers, 10 credit analysts, a non-equiprobable block reason (exceeded limit is the most common, as in the real business), a batch of orders with an out-of-catalog status in the first two weeks (simulates a real capture issue that had to be resolved in Silver, not discarded), and inconsistent username formatting to show the real cleaning the Silver layer does. Fixed seed: running the generator twice produces exactly the same data.",
+    "h-duckdb": "Why DuckDB and not SQL Server?",
+    "p-duckdb": "The original version ran against SQL Server with a linked server to MariaDB — faithful to the company's real environment, but impossible for anyone reviewing the repository to clone and run. DuckDB needs no installation or infrastructure, runs locally from a single file, and its SQL syntax is close enough to T-SQL that the business logic translated almost directly. For this project's volume (a few thousand rows) there's no reason for anything heavier.",
+    "h-arquitectura": "Architecture and technical decisions",
+    "arch-diagram": "Python (synthetic data)\n        │\n        ▼\nBronze (DuckDB, everything VARCHAR, nothing cleaned)\n        │\n        ▼\nSilver (typed, status reconstructed, one record per order)\n        │\n        ▼\nGold (star schema: 5 dimensions + 2 facts)\n        │\n        ▼\nPower BI (semantic model + 2 report pages)",
+    "p-bronze": "<strong>Bronze</strong> loads the three source tables as-is, everything as text — if something arrives malformed from the source, it should still look malformed here; that discipline is what gives Silver real, verifiable work to do.",
+    "p-silver": "<strong>Silver</strong> fixes two things the original version handled poorly: invalid status is no longer discarded on extraction (as the original version did, losing those orders forever) but instead reconstructed from the release/cancellation dates, flagging which ones were reconstructed instead of hiding it. And the old <code>IFNULL(v.nombre, 'Sistema')</code>, which mixed two different cases under the same label (order not yet released vs. released by someone outside the analyst catalog), is now two separate fields — the second exposed as a data-quality measure on the dashboard instead of being hidden.",
+    "p-gold": "<strong>Gold</strong> replaces the original design's <code>TRUNCATE + INSERT</code> (which worked for seeing the pool's <em>current</em> state, but made it impossible to see how it had evolved) by splitting two different grains into two fact tables: <code>fact_pedido_pool</code> (one record per order) and <code>fact_pool_snapshot_diario</code> (one record per day with that day's pool state — the table that solves the history problem, appending one row per day and never truncating).",
+    "h-kpis": "KPIs and business questions",
+    "table-kpis": "<thead><tr><th>Question</th><th>KPI / measure</th></tr></thead><tbody><tr><td>How many orders are still stuck right now?</td><td>Orders in Pool at Close</td></tr><tr><td>Is the backlog growing or shrinking?</td><td>Daily trend</td></tr><tr><td>What proportion ends up canceled instead of released?</td><td>% Canceled Orders (traffic light)</td></tr><tr><td>How old are the unresolved orders?</td><td>Average Pool Age (traffic light)</td></tr><tr><td>How reliable is the data?</td><td>% Reconstructed Status, % Uncataloged User</td></tr></tbody>",
+    "h-dashboard": "Dashboard",
+    "p-dashboard": "Second page — <strong>Analysts and age</strong>: ranking of orders released by analyst, average release time, time comparison by block reason, and the two data-quality measures. With Analyst, Reason, and Month slicers.",
+    "h-bugs": "Real bugs I found building this",
+    "list-bugs": "<li><strong>A measure and a column with the same name</strong> (differing only in case) in the same table — Power BI doesn't distinguish case for this and the model refused to load. Fixed by renaming the source column.</li><li><strong>A mislabeled KPI</strong>: a card said \"orders released per day\" but it was actually summing the whole selected period — two very different things. Had to build a real average measure (<code>AVERAGEX</code> over the calendar).</li><li><strong>A table that wouldn't render</strong>, with a generic \"capacity or license\" error. Isolated it by testing 3 different configurations until confirming the only constant was a measure with a nested <code>CALCULATE(MAX(...), REMOVEFILTERS(...))</code>, which Power BI Desktop didn't resolve well inside that particular table.</li>",
+    "dt-rol": "Role", "dd-rol": "Rebuild of an earlier project of mine, with synthetic data",
+    "dt-modelo": "Model", "dd-modelo": "5 dimensions + 2 facts (order grain and daily snapshot grain)",
+    "dt-dataset": "Dataset", "dd-dataset": "3,712 synthetic orders, 180 days, fixed seed",
+    "btn-github": "View on GitHub ↗",
+    "footer-tag": "Designed and built by hand"
+  }
+};
+</script>
+<script src="../i18n.js"></script>
 
 </body>
 </html>

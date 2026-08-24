@@ -16,10 +16,14 @@
   <div class="wrap">
     <a href="../index.html#top" class="nav-mark" aria-label="Inicio">RL</a>
     <div class="nav-links">
-      <a class="section-link" href="../index.html#proyectos">Proyectos</a>
-      <a class="section-link" href="../index.html#habilidades">Habilidades</a>
-      <a class="section-link" href="../index.html#contacto">Contacto</a>
-      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener">Ver CV</a>
+      <a class="section-link" href="../index.html#contacto" data-i18n="nav-contacto">Contacto</a>
+      <a class="section-link" href="../index.html#proyectos" data-i18n="nav-proyectos">Proyectos</a>
+      <a class="section-link" href="../index.html#habilidades" data-i18n="nav-habilidades">Habilidades</a>
+      <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener" data-i18n="nav-cv">Ver CV</a>
     </div>
   </div>
 </nav>
@@ -28,10 +32,10 @@
 
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back-link" href="../index.html#proyectos">← Volver al portafolio</a>
-      <p class="eyebrow">Dataset público — Kaggle</p>
+      <a class="back-link" href="../index.html#proyectos" data-i18n="back-link">← Volver al portafolio</a>
+      <p class="eyebrow" data-i18n="eyebrow">Dataset público — Kaggle</p>
       <h1>Logistics &amp; Customer Satisfaction — Olist</h1>
-      <p class="detail-lede">
+      <p class="detail-lede" data-i18n="lede">
         Olist es un marketplace brasileño que conecta pequeños vendedores con grandes canales de
         venta online. Este proyecto responde una pregunta operativa real: ¿cumplir la promesa de
         entrega afecta la satisfacción del cliente, y dónde se concentra el riesgo? Pipeline
@@ -45,22 +49,22 @@
         <span class="tag">KAGGLE API</span>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://github.com/romloc11/olist-logistics-satisfaction" target="_blank" rel="noopener">Ver repositorio en GitHub ↗</a>
+        <a class="btn btn-primary" href="https://github.com/romloc11/olist-logistics-satisfaction" target="_blank" rel="noopener" data-i18n="btn-repo">Ver repositorio en GitHub ↗</a>
       </div>
     </div>
   </header>
 
   <figure class="detail-figure">
     <img src="../assets/projects/olist-resumen.png" alt="Resumen Ejecutivo del dashboard de logística y satisfacción de Olist en Power BI">
-    <figcaption>Resumen Ejecutivo — 5 KPIs, tendencia mensual de entregas a tiempo y distribución por estado</figcaption>
+    <figcaption data-i18n="figcaption">Resumen Ejecutivo — 5 KPIs, tendencia mensual de entregas a tiempo y distribución por estado</figcaption>
   </figure>
 
   <section class="detail-body">
     <div class="wrap detail-grid">
       <article class="detail-main">
 
-        <h2>El dataset</h2>
-        <p>
+        <h2 data-i18n="h-dataset">El dataset</h2>
+        <p data-i18n="p-dataset">
           <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener">Brazilian E-Commerce Public Dataset by Olist</a>
           (Kaggle, licencia CC-BY-NC-SA-4.0): septiembre 2016 a octubre 2018, 9 tablas
           relacionales, ~100k pedidos, ~1M de registros de geolocalización. Limitaciones
@@ -70,17 +74,17 @@
           código postal.
         </p>
 
-        <h2>Arquitectura</h2>
-        <pre class="arch-diagram">Kaggle API → Bronze (CSV crudo) → EDA → Silver (limpio, tipado, Parquet)
+        <h2 data-i18n="h-arquitectura">Arquitectura</h2>
+        <pre class="arch-diagram" data-i18n="arch-diagram">Kaggle API → Bronze (CSV crudo) → EDA → Silver (limpio, tipado, Parquet)
            → Gold (star schema, Parquet) → Power BI (modelo semántico + dashboard)</pre>
-        <p>
+        <p data-i18n="p-arquitectura">
           Arquitectura Medallion completa, justificada porque el dataset tiene 9 tablas
           relacionales con problemas reales de calidad de datos que resolver (duplicados, tipos,
           agregaciones) — no un solo CSV que haría Silver y Gold redundantes.
         </p>
 
-        <h2>Decisiones técnicas</h2>
-        <ul>
+        <h2 data-i18n="h-decisiones">Decisiones técnicas</h2>
+        <ul data-i18n="list-decisiones">
           <li><strong>Extracción (Bronze)</strong> vía Kaggle API con un script de Python, en vez
             de descarga manual — mantiene la adquisición de datos documentada y reproducible como
             código, no como instrucción en un README.</li>
@@ -100,8 +104,8 @@
             legibles por commit.</li>
         </ul>
 
-        <h2>Calidad de datos</h2>
-        <table class="kpi-table">
+        <h2 data-i18n="h-calidad">Calidad de datos</h2>
+        <table class="kpi-table" data-i18n="table-calidad">
           <thead><tr><th>Hallazgo</th><th>Resolución</th></tr></thead>
           <tbody>
             <tr><td>547 pedidos con 2 reseñas</td><td>Deduplicado en Silver, se conserva la más reciente</td></tr>
@@ -111,8 +115,8 @@
           </tbody>
         </table>
 
-        <h2>Dashboard</h2>
-        <p>
+        <h2 data-i18n="h-dashboard">Dashboard</h2>
+        <p data-i18n="p-dashboard">
           Segunda página del reporte — <strong>Exploración Analítica</strong>: la gráfica central
           de barras (reseña promedio por severidad de retraso, en semáforo verde/ámbar/rojo),
           rankings de estados por retraso y por reseñas negativas, comparación vendedor único vs.
@@ -120,8 +124,8 @@
         </p>
         <p><img src="../assets/projects/olist-exploracion.png" alt="Página Exploración Analítica del dashboard de Olist en Power BI" style="width:100%; border-radius:3px; border:1px solid var(--line);"></p>
 
-        <h2>Hallazgos clave</h2>
-        <ul>
+        <h2 data-i18n="h-hallazgos">Hallazgos clave</h2>
+        <ul data-i18n="list-hallazgos">
           <li><strong>La logística sí explica la satisfacción:</strong> la reseña promedio cae de
             4.29 (pedido a tiempo) a 3.18 (retraso leve) a 1.73 (retraso severo) — una caída del
             60% en la peor categoría.</li>
@@ -151,16 +155,16 @@
         </div>
         <div class="fact-box">
           <dl>
-            <dt>Rol</dt>
-            <dd>Proyecto de portafolio sobre dataset público</dd>
-            <dt>Modelo</dt>
+            <dt data-i18n="dt-rol">Rol</dt>
+            <dd data-i18n="dd-rol">Proyecto de portafolio sobre dataset público</dd>
+            <dt data-i18n="dt-modelo">Modelo</dt>
             <dd><code>fact_orders</code> (96,470 filas) + <code>dim_date</code> + <code>dim_geography</code></dd>
-            <dt>Periodo</dt>
+            <dt data-i18n="dt-periodo">Periodo</dt>
             <dd>Sep 2016 – Oct 2018</dd>
           </dl>
         </div>
         <div class="fact-box">
-          <a class="btn btn-primary" href="https://github.com/romloc11/olist-logistics-satisfaction" target="_blank" rel="noopener">Ver en GitHub ↗</a>
+          <a class="btn btn-primary" href="https://github.com/romloc11/olist-logistics-satisfaction" target="_blank" rel="noopener" data-i18n="btn-github">Ver en GitHub ↗</a>
         </div>
       </aside>
     </div>
@@ -170,8 +174,70 @@
 
 <footer class="wrap">
   <span>© 2026 Román Alejandro López Ruvalcaba</span>
-  <span>Diseñado y construido a mano</span>
+  <span data-i18n="footer-tag">Diseñado y construido a mano</span>
 </footer>
+
+<script>
+window.I18N = {
+  es: {
+    __title: "Logistics & Customer Satisfaction — Olist — Román López",
+    __description: "Pipeline end-to-end sobre el dataset público de Olist: ¿el retraso en la entrega afecta la satisfacción del cliente, y en qué estados se concentra el riesgo?",
+    "nav-contacto": "Contacto", "nav-proyectos": "Proyectos", "nav-habilidades": "Habilidades", "nav-cv": "Ver CV",
+    "back-link": "← Volver al portafolio",
+    "eyebrow": "Dataset público — Kaggle",
+    "lede": "Olist es un marketplace brasileño que conecta pequeños vendedores con grandes canales de venta online. Este proyecto responde una pregunta operativa real: ¿cumplir la promesa de entrega afecta la satisfacción del cliente, y dónde se concentra el riesgo? Pipeline end-to-end desde CSV crudo hasta un dashboard de 2 páginas en Power BI.",
+    "btn-repo": "Ver repositorio en GitHub ↗",
+    "figcaption": "Resumen Ejecutivo — 5 KPIs, tendencia mensual de entregas a tiempo y distribución por estado",
+    "h-dataset": "El dataset",
+    "p-dataset": "<a href=\"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce\" target=\"_blank\" rel=\"noopener\">Brazilian E-Commerce Public Dataset by Olist</a> (Kaggle, licencia CC-BY-NC-SA-4.0): septiembre 2016 a octubre 2018, 9 tablas relacionales, ~100k pedidos, ~1M de registros de geolocalización. Limitaciones conocidas: dataset histórico y cerrado (sin comparación real periodo actual vs. anterior), ~0.5% de reseñas duplicadas por pedido, ~2% de productos sin categoría asignada, y cobertura de geolocalización incompleta para ~0.3% de los prefijos de código postal.",
+    "h-arquitectura": "Arquitectura",
+    "arch-diagram": "Kaggle API → Bronze (CSV crudo) → EDA → Silver (limpio, tipado, Parquet)\n           → Gold (star schema, Parquet) → Power BI (modelo semántico + dashboard)",
+    "p-arquitectura": "Arquitectura Medallion completa, justificada porque el dataset tiene 9 tablas relacionales con problemas reales de calidad de datos que resolver (duplicados, tipos, agregaciones) — no un solo CSV que haría Silver y Gold redundantes.",
+    "h-decisiones": "Decisiones técnicas",
+    "list-decisiones": "<li><strong>Extracción (Bronze)</strong> vía Kaggle API con un script de Python, en vez de descarga manual — mantiene la adquisición de datos documentada y reproducible como código, no como instrucción en un README.</li><li><strong>Limpieza y tipado (Silver)</strong> en Python/pandas puro — el dataset cabe en memoria (unos cientos de miles de filas) y las transformaciones son mayormente por fila y por tabla; SQL no habría agregado nada aquí.</li><li><strong>Formato Parquet</strong>, no CSV — preserva tipos (fechas, códigos postales con cero a la izquierda) sin tener que reparsear en cada lectura.</li><li><strong>Modelado Gold:</strong> 1 hecho (<code>fact_orders</code>, grano = pedido entregado) + 2 dimensiones (<code>dim_date</code>, <code>dim_geography</code>). <code>dim_seller</code> y <code>dim_product</code> deliberadamente no se construyeron — 1,278 pedidos tienen más de un vendedor y potencialmente varias categorías de producto, sin relación 1:1 limpia con el grano \"pedido\", y ningún KPI del proyecto depende de esas dimensiones.</li><li><strong>Modelo semántico</strong> definido como proyecto PBIP/TMDL (texto plano) en vez de solo el binario .pbix, para mantenerlo versionado en Git con historial y diffs legibles por commit.</li>",
+    "h-calidad": "Calidad de datos",
+    "table-calidad": "<thead><tr><th>Hallazgo</th><th>Resolución</th></tr></thead><tbody><tr><td>547 pedidos con 2 reseñas</td><td>Deduplicado en Silver, se conserva la más reciente</td></tr><tr><td>Códigos postales pierden el cero inicial al leerse como entero</td><td>Forzado a texto de 5 dígitos en Silver</td></tr><tr><td>~1M registros de geolocalización con múltiples lat/lng por prefijo</td><td>Agregado a 1 fila por prefijo (promedio) en Silver</td></tr><tr><td>La medida \"% Reseñas Negativas\" contaba pedidos sin reseña como negativos</td><td>DAX trata <code>BLANK() &lt;= 2</code> como verdadero; corregido excluyendo blancos explícitamente</td></tr></tbody>",
+    "h-dashboard": "Dashboard",
+    "p-dashboard": "Segunda página del reporte — <strong>Exploración Analítica</strong>: la gráfica central de barras (reseña promedio por severidad de retraso, en semáforo verde/ámbar/rojo), rankings de estados por retraso y por reseñas negativas, comparación vendedor único vs. múltiples vendedores, y una tabla de detalle explorable.",
+    "h-hallazgos": "Hallazgos clave",
+    "list-hallazgos": "<li><strong>La logística sí explica la satisfacción:</strong> la reseña promedio cae de 4.29 (pedido a tiempo) a 3.18 (retraso leve) a 1.73 (retraso severo) — una caída del 60% en la peor categoría.</li><li>Solo el <strong>8.1% de los pedidos llega tarde</strong>, así que el promedio general del negocio se mantiene alto (4.16) — el problema es real pero concentrado, no generalizado.</li><li><strong>Alagoas, Maranhão y Sergipe</strong> tienen el mayor % de reseñas negativas (&gt;18%), muy por encima del promedio nacional (12.8%) — estados lejos del hub logístico de São Paulo.</li><li><strong>São Paulo concentra ~41% del volumen de pedidos</strong> (40k de 96k) — el negocio está fuertemente centralizado geográficamente.</li><li>Los pedidos con <strong>más de un vendedor tardan más</strong> en promedio (9.6 días de retraso vs. 3.7 para vendedor único) y reciben peores reseñas (4.17 vs. 2.86).</li>",
+    "dt-rol": "Rol", "dd-rol": "Proyecto de portafolio sobre dataset público",
+    "dt-modelo": "Modelo",
+    "dt-periodo": "Periodo",
+    "btn-github": "Ver en GitHub ↗",
+    "footer-tag": "Diseñado y construido a mano"
+  },
+  en: {
+    __title: "Logistics & Customer Satisfaction — Olist — Román López",
+    __description: "End-to-end pipeline on the public Olist dataset: does delivery delay affect customer satisfaction, and in which states is the risk concentrated?",
+    "nav-contacto": "Contact", "nav-proyectos": "Projects", "nav-habilidades": "Skills", "nav-cv": "View CV",
+    "back-link": "← Back to portfolio",
+    "eyebrow": "Public dataset — Kaggle",
+    "lede": "Olist is a Brazilian marketplace that connects small sellers with large online sales channels. This project answers a real operational question: does meeting the delivery promise impact customer satisfaction, and where is the risk concentrated? End-to-end pipeline from raw CSV to a 2-page Power BI dashboard.",
+    "btn-repo": "View repository on GitHub ↗",
+    "figcaption": "Executive Summary — 5 KPIs, monthly on-time delivery trend, and order distribution by state",
+    "h-dataset": "The dataset",
+    "p-dataset": "<a href=\"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce\" target=\"_blank\" rel=\"noopener\">Brazilian E-Commerce Public Dataset by Olist</a> (Kaggle, CC-BY-NC-SA-4.0 license): September 2016 to October 2018, 9 relational tables, ~100k orders, ~1M geolocation records. Known limitations: historical, closed dataset (no real current-vs-previous period comparison), ~0.5% duplicate reviews per order, ~2% of products with no assigned category, and incomplete geolocation coverage for ~0.3% of zip code prefixes.",
+    "h-arquitectura": "Architecture",
+    "arch-diagram": "Kaggle API → Bronze (raw CSV) → EDA → Silver (clean, typed, Parquet)\n           → Gold (star schema, Parquet) → Power BI (semantic model + dashboard)",
+    "p-arquitectura": "Full Medallion architecture, justified because the dataset has 9 relational tables with real data-quality issues to resolve (duplicates, types, aggregations) — not a single CSV that would make Silver and Gold redundant.",
+    "h-decisiones": "Technical decisions",
+    "list-decisiones": "<li><strong>Extraction (Bronze)</strong> via the Kaggle API with a Python script, instead of a manual download — keeps data acquisition documented and reproducible as code, not as a README instruction.</li><li><strong>Cleaning and typing (Silver)</strong> in plain Python/pandas — the dataset fits in memory (a few hundred thousand rows) and the transformations are mostly per-row and per-table; SQL wouldn't have added anything here.</li><li><strong>Parquet format</strong>, not CSV — preserves types (dates, zip codes with a leading zero) without having to re-parse on every read.</li><li><strong>Gold modeling:</strong> 1 fact (<code>fact_orders</code>, grain = delivered order) + 2 dimensions (<code>dim_date</code>, <code>dim_geography</code>). <code>dim_seller</code> and <code>dim_product</code> were deliberately not built — 1,278 orders have more than one seller and potentially several product categories, with no clean 1:1 relationship to the \"order\" grain, and no KPI in the project depends on those dimensions.</li><li><strong>Semantic model</strong> defined as a PBIP/TMDL project (plain text) instead of just the .pbix binary, to keep it versioned in Git with readable history and diffs per commit.</li>",
+    "h-calidad": "Data quality",
+    "table-calidad": "<thead><tr><th>Finding</th><th>Resolution</th></tr></thead><tbody><tr><td>547 orders with 2 reviews</td><td>Deduplicated in Silver, most recent review kept</td></tr><tr><td>Zip codes lose their leading zero when read as an integer</td><td>Forced to 5-digit text in Silver</td></tr><tr><td>~1M geolocation records with multiple lat/lng per zip prefix</td><td>Aggregated to 1 row per prefix (average) in Silver</td></tr><tr><td>The \"% Negative Reviews\" measure counted orders with no review as negative</td><td>DAX treats <code>BLANK() &lt;= 2</code> as true; fixed by explicitly excluding blanks</td></tr></tbody>",
+    "h-dashboard": "Dashboard",
+    "p-dashboard": "Second report page — <strong>Analytical Exploration</strong>: the central bar chart (average review by delay severity, in green/amber/red traffic light), state rankings by delay and by negative reviews, single-seller vs. multi-seller comparison, and an explorable detail table.",
+    "h-hallazgos": "Key insights",
+    "list-hallazgos": "<li><strong>Logistics really does explain satisfaction:</strong> the average review drops from 4.29 (on-time order) to 3.18 (mild delay) to 1.73 (severe delay) — a 60% drop in the worst category.</li><li>Only <strong>8.1% of orders arrive late</strong>, so the overall business average stays high (4.16) — the problem is real but concentrated, not widespread.</li><li><strong>Alagoas, Maranhão, and Sergipe</strong> have the highest % of negative reviews (&gt;18%), well above the national average (12.8%) — states far from the São Paulo logistics hub.</li><li><strong>São Paulo accounts for ~41% of order volume</strong> (40k of 96k) — the business is heavily geographically centralized.</li><li>Orders with <strong>more than one seller take longer</strong> on average (9.6 days of delay vs. 3.7 for single-seller orders) and get worse reviews (4.17 vs. 2.86).</li>",
+    "dt-rol": "Role", "dd-rol": "Portfolio project on a public dataset",
+    "dt-modelo": "Model",
+    "dt-periodo": "Period",
+    "btn-github": "View on GitHub ↗",
+    "footer-tag": "Designed and built by hand"
+  }
+};
+</script>
+<script src="../i18n.js"></script>
 
 </body>
 </html>

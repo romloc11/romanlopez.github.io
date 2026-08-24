@@ -16,10 +16,14 @@
   <div class="wrap">
     <a href="../index.html#top" class="nav-mark" aria-label="Inicio">RL</a>
     <div class="nav-links">
-      <a class="section-link" href="../index.html#proyectos">Proyectos</a>
-      <a class="section-link" href="../index.html#habilidades">Habilidades</a>
-      <a class="section-link" href="../index.html#contacto">Contacto</a>
-      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener">Ver CV</a>
+      <a class="section-link" href="../index.html#contacto" data-i18n="nav-contacto">Contacto</a>
+      <a class="section-link" href="../index.html#proyectos" data-i18n="nav-proyectos">Proyectos</a>
+      <a class="section-link" href="../index.html#habilidades" data-i18n="nav-habilidades">Habilidades</a>
+      <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="nav-cv" href="../assets/CV_RomanLopez.pdf" target="_blank" rel="noopener" data-i18n="nav-cv">Ver CV</a>
     </div>
   </div>
 </nav>
@@ -28,10 +32,10 @@
 
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back-link" href="../index.html#proyectos">← Volver al portafolio</a>
-      <p class="eyebrow">Dataset público — Kaggle · Machine Learning</p>
+      <a class="back-link" href="../index.html#proyectos" data-i18n="back-link">← Volver al portafolio</a>
+      <p class="eyebrow" data-i18n="eyebrow">Dataset público — Kaggle · Machine Learning</p>
       <h1>Home Credit Default Risk</h1>
-      <p class="detail-lede">
+      <p class="detail-lede" data-i18n="lede">
         Home Credit es una institución crediticia que necesita estimar, antes de aprobar un
         préstamo, la probabilidad de que un solicitante tenga dificultades de pago — combinando
         datos de la solicitud actual, su historial en buró de crédito externo y su comportamiento
@@ -46,22 +50,22 @@
         <span class="tag">POWER BI</span>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://github.com/romloc11/home-credit-default-risk" target="_blank" rel="noopener">Ver repositorio en GitHub ↗</a>
+        <a class="btn btn-primary" href="https://github.com/romloc11/home-credit-default-risk" target="_blank" rel="noopener" data-i18n="btn-repo">Ver repositorio en GitHub ↗</a>
       </div>
     </div>
   </header>
 
   <figure class="detail-figure">
     <img src="../assets/projects/home-credit-dashboard.png" alt="Dashboard de riesgo crediticio Home Credit Default Risk en Power BI">
-    <figcaption>Dashboard de una página: KPIs de contexto, mora comparada por meses previos a la decisión, bandas de riesgo y variables clave</figcaption>
+    <figcaption data-i18n="figcaption">Dashboard de una página: KPIs de contexto, mora comparada por meses previos a la decisión, bandas de riesgo y variables clave</figcaption>
   </figure>
 
   <section class="detail-body">
     <div class="wrap detail-grid">
       <article class="detail-main">
 
-        <h2>El dataset</h2>
-        <p>
+        <h2 data-i18n="h-dataset">El dataset</h2>
+        <p data-i18n="p-dataset">
           <a href="https://www.kaggle.com/competitions/home-credit-default-risk" target="_blank" rel="noopener">Kaggle — Home Credit Default Risk</a>:
           307,511 solicitudes de crédito, más 6 tablas relacionadas (buró externo, solicitudes
           previas, saldos mensuales POS/efectivo, tarjetas de crédito y pagos) — 2.5GB en total.
@@ -71,15 +75,15 @@
           calendario.
         </p>
 
-        <h2>Arquitectura</h2>
-        <pre class="arch-diagram">Kaggle API → Bronze → EDA → Silver → Gold (star schema)
+        <h2 data-i18n="h-arquitectura">Arquitectura</h2>
+        <pre class="arch-diagram" data-i18n="arch-diagram">Kaggle API → Bronze → EDA → Silver → Gold (star schema)
                                             │
                                             ├──► Modelo LightGBM (score de riesgo)
                                             │
                                             └──► Power BI (modelo semántico + dashboard)</pre>
 
-        <h2>Decisiones técnicas</h2>
-        <ul>
+        <h2 data-i18n="h-decisiones">Decisiones técnicas</h2>
+        <ul data-i18n="list-decisiones">
           <li><strong>Limpieza y tipado (Silver)</strong> con DuckDB — no porque pandas no
             aguantara el tamaño (ninguna tabla individual supera ~723MB), sino por consistencia
             de pipeline: Gold ya necesita DuckDB para las agregaciones relacionales pesadas
@@ -109,8 +113,8 @@
             organizar medidas.</li>
         </ul>
 
-        <h2>Calidad de datos</h2>
-        <table class="kpi-table">
+        <h2 data-i18n="h-calidad">Calidad de datos</h2>
+        <table class="kpi-table" data-i18n="table-calidad">
           <thead><tr><th>Hallazgo</th><th>Resolución</th></tr></thead>
           <tbody>
             <tr><td><code>DAYS_EMPLOYED=365243</code> en 18% de las filas</td><td>Convertido a NULL + columna <code>FLAG_SIN_EMPLEO_ACTIVO</code></td></tr>
@@ -120,8 +124,8 @@
           </tbody>
         </table>
 
-        <h2>KPIs y preguntas de negocio</h2>
-        <table class="kpi-table">
+        <h2 data-i18n="h-kpis">KPIs y preguntas de negocio</h2>
+        <table class="kpi-table" data-i18n="table-kpis">
           <thead><tr><th>Pregunta</th><th>KPI / métrica</th></tr></thead>
           <tbody>
             <tr><td>¿Qué tan bien separa el modelo el riesgo real?</td><td>AUC-ROC (0.7244) + tasa de mora por banda de riesgo (2.79% / 5.95% / 15.49%)</td></tr>
@@ -131,8 +135,8 @@
           </tbody>
         </table>
 
-        <h2>Hallazgos clave</h2>
-        <ul>
+        <h2 data-i18n="h-hallazgos">Hallazgos clave</h2>
+        <ul data-i18n="list-hallazgos">
           <li><strong>El riesgo se manifiesta con meses de anticipación:</strong> en cada uno de
             los 12 meses previos a la decisión, los clientes que terminan en mora muestran más
             días de atraso en préstamos POS/efectivo que los que no — la brecha (1.2x a 1.6x) es
@@ -164,16 +168,16 @@
         </div>
         <div class="fact-box">
           <dl>
-            <dt>Rol</dt>
-            <dd>Proyecto de portafolio sobre competencia de Kaggle</dd>
-            <dt>Modelo</dt>
+            <dt data-i18n="dt-rol">Rol</dt>
+            <dd data-i18n="dd-rol">Proyecto de portafolio sobre competencia de Kaggle</dd>
+            <dt data-i18n="dt-modelo">Modelo</dt>
             <dd><code>fact_solicitudes</code> (307,511 filas) + 6 dimensiones</dd>
-            <dt>Desempeño</dt>
-            <dd>AUC-ROC 0.7244, validado out-of-fold</dd>
+            <dt data-i18n="dt-desempeno">Desempeño</dt>
+            <dd data-i18n="dd-desempeno">AUC-ROC 0.7244, validado out-of-fold</dd>
           </dl>
         </div>
         <div class="fact-box">
-          <a class="btn btn-primary" href="https://github.com/romloc11/home-credit-default-risk" target="_blank" rel="noopener">Ver en GitHub ↗</a>
+          <a class="btn btn-primary" href="https://github.com/romloc11/home-credit-default-risk" target="_blank" rel="noopener" data-i18n="btn-github">Ver en GitHub ↗</a>
         </div>
       </aside>
     </div>
@@ -183,8 +187,68 @@
 
 <footer class="wrap">
   <span>© 2026 Román Alejandro López Ruvalcaba</span>
-  <span>Diseñado y construido a mano</span>
+  <span data-i18n="footer-tag">Diseñado y construido a mano</span>
 </footer>
+
+<script>
+window.I18N = {
+  es: {
+    __title: "Home Credit Default Risk — Román López",
+    __description: "Modelo de riesgo crediticio (LightGBM) y dashboard de comportamiento de mora sobre el dataset de Kaggle Home Credit, de datos crudos a reporte para comité de riesgo.",
+    "nav-contacto": "Contacto", "nav-proyectos": "Proyectos", "nav-habilidades": "Habilidades", "nav-cv": "Ver CV",
+    "back-link": "← Volver al portafolio",
+    "eyebrow": "Dataset público — Kaggle · Machine Learning",
+    "lede": "Home Credit es una institución crediticia que necesita estimar, antes de aprobar un préstamo, la probabilidad de que un solicitante tenga dificultades de pago — combinando datos de la solicitud actual, su historial en buró de crédito externo y su comportamiento de pago en préstamos previos. Este proyecto construye ese modelo de extremo a extremo: de datos crudos a un dashboard que un comité de riesgo podría revisar de verdad.",
+    "btn-repo": "Ver repositorio en GitHub ↗",
+    "figcaption": "Dashboard de una página: KPIs de contexto, mora comparada por meses previos a la decisión, bandas de riesgo y variables clave",
+    "h-dataset": "El dataset",
+    "p-dataset": "<a href=\"https://www.kaggle.com/competitions/home-credit-default-risk\" target=\"_blank\" rel=\"noopener\">Kaggle — Home Credit Default Risk</a>: 307,511 solicitudes de crédito, más 6 tablas relacionadas (buró externo, solicitudes previas, saldos mensuales POS/efectivo, tarjetas de crédito y pagos) — 2.5GB en total. Grano principal: 1 fila = 1 solicitud de crédito. No existe una fecha calendario real de solicitud, solo días/meses relativos a la decisión de crédito, así que cualquier análisis \"a través del tiempo\" es relativo al ciclo de cada solicitud, no a fechas de calendario.",
+    "h-arquitectura": "Arquitectura",
+    "arch-diagram": "Kaggle API → Bronze → EDA → Silver → Gold (star schema)\n                                            │\n                                            ├──► Modelo LightGBM (score de riesgo)\n                                            │\n                                            └──► Power BI (modelo semántico + dashboard)",
+    "h-decisiones": "Decisiones técnicas",
+    "list-decisiones": "<li><strong>Limpieza y tipado (Silver)</strong> con DuckDB — no porque pandas no aguantara el tamaño (ninguna tabla individual supera ~723MB), sino por consistencia de pipeline: Gold ya necesita DuckDB para las agregaciones relacionales pesadas (unir buró, solicitudes previas y saldos mensuales a nivel cliente). Aquí se corrige la anomalía conocida <code>DAYS_EMPLOYED=365243</code> (placeholder de \"sin empleo activo\") y el valor <code>'XNA'</code> de género.</li><li><strong>Modelo dimensional (Gold)</strong>: star schema ligero (1 hecho + 6 dimensiones). Se evaluó explícitamente si un star schema aportaba claridad — atributos con valores reutilizados (tipo de ingreso, educación, vivienda, estado civil, rango de edad, banda de riesgo) se dimensionalizaron; atributos binarios/booleanos se dejaron como dimensiones degeneradas en el hecho.</li><li><strong>Modelo de riesgo (ML)</strong>: LightGBM + validación cruzada de 5 folds. Cada fila de <code>fact_solicitudes</code> recibe su <code>SCORE_RIESGO</code> de un modelo que <strong>no vio esa fila durante el entrenamiento</strong> (out-of-fold), evitando el sesgo optimista de calificar con el mismo modelo que se entrenó con esos datos.</li><li><strong>Enriquecimiento de nombres</strong>: un script mapea nombres técnicos (<code>EXT_SOURCE_2</code>) a nombres de negocio (\"Score de Buró Externo 2\") en la tabla de importancia de variables — necesario porque el <em>valor</em> de una columna, no solo su nombre, puede ser un identificador técnico ilegible en un eje de gráfica.</li><li><strong>Power BI</strong>: el modelo semántico se construyó con <code>powerbi-modeling-mcp</code> (conexión en vivo a Power BI Desktop) en vez de editar TMDL a mano — valida cada medida con una consulta DAX real antes de aceptarla. Todas las tablas, columnas y medidas usan nombres de negocio en español, las columnas técnicas están ocultas, y se usa <code>displayFolder</code> para organizar medidas.</li>",
+    "h-calidad": "Calidad de datos",
+    "table-calidad": "<thead><tr><th>Hallazgo</th><th>Resolución</th></tr></thead><tbody><tr><td><code>DAYS_EMPLOYED=365243</code> en 18% de las filas</td><td>Convertido a NULL + columna <code>FLAG_SIN_EMPLEO_ACTIVO</code></td></tr><tr><td><code>AMT_INCOME_TOTAL</code> con outlier extremo (117M vs. mediana 147K)</td><td>Valor crudo se conserva + <code>FLAG_INCOME_OUTLIER</code> (percentil 99.9)</td></tr><tr><td>Columnas de propiedad con 60-70% de nulos</td><td>Se dejan como NULL explícito, sin imputar a ciegas</td></tr><tr><td><strong>Error propio detectado en el EDA:</strong> cobertura de buró reportada como 99.4% comparando conteos por tabla sin cruzarlas</td><td>Corregido a 85.7% con el join real contra la solicitud, documentado en el notebook</td></tr></tbody>",
+    "h-kpis": "KPIs y preguntas de negocio",
+    "table-kpis": "<thead><tr><th>Pregunta</th><th>KPI / métrica</th></tr></thead><tbody><tr><td>¿Qué tan bien separa el modelo el riesgo real?</td><td>AUC-ROC (0.7244) + tasa de mora por banda de riesgo (2.79% / 5.95% / 15.49%)</td></tr><tr><td>¿Se puede anticipar el riesgo con meses de anticipación?</td><td>Días de atraso promedio por mes previo a la decisión, clientes en mora vs. al corriente</td></tr><tr><td>¿Qué variables explican mejor el riesgo?</td><td>Importancia de variables del modelo (top 6)</td></tr><tr><td>¿Cuál es la tasa base de mora de la cartera?</td><td>Tasa de Mora General (8.07%)</td></tr></tbody>",
+    "h-hallazgos": "Hallazgos clave",
+    "list-hallazgos": "<li><strong>El riesgo se manifiesta con meses de anticipación:</strong> en cada uno de los 12 meses previos a la decisión, los clientes que terminan en mora muestran más días de atraso en préstamos POS/efectivo que los que no — la brecha (1.2x a 1.6x) es constante, no algo que solo aparece al final.</li><li><strong>El modelo separa riesgo real, no solo aparente:</strong> la tasa de mora sube de 2.79% (banda baja) a 15.49% (banda alta) — una diferencia de 5.5x, validada con predicciones fuera de muestra.</li><li><strong>El buró de crédito externo pesa más que los datos propios de la solicitud:</strong> los 3 scores externos representan 60% de la importancia total del modelo.</li><li>La tasa de mora cae casi monotónicamente de 12.35% (&lt;25 años) a 3.74% (65+).</li><li>Tener historial de buró, aunque imperfecto, es mejor que no tenerlo: los clientes sin ningún registro externo (14.3% de la cartera) tienen una tasa de mora más alta (10.12%) que el promedio.</li>",
+    "dt-rol": "Rol", "dd-rol": "Proyecto de portafolio sobre competencia de Kaggle",
+    "dt-modelo": "Modelo",
+    "dt-desempeno": "Desempeño", "dd-desempeno": "AUC-ROC 0.7244, validado out-of-fold",
+    "btn-github": "Ver en GitHub ↗",
+    "footer-tag": "Diseñado y construido a mano"
+  },
+  en: {
+    __title: "Home Credit Default Risk — Román López",
+    __description: "Credit risk model (LightGBM) and delinquency-behavior dashboard on the Kaggle Home Credit dataset, from raw data to a report for a risk committee.",
+    "nav-contacto": "Contact", "nav-proyectos": "Projects", "nav-habilidades": "Skills", "nav-cv": "View CV",
+    "back-link": "← Back to portfolio",
+    "eyebrow": "Public dataset — Kaggle · Machine Learning",
+    "lede": "Home Credit is a lending institution that needs to estimate, before approving a loan, the probability that an applicant will have payment difficulties — combining data from the current application, their external credit bureau history, and their payment behavior on previous loans. This project builds that model end to end: from raw data to a dashboard a risk committee could actually review.",
+    "btn-repo": "View repository on GitHub ↗",
+    "figcaption": "Single-page dashboard: context KPIs, delinquency compared by months before the decision, risk bands, and key variables",
+    "h-dataset": "The dataset",
+    "p-dataset": "<a href=\"https://www.kaggle.com/competitions/home-credit-default-risk\" target=\"_blank\" rel=\"noopener\">Kaggle — Home Credit Default Risk</a>: 307,511 credit applications, plus 6 related tables (external bureau, previous applications, monthly POS/cash balances, credit cards, and payments) — 2.5GB total. Primary grain: 1 row = 1 credit application. There's no real calendar application date, only days/months relative to the credit decision, so any \"over time\" analysis is relative to each application's cycle, not calendar dates.",
+    "h-arquitectura": "Architecture",
+    "arch-diagram": "Kaggle API → Bronze → EDA → Silver → Gold (star schema)\n                                            │\n                                            ├──► LightGBM model (risk score)\n                                            │\n                                            └──► Power BI (semantic model + dashboard)",
+    "h-decisiones": "Technical decisions",
+    "list-decisiones": "<li><strong>Cleaning and typing (Silver)</strong> with DuckDB — not because pandas couldn't handle the size (no individual table exceeds ~723MB), but for pipeline consistency: Gold already needs DuckDB for the heavy relational aggregations (joining bureau, previous applications, and monthly balances at the customer level). This is where the known <code>DAYS_EMPLOYED=365243</code> anomaly (placeholder for \"no active employment\") and the <code>'XNA'</code> gender value get fixed.</li><li><strong>Dimensional model (Gold)</strong>: lightweight star schema (1 fact + 6 dimensions). Whether a star schema actually added clarity was explicitly evaluated — attributes with reused values (income type, education, housing, marital status, age range, risk band) were dimensionalized; binary/boolean attributes were left as degenerate dimensions in the fact.</li><li><strong>Risk model (ML)</strong>: LightGBM + 5-fold cross validation. Every row of <code>fact_solicitudes</code> gets its <code>SCORE_RIESGO</code> from a model that <strong>did not see that row during training</strong> (out-of-fold), avoiding the optimistic bias of scoring with the same model trained on that data.</li><li><strong>Name enrichment</strong>: a script maps technical names (<code>EXT_SOURCE_2</code>) to business names (\"Score de Buró Externo 2\") in the feature-importance table — necessary because a column's <em>value</em>, not just its name, can be an unreadable technical identifier on a chart axis.</li><li><strong>Power BI</strong>: the semantic model was built with <code>powerbi-modeling-mcp</code> (live connection to Power BI Desktop) instead of hand-editing TMDL — it validates every measure with a real DAX query before accepting it. All tables, columns, and measures use Spanish business names, technical columns are hidden, and <code>displayFolder</code> organizes measures.</li>",
+    "h-calidad": "Data quality",
+    "table-calidad": "<thead><tr><th>Finding</th><th>Resolution</th></tr></thead><tbody><tr><td><code>DAYS_EMPLOYED=365243</code> in 18% of rows</td><td>Converted to NULL + <code>FLAG_SIN_EMPLEO_ACTIVO</code> column</td></tr><tr><td><code>AMT_INCOME_TOTAL</code> with an extreme outlier (117M vs. median 147K)</td><td>Raw value is kept + <code>FLAG_INCOME_OUTLIER</code> (99.9th percentile)</td></tr><tr><td>Property columns with 60-70% nulls</td><td>Left as explicit NULL, not blindly imputed</td></tr><tr><td><strong>Own mistake found in the EDA:</strong> bureau coverage reported as 99.4% by comparing per-table counts without joining them</td><td>Corrected to 85.7% with the real join against the application, documented in the notebook</td></tr></tbody>",
+    "h-kpis": "KPIs and business questions",
+    "table-kpis": "<thead><tr><th>Question</th><th>KPI / metric</th></tr></thead><tbody><tr><td>How well does the model separate real risk?</td><td>AUC-ROC (0.7244) + default rate by risk band (2.79% / 5.95% / 15.49%)</td></tr><tr><td>Can risk be anticipated months ahead?</td><td>Average days past due per month before the decision, defaulted vs. current customers</td></tr><tr><td>Which variables best explain risk?</td><td>Model feature importance (top 6)</td></tr><tr><td>What's the portfolio's baseline default rate?</td><td>Overall Default Rate (8.07%)</td></tr></tbody>",
+    "h-hallazgos": "Key insights",
+    "list-hallazgos": "<li><strong>Risk shows up months in advance:</strong> in each of the 12 months before the decision, customers who end up defaulting show more days past due on POS/cash loans than those who don't — the gap (1.2x to 1.6x) is constant, not something that only appears at the end.</li><li><strong>The model separates real risk, not just apparent risk:</strong> the default rate rises from 2.79% (low band) to 15.49% (high band) — a 5.5x difference, validated with out-of-sample predictions.</li><li><strong>The external credit bureau outweighs the application's own data:</strong> the 3 external scores account for 60% of the model's total importance.</li><li>The default rate drops almost monotonically from 12.35% (&lt;25 years) to 3.74% (65+).</li><li>Having bureau history, even imperfect, beats having none: customers with no external bureau record at all (14.3% of the portfolio) have a higher default rate (10.12%) than average.</li>",
+    "dt-rol": "Role", "dd-rol": "Portfolio project on a Kaggle competition",
+    "dt-modelo": "Model",
+    "dt-desempeno": "Performance", "dd-desempeno": "AUC-ROC 0.7244, validated out-of-fold",
+    "btn-github": "View on GitHub ↗",
+    "footer-tag": "Designed and built by hand"
+  }
+};
+</script>
+<script src="../i18n.js"></script>
 
 </body>
 </html>
