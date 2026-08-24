@@ -1,385 +1,228 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Roman López | Data Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-
-body{
-    margin:0;
-    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-    background:#020617;
-    color:#e5e7eb;
-    line-height:1.6;
-}
-
-/* COVER */
-
-.hero{
-    width:100%;
-    height:250px;
-    background:url('images/profile/foto_portada.jpeg') no-repeat center center;
-    background-size:cover;
-    border-bottom:1px solid #1e293b;
-}
-
-.profile-container{
-    text-align:center;
-    margin-top:-80px;
-    position:relative;
-}
-
-.profile-pic{
-    width:160px;
-    height:160px;
-    border-radius:50%;
-    border:6px solid #020617;
-    object-fit:cover;
-    box-shadow:0 10px 30px rgba(0,0,0,.5);
-}
-
-/* MAIN CONTAINER */
-
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:2rem 1.5rem;
-}
-
-header{
-    text-align:center;
-    margin-bottom:3rem;
-}
-
-h1{
-    margin:1rem 0 .2rem;
-    font-size:2.5rem;
-    letter-spacing:-1px;
-}
-
-.subtitle{
-    color:#38bdf8;
-    font-weight:600;
-    font-size:1.1rem;
-    margin-bottom:1.5rem;
-}
-
-/* CONTACT */
-
-.contact-info{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.contact-link{
-    color:#9ca3af;
-    text-decoration:none;
-    font-size:.9rem;
-    padding:5px 12px;
-    border-radius:20px;
-    background:#0f172a;
-    border:1px solid #1e293b;
-    transition:.3s;
-}
-
-.contact-link:hover{
-    border-color:#38bdf8;
-    color:#38bdf8;
-}
-
-/* ABOUT */
-
-.about-section{
-    background:#0f172a;
-    padding:2.5rem;
-    border-radius:24px;
-    margin:3rem 0;
-    border:1px solid #1e293b;
-}
-
-.about-section h2{
-    margin-top:0;
-    color:#f9fafb;
-    font-size:1.3rem;
-}
-
-.about-text{
-    font-size:.95rem;
-    color:#9ca3af;
-    text-align:justify;
-}
-
-/* TECH STACK */
-
-.tech-stack{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:1.5rem;
-}
-
-.tech-badge{
-    background:rgba(56,189,248,.1);
-    color:#38bdf8;
-    padding:.4rem .8rem;
-    border-radius:6px;
-    font-size:.75rem;
-    font-weight:600;
-}
-
-/* PROJECTS */
-
-.projects-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:2rem;
-}
-
-.project-card{
-    background:#0f172a;
-    border-radius:20px;
-    padding:1.5rem;
-    border:1px solid #1e293b;
-    transition:transform .3s ease;
-    display:flex;
-    flex-direction:column;
-}
-
-.project-card:hover{
-    transform:translateY(-5px);
-    border-color:#38bdf8;
-}
-
-.project-image{
-    width:100%;
-    height:200px;
-    border-radius:12px;
-    margin-bottom:1.5rem;
-    object-fit:cover;
-}
-
-.project-card p{
-    font-size:.9rem;
-    color:#9ca3af;
-    text-align:justify;
-    line-height:1.5;
-}
-
-.project-card h3{
-    font-size:1.05rem;
-    color:#cbd5f5;
-    margin-bottom:.4rem;
-    font-weight:600;
-}
-
-.tools-list{
-    font-size:.8rem;
-    font-weight:bold;
-    color:#38bdf8;
-    margin-top:auto;
-    margin-bottom:1rem;
-}
-
-/* BUTTON */
-
-.btn{
-    display:block;
-    text-align:center;
-    padding:.8rem;
-    background:#38bdf8;
-    color:#020617;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:700;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#7dd3fc;
-}
-
-@media (max-width:600px){
-
-.projects-grid{
-grid-template-columns:1fr;
-}
-
-.hero{
-height:180px;
-}
-
-}
-
-</style>
+<title>Román Alejandro López Ruvalcaba — Data Analyst | Data Warehouse &amp; Analytics Engineering</title>
+<meta name="description" content="Portafolio de Román Alejandro López Ruvalcaba — Data Analyst especializado en arquitectura de datos: Medallion Architecture, SQL, modelado dimensional y Power BI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="hero"></div>
-
-<div class="profile-container">
-<img src="images/profile/foto_perfil.jpeg" alt="Roman López" class="profile-pic">
-</div>
-
-<div class="container">
-
-<header>
-
-<h1>Roman López</h1>
-<p class="subtitle">Analytics Engineer · Data Modeling · BI & Data Platforms</p>
-
-<div class="contact-info">
-
-<a href="mailto:romloc1706@hotmail.com" class="contact-link">romloc1706@hotmail.com</a>
-
-<a href="https://wa.me/523323434337" class="contact-link" target="_blank">(33) 23434337</a>
-
-<a href="https://www.linkedin.com/in/roman-alejandro-lopez" class="contact-link" target="_blank">🔗 LinkedIn</a>
-
-</div>
-
-</header>
-
-
-<section class="about-section">
-
-<h2>About Me</h2>
-
-<p class="about-text">
-Analytics Engineer focused on transforming raw data into reliable and scalable analytical datasets. 
-Experienced in designing data models, building SQL-based transformations, and developing ETL pipelines 
-that support business intelligence and data-driven decision making.
-
-I work with modern data platforms including Microsoft Fabric to integrate enterprise data sources, 
-implement lakehouse architectures, and enable Power BI semantic models for enterprise analytics.
-
-</p>
-
-<div class="tech-stack">
-
-<span class="tech-badge">Python</span>
-<span class="tech-badge">SQL</span>
-<span class="tech-badge">Data Warehousing</span>
-<span class="tech-badge">ETL / ELT</span>
-<span class="tech-badge">Power BI</span>
-<span class="tech-badge">Automation</span>
-
-</div>
-
-</section>
-
-
-<h2 style="margin-bottom:2rem;">Featured Projects</h2>
-
-
-<div class="projects-grid">
-
-
-<!-- DWH PROJECT -->
-
-<div class="project-card">
-
-<img src="images/projects/dwh/arch_dwh.drawio.png" class="project-image">
-
-<h3>SQL Data Warehouse Architecture</h3>
-
-<p>
-Design and implementation of a SQL Server Data Warehouse using a Medallion Architecture (Bronze, Silver, Gold) 
-to centralize and structure data from multiple systems.
-</p>
-
-<span class="tools-list">SQL Server · Data Warehouse · ETL · Data Modeling</span>
-
-<a class="btn" href="projects/data-warehouse-architecture.html">View Project</a>
-
-</div>
-
-
-
-<!-- ORDER POOL DASHBOARD -->
-
-<div class="project-card">
-
-<img src="images/projects/pool_dashboard/pool de pedidos.png" class="project-image">
-
-<h3>Order Pool Monitoring Dashboard</h3>
-
-<p>
-Operational Power BI dashboard designed to monitor orders placed in the
-credit hold pool, identify blocking reasons and improve order processing
-efficiency.
-</p>
-
-<span class="tools-list">Power BI · SQL Server · Business Intelligence</span>
-
-<a class="btn" href="projects/order-pool-dashboard.html">View Project</a>
-
-</div>
-
-
-
-<!-- SALES ANALYSIS -->
-
-<div class="project-card">
-
-<img src="images/projects/sales/analisis_tienda_1.png" class="project-image">
-
-<h3>Sales Profitability Analysis</h3>
-
-<p>
-Business analysis project focused on identifying the most profitable
-products, regions and opportunities to improve sales performance
-using Power BI dashboards.
-</p>
-
-<span class="tools-list">Power BI · CSV · Data Analysis</span>
-
-<a class="btn" href="projects/sales-profitability-analysis.html">View Project</a>
-
-</div>
-
-
-
-</div>
-</div>
-
-
-
-<p style="
-text-align:center;
-font-size:.72rem;
-color:#6b7280;
-max-width:640px;
-margin:2.5rem auto .5rem;
-">
-
-Note: Data used in these projects has been anonymized and adjusted
-for demonstration and privacy purposes.
-
-</p>
-
-
-<footer style="
-text-align:center;
-font-size:.75rem;
-color:#9ca3af;
-padding:1rem 0 1.5rem;
-">
-
-Roman Alejandro López Ruvalcaba · Portfolio · © 2026
-
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#top" class="nav-mark" aria-label="Inicio">RL</a>
+    <div class="nav-links">
+      <a class="section-link" href="#proyectos">Proyectos</a>
+      <a class="section-link" href="#habilidades">Habilidades</a>
+      <a class="section-link" href="#contacto">Contacto</a>
+      <a class="nav-cv" href="assets/CV_RomanLopez.pdf" target="_blank" rel="noopener">Ver CV</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+     <div class="hero-photo">
+        <img src="assets/profile/roman.jpeg" alt="Retrato de Román Alejandro López Ruvalcaba">
+      </div>
+      <div class="hero-copy">
+      <p class="eyebrow">Data Analyst — Data Warehouse &amp; Analytics Engineering</p>
+      <h1>Román Alejandro López Ruvalcaba</h1>
+      <p class="hero-lede">
+        Diseño y construyo infraestructura de datos de extremo a extremo — desde la ingesta hasta
+        el dashboard. Arquitectura Medallion, modelado dimensional (<strong>SCD Tipo 1/2</strong>),
+        SQL avanzado y reconciliación de datos a escala, sobre sistemas empresariales reales.
+      </p>
+
+      <div class="pipeline" aria-label="Flujo de arquitectura Medallion">
+        <span class="stage bronze">bronze</span>
+        <span class="arrow">→</span>
+        <span class="stage silver">silver</span>
+        <span class="arrow">→</span>
+        <span class="stage gold">gold</span>
+        <span class="arrow">→</span>
+        <span class="stage bi">power bi</span>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="assets/CV_RomanLopez.pdf" target="_blank" rel="noopener">Descargar CV</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/romloc11" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Proyectos</h2>
+        <span class="section-tag">5 repositorios · código y documentación completa en GitHub</span>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="thumb"><img src="assets/projects/dwh-architecture.svg" alt="Diagrama de arquitectura Medallion: SAP ECC hacia Bronze, Silver, Gold y Power BI"></div>
+          <p class="flagship">Insignia — trabajo en producción</p>
+          <h3>Accounts Receivable Medallion Data Warehouse</h3>
+          <p>Data warehouse empresarial en SQL Server: arquitectura Medallion (Bronze/Silver/Gold)
+             que integra datos de SAP ECC en un modelo dimensional para Cuentas por Cobrar y
+             Crédito y Cobranza. Reconciliación exacta contra la fuente en millones de registros.</p>
+          <div class="tag-row">
+            <span class="tag">SQL SERVER</span>
+            <span class="tag">SAP ECC</span>
+            <span class="tag">MEDALLION</span>
+            <span class="tag">SCD1 / SCD2</span>
+            <span class="tag">T-SQL</span>
+          </div>
+          <a class="project-link" href="https://github.com/romloc11/accounts-receivable-medallion-dwh" target="_blank" rel="noopener">Ver repositorio →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="thumb"><img src="assets/projects/payment-behavior-resumen.png" alt="Página Resumen del dashboard Payment Behavior en Power BI"></div>
+          <p class="flagship">Insignia — dashboard</p>
+          <h3>Payment Behavior Dashboard</h3>
+          <p>Reporte de Power BI que clasifica cada peso cobrado como vencido, del mes o
+             anticipado, sobre un modelo star schema con dimensiones SCD Tipo 2 por región y
+             analista de crédito.</p>
+          <div class="tag-row">
+            <span class="tag">POWER BI</span>
+            <span class="tag">DAX</span>
+            <span class="tag">STAR SCHEMA</span>
+            <span class="tag">SCD2</span>
+          </div>
+          <a class="project-link" href="https://github.com/romloc11/payment-behavior-dashboard" target="_blank" rel="noopener">Ver repositorio →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="thumb"><img src="assets/projects/order-pool-estado.png" alt="Dashboard de estado del pool de crédito en Power BI"></div>
+          <p class="flagship">Pipeline</p>
+          <h3>Order Pool Monitoring Pipeline</h3>
+          <p>Monitoreo de pool de crédito: extracción desde MySQL, transformación en capas
+             Bronze/Silver/Gold sobre DuckDB, reporte de tiempos de resolución en Power BI.
+             Reconstrucción de uno de mis primeros proyectos, con lo aprendido desde entonces.</p>
+          <div class="tag-row">
+            <span class="tag">PYTHON</span>
+            <span class="tag">DUCKDB</span>
+            <span class="tag">MEDALLION</span>
+            <span class="tag">POWER BI</span>
+          </div>
+          <a class="project-link" href="https://github.com/romloc11/Order-Pool-Monitoring-Pipeline" target="_blank" rel="noopener">Ver repositorio →</a>
+        </article>
+
+        <article class="project-card">
+          <p class="flagship">Dataset público — Kaggle</p>
+          <h3>Logistics &amp; Customer Satisfaction — Olist</h3>
+          <p>¿El retraso en la entrega afecta la satisfacción del cliente, y en qué estados se
+             concentra el riesgo? Pipeline end-to-end sobre el dataset público de Olist, de CSV
+             crudo a dashboard en Power BI.</p>
+          <div class="tag-row">
+            <span class="tag">PYTHON</span>
+            <span class="tag">PARQUET</span>
+            <span class="tag">MEDALLION</span>
+            <span class="tag">POWER BI</span>
+          </div>
+          <a class="project-link" href="https://github.com/romloc11/olist-logistics-satisfaction" target="_blank" rel="noopener">Ver repositorio →</a>
+        </article>
+
+        <article class="project-card">
+          <p class="flagship">Dataset público — Kaggle · Machine Learning</p>
+          <h3>Home Credit Default Risk</h3>
+          <p>Modelo de riesgo crediticio (LightGBM) y dashboard de comportamiento de mora sobre
+             el dataset de Kaggle Home Credit — de datos crudos a un reporte listo para comité
+             de riesgo.</p>
+          <div class="tag-row">
+            <span class="tag">PYTHON</span>
+            <span class="tag">LIGHTGBM</span>
+            <span class="tag">MACHINE LEARNING</span>
+            <span class="tag">POWER BI</span>
+          </div>
+          <a class="project-link" href="https://github.com/romloc11/home-credit-default-risk" target="_blank" rel="noopener">Ver repositorio →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Habilidades</h2>
+        <span class="section-tag">stack técnico</span>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Data Engineering</h3>
+          <div class="tag-row">
+            <span class="tag">Medallion Architecture</span>
+            <span class="tag">ETL / ELT</span>
+            <span class="tag">Incremental Loads (MERGE)</span>
+            <span class="tag">SCD Tipo 1 &amp; 2</span>
+            <span class="tag">Reconciliación de datos</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>SQL</h3>
+          <div class="tag-row">
+            <span class="tag">T-SQL avanzado</span>
+            <span class="tag">Stored Procedures</span>
+            <span class="tag">Temporal Joins</span>
+            <span class="tag">Window Functions</span>
+            <span class="tag">SQL Server</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>BI &amp; Visualización</h3>
+          <div class="tag-row">
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+            <span class="tag">Power Query</span>
+            <span class="tag">Modelado Star Schema</span>
+            <span class="tag">Diseño de KPIs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Programación &amp; Herramientas</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Excel avanzado</span>
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">SSMS</span>
+            <span class="tag">SAP ECC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact-section">
+    <div class="wrap">
+      <div>
+        <h2>Hablemos.</h2>
+        <p>Guadalajara, México · Disponible para nuevas oportunidades.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:romloc1706@hotmail.com">romloc1706@hotmail.com</a>
+        <a href="https://www.linkedin.com/in/roman-alejandro-lopez" target="_blank" rel="noopener">linkedin.com/in/roman-alejandro-lopez</a>
+        <a href="https://github.com/romloc11" target="_blank" rel="noopener">github.com/romloc11</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Román Alejandro López Ruvalcaba</span>
+  <span>Diseñado y construido a mano</span>
 </footer>
 
-</body>
-</html>
-
-
-
-    
 </body>
 </html>

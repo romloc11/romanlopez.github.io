@@ -1,0 +1,77 @@
+<svg viewBox="0 0 1180 420" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, sans-serif">
+  <rect x="0" y="0" width="1180" height="420" fill="#fbfaf7"/>
+
+  <!-- connectors -->
+  <g stroke="#8b93a0" stroke-width="1.5" fill="none">
+    <line x1="150" y1="210" x2="196" y2="210"/>
+    <line x1="386" y1="210" x2="432" y2="210"/>
+    <line x1="622" y1="210" x2="668" y2="210"/>
+    <line x1="858" y1="180" x2="900" y2="140"/>
+    <line x1="858" y1="240" x2="900" y2="280"/>
+  </g>
+  <g fill="#8b93a0">
+    <polygon points="196,210 186,205 186,215"/>
+    <polygon points="432,210 422,205 422,215"/>
+    <polygon points="668,210 658,205 658,215"/>
+    <polygon points="900,140 891,144 897,151"/>
+    <polygon points="900,280 891,276 897,269"/>
+  </g>
+
+  <!-- SAP ECC source -->
+  <g>
+    <rect x="20" y="170" width="130" height="80" rx="3" fill="none" stroke="#ddd8cc" stroke-width="1.5"/>
+    <text x="85" y="205" text-anchor="middle" font-size="14" font-weight="600" fill="#1c2430">SAP ECC</text>
+    <text x="85" y="224" text-anchor="middle" font-size="10.5" fill="#5b6472">linked server</text>
+    <text x="85" y="238" text-anchor="middle" font-size="9.5" font-family="IBM Plex Mono" fill="#8b93a0">FI / SD</text>
+  </g>
+
+  <!-- Bronze -->
+  <g>
+    <rect x="196" y="150" width="190" height="120" rx="3" fill="#ecdfc9" stroke="#ddd8cc" stroke-width="1.5"/>
+    <text x="291" y="180" text-anchor="middle" font-size="13" font-family="IBM Plex Mono" font-weight="600" fill="#1c2430">BRONZE</text>
+    <text x="291" y="202" text-anchor="middle" font-size="10.5" fill="#5b6472">10 tablas</text>
+    <text x="291" y="219" text-anchor="middle" font-size="10.5" fill="#5b6472">espejo crudo, sin</text>
+    <text x="291" y="234" text-anchor="middle" font-size="10.5" fill="#5b6472">transformaciones</text>
+  </g>
+
+  <!-- Silver -->
+  <g>
+    <rect x="432" y="150" width="190" height="120" rx="3" fill="#e5e5e0" stroke="#ddd8cc" stroke-width="1.5"/>
+    <text x="527" y="180" text-anchor="middle" font-size="13" font-family="IBM Plex Mono" font-weight="600" fill="#1c2430">SILVER</text>
+    <text x="527" y="202" text-anchor="middle" font-size="10.5" fill="#5b6472">8 tablas</text>
+    <text x="527" y="219" text-anchor="middle" font-size="10.5" fill="#5b6472">limpieza,</text>
+    <text x="527" y="234" text-anchor="middle" font-size="10.5" fill="#5b6472">estandarización</text>
+  </g>
+
+  <!-- Gold -->
+  <g>
+    <rect x="668" y="150" width="190" height="120" rx="3" fill="#e7dcc4" stroke="#a6772c" stroke-width="1.5"/>
+    <text x="763" y="180" text-anchor="middle" font-size="13" font-family="IBM Plex Mono" font-weight="600" fill="#7d581e">GOLD</text>
+    <text x="763" y="202" text-anchor="middle" font-size="10.5" fill="#7d581e">dims (SCD1/SCD2)</text>
+    <text x="763" y="219" text-anchor="middle" font-size="10.5" fill="#7d581e">+ facts + vistas</text>
+    <text x="763" y="234" text-anchor="middle" font-size="10.5" fill="#7d581e">star schema</text>
+  </g>
+
+  <!-- Power BI -->
+  <g>
+    <rect x="900" y="100" width="150" height="80" rx="3" fill="#dfe6e6" stroke="#ddd8cc" stroke-width="1.5"/>
+    <text x="975" y="135" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1c2430">Power BI</text>
+    <text x="975" y="154" text-anchor="middle" font-size="10" fill="#5b6472">reporting</text>
+  </g>
+
+  <!-- DQ -->
+  <g>
+    <rect x="900" y="240" width="150" height="80" rx="3" fill="none" stroke="#ddd8cc" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="975" y="275" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1c2430">DQ</text>
+    <text x="975" y="294" text-anchor="middle" font-size="10" fill="#5b6472">monitores</text>
+  </g>
+
+  <!-- footer labels -->
+  <text x="291" y="300" text-anchor="middle" font-size="9.5" font-family="IBM Plex Mono" fill="#8b93a0">bronze.load_bronze</text>
+  <text x="527" y="300" text-anchor="middle" font-size="9.5" font-family="IBM Plex Mono" fill="#8b93a0">silver.load_silver</text>
+  <text x="763" y="300" text-anchor="middle" font-size="9.5" font-family="IBM Plex Mono" fill="#7d581e">gold.load_gold</text>
+
+  <text x="20" y="360" font-size="10.5" fill="#5b6472" font-family="IBM Plex Mono">
+    Cada capa se carga con su propio stored procedure, en orden. Diagrama simplificado del flujo real.
+  </text>
+</svg>
