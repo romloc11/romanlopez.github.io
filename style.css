@@ -287,7 +287,7 @@ section + section { border-top: 1px solid var(--line); }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -295,7 +295,7 @@ section + section { border-top: 1px solid var(--line); }
 
 .project-card {
   background: var(--card);
-  padding: 0 28px 32px;
+  padding: 0 32px 36px;
   display: flex;
   flex-direction: column;
   min-height: 280px;
@@ -305,23 +305,25 @@ section + section { border-top: 1px solid var(--line); }
 .project-card:hover { background: #fff; }
 
 .project-card .thumb {
-  margin: 0 -28px 22px;
-  aspect-ratio: 16 / 10;
+  margin: 0 -32px 24px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--bg-alt);
   border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-card .thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
   display: block;
   transition: transform 0.4s ease;
 }
 
-.project-card:hover .thumb img { transform: scale(1.03); }
+.project-card:hover .thumb img { transform: scale(1.02); }
 
 .project-card:not(:has(.thumb)) { padding-top: 32px; }
 
@@ -670,7 +672,6 @@ footer {
 /* -------------------------------------------------- responsive -------------------------------------------------- */
 
 @media (max-width: 860px) {
-  .project-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-grid { grid-template-columns: 1fr; }
 }
 
@@ -680,7 +681,6 @@ footer {
   .hero { padding: 76px 0 64px; }
   .hero-grid { flex-direction: column; gap: 24px; }
   .hero-photo { width: 76px; height: 76px; }
-  .project-grid { grid-template-columns: 1fr; }
   section { padding: 64px 0; }
   .contact-section .wrap { align-items: flex-start; }
 }
